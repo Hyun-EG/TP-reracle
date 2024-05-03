@@ -1,11 +1,12 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import routes from '@/router/routes';
 
-const router = createBrowserRouter();
+const router = createBrowserRouter(routes);
 
 function App() {
   return (
     <>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
+      <RouterProvider router={router} />
     </>
   );
 }

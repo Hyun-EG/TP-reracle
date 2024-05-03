@@ -1,10 +1,7 @@
 export const PATH = {
-  LOGIN: '/',
+  LOGIN: '/login',
   SIGNUP: '/signup',
-  USER_ADD: '/useradd',
-  HOME: '/home',
+  HOME: '/',
   USER_PROFILE: '/userprofile',
-  WORKSPACE_APPLICATION: '/workspaceapplication',
-  GALLERY: '/gallery',
-  ERROR: '*',
+  NOT_FOUND: '*',
 };
