@@ -1,5 +1,6 @@
 import { Home, Login, NotFound, SignUp, UserProfile } from '@/pages';
 import { PATH } from '@/lib/constants/path';
+import Furniture from '@/pages/product/Furniture';
 const routes = [
   {
     path: PATH.HOME,
@@ -20,6 +21,10 @@ const routes = [
   {
     path: PATH.NOT_FOUND,
     element: <NotFound />,
+  },
+  {
+    path: '/category/furnitures',
+    element: <Furniture />,
   },
 ];
 

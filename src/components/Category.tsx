@@ -1,6 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import { MdElectricalServices, MdChair, MdCleaningServices, MdMenuBook, MdSpa } from 'react-icons/md';
+import { MdElectricalServices, MdChair, MdMenuBook, MdBathtub } from 'react-icons/md';
+import { IoUmbrellaSharp } from 'react-icons/io5';
+import { GiDelicatePerfume } from 'react-icons/gi';
 
 const CategroryGird = styled.div`
   display: grid;
@@ -39,10 +41,11 @@ const IconWrapper = styled.div`
 
 const categories = [
   { id: 'electronics', name: '가전제품', icon: <MdElectricalServices /> },
-  { id: 'furniture', name: '가구', icon: <MdChair /> },
-  { id: 'household', name: '생활용품', icon: <MdCleaningServices /> },
+  { id: 'furnitures', name: '가구/인테리어', icon: <MdChair /> },
+  { id: 'household', name: '생활용품', icon: <IoUmbrellaSharp /> },
   { id: 'books', name: '도서/문구', icon: <MdMenuBook /> },
-  { id: 'cosmetics', name: '화장품', icon: <MdSpa /> },
+  { id: 'cosmetics', name: '화장품', icon: <GiDelicatePerfume /> },
+  { id: 'bathroom', name: '욕실용품', icon: <MdBathtub /> },
 ];
 
 export const Category = () => {
