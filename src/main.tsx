@@ -4,7 +4,6 @@ import App from '@/App.tsx';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-  @import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Yeon+Sung&display=swap");
 body {
   font-family: "Nanum Pen Script";
   background-color: #f6f6f6;
