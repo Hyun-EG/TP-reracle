@@ -1,4 +1,4 @@
-import { NavLink, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { Layout } from '@/components/layout/Layout';
 import { productImages } from '@/lib/utils/productImages';
