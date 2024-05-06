@@ -1,5 +1,5 @@
 import { Layout } from '@/components/layout/Layout';
-import { Category } from '@/pages/Category';
+import { Category } from '@/components/Category';
 
 export const Home = () => {
   return (
