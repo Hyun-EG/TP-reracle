@@ -4,3 +4,4 @@ export * from './Bathroom';
 export * from './Books';
 export * from './Cosmetics';
 export * from './Household';
+export * from './Clothes';
