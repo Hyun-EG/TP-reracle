@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { MdElectricalServices, MdChair, MdMenuBook, MdBathtub } from 'react-icons/md';
 import { IoUmbrellaSharp } from 'react-icons/io5';
-import { GiDelicatePerfume } from 'react-icons/gi';
+import { GiDelicatePerfume, GiClothes } from 'react-icons/gi';
 
 const CategroryGird = styled.div`
   display: grid;
@@ -46,6 +46,7 @@ const categories = [
   { id: 'books', name: '도서/문구', icon: <MdMenuBook /> },
   { id: 'cosmetics', name: '화장품', icon: <GiDelicatePerfume /> },
   { id: 'bathroom', name: '욕실용품', icon: <MdBathtub /> },
+  { id: 'clothes', name: '의류', icon: <GiClothes /> },
 ];
 
 export const Category = () => {

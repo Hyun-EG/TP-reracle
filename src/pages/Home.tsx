@@ -6,6 +6,7 @@ export const Home = () => {
     <>
       <Layout>
         <h1>home</h1>
+        <h2>검색바</h2>
         <Category />
       </Layout>
     </>
