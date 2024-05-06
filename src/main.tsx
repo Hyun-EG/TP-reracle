@@ -4,6 +4,8 @@ import App from '@/App.tsx';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+
+
 body {
   font-family: "Nanum Pen Script";
   background-color: #f6f6f6;
@@ -21,6 +23,14 @@ body {
   margin: 0px;
   padding-left: 20px;
   padding-right: 20px;
+
+  --catories-btn-color: #fef3c1;
+  --catories-btn-hover-color: #FCD118;
+  
+}
+
+:root{
+
 }
 `;
 

@@ -11,14 +11,15 @@ const CategroryGird = styled.div`
 `;
 
 const CategoryContainer = styled.div`
-  background-color: #fef3c1;
+  background-color: var(--catories-btn-color);
   padding: 1rem;
   text-align: center;
   cursor: pointer;
   border-radius: 0.5rem;
+  margin: 0 auto;
 
   &:hover {
-    background-color: #fde68a;
+    background-color: var(--catories-btn-hover-color);
   }
 `;
 
@@ -29,7 +30,7 @@ const StyledNavLink = styled(NavLink)`
 
 const CategoryName = styled.div`
   margin-top: 0.5rem;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   display: flex;
   justify-content: center;
 `;
@@ -55,7 +56,7 @@ export const Category = () => {
       <h2>카테고리별 제품</h2>
       <CategroryGird>
         {categories.map((category) => (
-          <StyledNavLink key={category.id} to={`/category/${category.id}`}>
+          <StyledNavLink key={category.id} to={`${category.id}`}>
             <CategoryContainer>
               <IconWrapper>{category.icon}</IconWrapper>
             </CategoryContainer>
