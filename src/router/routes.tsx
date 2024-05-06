@@ -1,6 +1,7 @@
 import { Home, Login, NotFound, SignUp, UserProfile } from '@/pages';
 import { PATH } from '@/lib/constants/path';
 import { Furniture, Bathroom, Electronics, Cosmetics, Household, Books, Clothes } from '@/pages/product';
+import Refrigerator from '@/pages/productDetail/Refrigerator';
 
 export const routes = [
   {
@@ -51,5 +52,9 @@ export const routes = [
   {
     path: 'clothes',
     element: <Clothes />,
+  },
+  {
+    path: 'refrigerator',
+    element: <Refrigerator />,
   },
 ];

@@ -56,7 +56,7 @@ export const Category = () => {
       <h2>카테고리별 제품</h2>
       <CategroryGird>
         {categories.map((category) => (
-          <StyledNavLink key={category.id} to={`${category.id}`}>
+          <StyledNavLink key={category.id} to={`/${category.id}`}>
             <CategoryContainer>
               <IconWrapper>{category.icon}</IconWrapper>
             </CategoryContainer>

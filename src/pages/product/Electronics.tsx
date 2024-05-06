@@ -71,7 +71,7 @@ export const Electronics = () => {
         <h2>가전제품 세부 품목</h2>
         <ProductGrid>
           {ElectronicProducts.map((product) => (
-            <StyledNavLink key={product.id} to={`${product.id}`}>
+            <StyledNavLink key={product.id} to={`/${product.id}`}>
               <ProductContainer>
                 {product.img && <StyledImg src={productImages[product.img]} alt={product.name} />}
               </ProductContainer>
