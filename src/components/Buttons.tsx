@@ -1,11 +1,5 @@
 import { styled } from "styled-components";
 
-{
-  /* <SmallButton btnColor="버튼색을 넣으세요" textColor="버튼 텍스트 칼라를 넣으세요">등록</SmallButton>*/
-}
-{
-  /* <NormalButton btnColor="버튼색을 넣으세요" textColor="버튼 텍스트 칼라를 넣으세요">등록</NormalButton>  */
-}
 
 // 보라색 버튼
 export const PurpleButton = styled.button`

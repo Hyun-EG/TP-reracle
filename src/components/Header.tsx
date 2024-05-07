@@ -1,19 +1,12 @@
 import styled from 'styled-components';
-import { PurpleButton, WhiteButton } from './Buttons';
 
-<<<<<<< HEAD
-const Header = () => {
-  return (
-    <Heading>Header
-      <PurpleButton>등록</PurpleButton>
-      <WhiteButton>취소</WhiteButton>
-    </Heading>
-  )
-=======
+
 export const Header = () => {
-  return <Heading></Heading>;
->>>>>>> develop
+  return <Heading>    
+  </Heading>;
 };
+
+
 
 const Heading = styled.div`
   color: var(--color-purple);
