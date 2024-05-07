@@ -1,7 +1,7 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import routes from '@/router/routes';
-import reset from "styled-reset";
-import { createGlobalStyle } from "styled-components";
+import { routes } from '@/router/routes';
+import reset from 'styled-reset';
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -24,7 +24,6 @@ const GlobalStyle = createGlobalStyle`
     font-family: "Noto Sans KR", sans-serif;
   }
 `;
-
 
 const router = createBrowserRouter(routes);
 
