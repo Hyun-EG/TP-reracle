@@ -7,9 +7,7 @@ const Header = () => {
     <Heading>Header
       <PurpleButton>등록</PurpleButton>
       <WhiteButton>취소</WhiteButton>
-
     </Heading>
-
   )
 };
 
