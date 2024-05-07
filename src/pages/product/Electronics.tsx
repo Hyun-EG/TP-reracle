@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Layout } from '@/components/layout/Layout';
 import { productImages } from '@/lib/utils/productImages';
@@ -65,21 +65,26 @@ const ElectronicProducts = [
 ];
 
 export const Electronics = () => {
+  const navigate = useNavigate();
+
+  const handleProductClick = (productId: any) => {
+    navigate(`${productId}`);
+  };
+
   return (
     <>
-      <Layout>
-        <h2>가전제품 세부 품목</h2>
-        <ProductGrid>
-          {ElectronicProducts.map((product) => (
-            <StyledNavLink key={product.id} to={`/${product.id}`}>
-              <ProductContainer>
-                {product.img && <StyledImg src={productImages[product.img]} alt={product.name} />}
-              </ProductContainer>
-              <ProductName>{product.name}</ProductName>
-            </StyledNavLink>
-          ))}
-        </ProductGrid>
-      </Layout>
+      <h2>가전제품 세부 품목</h2>
+      <br />
+      <ProductGrid>
+        {ElectronicProducts.map((product) => (
+          <div key={product.id}>
+            <ProductContainer onClick={() => handleProductClick(product.id)}>
+              {product.img && <StyledImg src={productImages[product.img]} alt={product.name} />}
+            </ProductContainer>
+            <ProductName>{product.name}</ProductName>
+          </div>
+        ))}
+      </ProductGrid>
     </>
   );
 };

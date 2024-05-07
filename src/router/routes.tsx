@@ -54,7 +54,7 @@ export const routes = [
     element: <Clothes />,
   },
   {
-    path: 'refrigerator',
+    path: 'electronics/refrigerator',
     element: <Refrigerator />,
   },
 ];
