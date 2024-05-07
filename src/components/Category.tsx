@@ -11,7 +11,7 @@ const CategroryGird = styled.div`
 `;
 
 const CategoryContainer = styled.div`
-  background-color: var(--catories-btn-color);
+  background-color: var(--color-yellow-light);
   padding: 1rem;
   text-align: center;
   cursor: pointer;
@@ -19,7 +19,7 @@ const CategoryContainer = styled.div`
   margin: 0 auto;
 
   &:hover {
-    background-color: var(--catories-btn-hover-color);
+    background-color: var(--color-yellow);
   }
 `;
 

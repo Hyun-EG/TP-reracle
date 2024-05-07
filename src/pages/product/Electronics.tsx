@@ -24,7 +24,7 @@ const ProductContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--catories-btn-color);
+  background-color: var(--color-yellow-light);
   padding: 1rem;
   text-align: center;
   cursor: pointer;
@@ -33,7 +33,7 @@ const ProductContainer = styled.div`
   width: 2.5rem;
 
   &:hover {
-    background-color: var(--catories-btn-hover-color);
+    background-color: var(--color-yellow);
   }
 `;
 const StyledImg = styled.img`

@@ -2,13 +2,7 @@ import styled from 'styled-components';
 import { PurpleButton, WhiteButton } from './Buttons';
 
 export const Header = () => {
-  return (
-    <Heading>
-      Header
-      <PurpleButton>등록</PurpleButton>
-      <WhiteButton>취소</WhiteButton>
-    </Heading>
-  );
+  return <Heading></Heading>;
 };
 
 const Heading = styled.div`
