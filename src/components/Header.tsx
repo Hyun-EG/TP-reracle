@@ -1,7 +1,7 @@
-import React from 'react';
 import styled from 'styled-components';
-import { PurpleButton, WhiteButton } from './Buttons'
+import { PurpleButton, WhiteButton } from './Buttons';
 
+<<<<<<< HEAD
 const Header = () => {
   return (
     <Heading>Header
@@ -9,11 +9,13 @@ const Header = () => {
       <WhiteButton>취소</WhiteButton>
     </Heading>
   )
+=======
+export const Header = () => {
+  return <Heading></Heading>;
+>>>>>>> develop
 };
-
-export default Header;
 
 const Heading = styled.div`
   color: var(--color-purple);
   font-weight: var(--font-weight-regular);
-`
+`;

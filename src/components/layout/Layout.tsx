@@ -1,7 +1,6 @@
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
+import { Footer, Header } from '@/components';
 
-export const Layout = ({ children }) => {
+export const Layout = ({ children }: any) => {
   return (
     <>
       <Header />
