@@ -1,11 +1,11 @@
-import { Footer, Header } from '@/components';
+import { Footer } from '@/components';
 
 export const Layout = ({ children }: any) => {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       {children}
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
