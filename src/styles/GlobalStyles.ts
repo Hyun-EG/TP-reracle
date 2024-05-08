@@ -31,8 +31,7 @@ body {
   background-color: #fff;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   margin: 0px;
-  padding-left: 20px;
-  padding-right: 20px;
+  border-radius: 14px;
 }
 `;
 
