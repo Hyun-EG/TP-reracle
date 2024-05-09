@@ -24,14 +24,13 @@ body {
   align-items: center;
   box-sizing: border-box;
   min-height: 100vh;
-
 }
-
 #root {
   background-color: #fff;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   margin: 0px;
   border-radius: 14px;
+  position: relative;
 }
 `;
 

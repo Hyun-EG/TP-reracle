@@ -4,25 +4,18 @@ import styled from 'styled-components';
 
 const Header = () => {
 	return (		
-		<Container>
-			<Headbar>
-        <Logo src="/logosmall.svg" alt="logo" />
-        <UserIcon src="/person_20dp_FILL1_wght400_GRAD0_opsz20.svg" alt="user" />								
-			</Headbar>
-		</Container>			
+		<Headbar>
+			<Logo src="/logosmall.svg" alt="logo" />
+			<UserIcon src="/person_20dp_FILL1_wght400_GRAD0_opsz20.svg" alt="user" />								
+		</Headbar>				
 	)
 }
 
 export default Header
 
-const Container = styled.div`
-	position: relative;
-`
 const Headbar = styled.div`
   width: 375px;
 	height: 42px;
-	position: absolute;
-	top: 0;
 	background-color: var(--color-purple-light);
 	border-radius: 14px 14px 0 0;
 	display: flex;
