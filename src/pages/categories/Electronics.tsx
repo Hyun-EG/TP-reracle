@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Layout } from '@/components/layout/Layout';
 import { productImages } from '@/lib/utils/productImages';
@@ -7,10 +7,6 @@ const ProductGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1rem;
-`;
-const StyledNavLink = styled(NavLink)`
-  text-decoration: none;
-  color: #333;
 `;
 
 const ProductName = styled.div`
@@ -72,7 +68,7 @@ export const Electronics = () => {
   };
 
   return (
-    <>
+    <Layout>
       <h2>가전제품 세부 품목</h2>
       <br />
       <ProductGrid>
@@ -85,6 +81,6 @@ export const Electronics = () => {
           </div>
         ))}
       </ProductGrid>
-    </>
+    </Layout>
   );
 };
