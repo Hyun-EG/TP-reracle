@@ -17,7 +17,7 @@ const CategoryContainer = styled.div`
 
 const StyledSearchInput = styled.input`
   width: 85%;
-  height: 2.5rem;
+  height: 2.2rem;
   font-size: 1.2rem;
   border: none;
   font-family: var(--font-weight-medium);
@@ -35,7 +35,7 @@ const SearchWrapper = styled.div`
   align-items: center;
   border-radius: 0.9rem;
   border: 0.02rem solid var(--color-purple);
-  gap: 0.7rem;
+  gap: 0.8rem;
   padding-left: 0.7rem;
 `;
 
