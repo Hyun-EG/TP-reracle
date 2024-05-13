@@ -1,15 +1,22 @@
 import styled from 'styled-components';
-import NavBtn from './NavBtn';
+import NavBtn from '@/components/Nav/NavBtn';
+import { useNavigate } from 'react-router-dom';
 
 const Nav = () => {
+  const navgation = useNavigate();
+
+  const handleNavClick = (path: string) => {
+    navgation(path);
+  };
+
   return (
     <Container>
-      <Notice>2024-05-03 09:00 ~ 10:00 (1시간) 점검 예정입니다.</Notice>
-      <Navbar>
-        <NavBtn image="/home_FILL0_wght400_GRAD0_opsz24.svg" text="홈"></NavBtn>
-        <NavBtn image="/question_exchange_FILL0_wght400_GRAD0_opsz24.svg" text="R지식in"></NavBtn>
-        <NavBtn image="/breaking_news_FILL0_wght400_GRAD0_opsz24.svg" text="게시판"></NavBtn>
-      </Navbar>
+      <StyledNotice>2024-05-03 09:00 ~ 10:00 (1시간) 점검 예정입니다.</StyledNotice>
+      <StyledNavbar>
+        <NavBtn image="/home_FILL0_wght400_GRAD0_opsz24.svg" text="홈" onClick={() => handleNavClick('/')} />
+        <NavBtn image="/question_exchange_FILL0_wght400_GRAD0_opsz24.svg" text="R지식in" />
+        <NavBtn image="/breaking_news_FILL0_wght400_GRAD0_opsz24.svg" text="게시판" />
+      </StyledNavbar>
     </Container>
   );
 };
@@ -20,7 +27,7 @@ const Container = styled.div`
   position: relative;
 `;
 
-const Notice = styled.div`
+const StyledNotice = styled.div`
   width: 375px;
   height: 25px;
   position: absolute;
@@ -44,7 +51,7 @@ const Notice = styled.div`
     background: url('/campaign_20dp_FILL0_wght300_GRAD0_opsz20.svg') no-repeat center center;
   }
 `;
-const Navbar = styled.div`
+const StyledNavbar = styled.div`
   width: 375px;
   height: 68px;
   position: absolute;
