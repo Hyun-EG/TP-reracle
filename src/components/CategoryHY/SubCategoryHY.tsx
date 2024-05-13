@@ -3,15 +3,11 @@ import styled from 'styled-components'
 import IconText from './IconText'
 import { data } from './Data'
 
-const CategoryHY = () => {
+const SubCategoryHY = () => {
 	return (
 		<Container>
-			<Search>
-				<SearchIcon />
-				<SearchInput />
-			</Search>
 			<HorizontalLine />
-			<CategoryText>재활용품 분류</CategoryText>
+			<CategoryText>재활용품 세부 품목</CategoryText>
 			<Inner>					
 				<IconText {...data[0]}/>
 				<IconText {...data[0]}/>
@@ -22,12 +18,15 @@ const CategoryHY = () => {
 				<IconText {...data[0]}/>
 				<IconText {...data[0]}/>					          
 				<IconText {...data[0]}/>					          
+				<IconText {...data[0]}/>
+				<IconText {...data[0]}/>					          
+				<IconText {...data[0]}/>					          
 			</Inner>	          		
-		</Container>			
+		</Container>
 	)
 }
 
-export default CategoryHY
+export default SubCategoryHY
 
 const Container = styled.div`
   width: 100%;
@@ -36,43 +35,13 @@ const Container = styled.div`
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-items: center;
 	overflow-y: auto;
-`
-const Search = styled.div`
-	width: 304px;
-	height: 47px;
-	margin: 0 auto;
-	display: flex;
-	justify-content: flex-left;
-	align-items: center;
-	border-radius: 14px;
-	border: 1px solid var(--color-purple);
-	gap: 10px;
-`
-const SearchIcon = styled.div`
-	width: 20px;
-	height: 100%;	
-	margin-left: 13px;
-	background: url("/search_FILL0_wght400_GRAD0_opsz24.svg") no-repeat center center;
-`
-const SearchInput = styled.input`
-	width: 230px;
-	height: 40px;
-	font-size: 18px;
-	border: none;
-	font-family: var(--font-weight-medium);
-	color: var(--color-gray-dark);
-
-	&:focus {
-		outline: none; 
-		box-shadow: none; 
-	}
-`  
+` 
 const HorizontalLine = styled.div`
 	width: 304px;
-	height: 1px;
-	margin: 25px auto 0;
+	height: 1px;	
+	margin: 30px auto 0;
 	background-color: var(--color-purple);
 `
 const CategoryText = styled.span`
