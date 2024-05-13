@@ -1,16 +1,13 @@
-import styled from 'styled-components';
+import Header from '@/components/Header';
+import Nav from '@/components/Nav/Nav';
+import { LayoutProps } from '@/lib/types/LayoutProps';
 
-export const Layout = ({ children }: any) => {
+export const Layout = ({ children }: LayoutProps) => {
   return (
     <>
-      <Container>{children}</Container>
+      <Header />
+      {children}
+      <Nav />
     </>
   );
 };
-
-const Container = styled.div`
-  width: 375px;
-  height: 667px;
-  background-color: var(--color-white);
-  position: relative;
-`;
