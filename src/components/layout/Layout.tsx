@@ -9,7 +9,7 @@ export const Layout = ({ children }: any) => {
 };
 
 const Container = styled.div`
-  width: auto;
+  width: 375px;
   height: 667px;
   background-color: var(--color-white);
   position: relative;

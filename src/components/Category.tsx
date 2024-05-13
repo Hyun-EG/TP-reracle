@@ -4,10 +4,11 @@ import { MdElectricalServices, MdChair, MdMenuBook, MdBathtub } from 'react-icon
 import { IoUmbrellaSharp } from 'react-icons/io5';
 import { FaSearch } from 'react-icons/fa';
 import { GiDelicatePerfume, GiClothes } from 'react-icons/gi';
+import { SlCarousel, SlCarouselItem } from '@shoelace-style/shoelace/dist/react';
 
 const CategoryContainer = styled.div`
   width: 100%;
-  height: 70%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -41,7 +42,7 @@ const SearchWrapper = styled.div`
 const HorizontalLine = styled.div`
   width: 80%;
   height: 0.02rem;
-  margin: 1.5rem auto 0;
+  margin: 1rem auto 0;
   background-color: var(--color-purple);
 `;
 
@@ -95,6 +96,16 @@ const CategoryIcon = styled.div`
   justify-content: center;
 `;
 
+const StyledSlCarousel = styled(SlCarousel)`
+  width: 85%;
+  margin: 0 auto;
+  height: 80%;
+`;
+
+const StyledSlCarouselItem = styled(SlCarouselItem)`
+  margin-bottom: 2rem;
+`;
+
 const categories = [
   { id: 'electronics', name: '가전제품', icon: <MdElectricalServices /> },
   { id: 'furnitures', name: '가구/인테리어', icon: <MdChair /> },
@@ -105,9 +116,21 @@ const categories = [
   { id: 'clothes', name: '의류', icon: <GiClothes /> },
   { id: 'etc', name: '기타', icon: <MdElectricalServices /> },
   { id: 'etc', name: '기타', icon: <MdElectricalServices /> },
+  {
+    id: 'etc',
+    name: '기타',
+    icon: <MdElectricalServices />,
+  },
 ];
 
 export const Category = () => {
+  const chunkedCategories = [];
+  const chunkSize = 9;
+
+  for (let i = 0; i < categories.length; i += chunkSize) {
+    chunkedCategories.push(categories.slice(i, i + chunkSize));
+  }
+
   return (
     <CategoryContainer>
       <SearchWrapper>
@@ -116,16 +139,22 @@ export const Category = () => {
       </SearchWrapper>
       <HorizontalLine />
       <StyledCategoryText>재활용품 분류</StyledCategoryText>
-      <CategroryGird>
-        {categories.map((category) => (
-          <StyledNavLink key={category.id} to={`/${category.id}`}>
-            <CategoryWrapper>
-              <CategoryIcon>{category.icon}</CategoryIcon>
-            </CategoryWrapper>
-            <CategoryName>{category.name}</CategoryName>
-          </StyledNavLink>
+      <StyledSlCarousel pagination mouse-dragging>
+        {chunkedCategories.map((chunk, index) => (
+          <StyledSlCarouselItem key={index}>
+            <CategroryGird>
+              {chunk.map((category) => (
+                <StyledNavLink key={category.id} to={`/${category.id}`}>
+                  <CategoryWrapper>
+                    <CategoryIcon>{category.icon}</CategoryIcon>
+                  </CategoryWrapper>
+                  <CategoryName>{category.name}</CategoryName>
+                </StyledNavLink>
+              ))}
+            </CategroryGird>
+          </StyledSlCarouselItem>
         ))}
-      </CategroryGird>
+      </StyledSlCarousel>
     </CategoryContainer>
   );
 };
