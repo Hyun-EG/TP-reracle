@@ -10,12 +10,10 @@ export const Home = () => {
   return (
     <>
       <Layout>
-        <Header />
         {/* <CategoryHY /> */}
         {/* <SubCategoryHY /> */}
         {/* <DetailPageHY /> */}
         <Category />
-        <Nav />
       </Layout>
     </>
   );
