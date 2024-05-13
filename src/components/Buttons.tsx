@@ -3,14 +3,13 @@ import { styled } from "styled-components";
 
 // 보라색 버튼
 export const PurpleButton = styled.button`
-  width: 304px;
-  height: 40px;
+  width: 46vh;	
+  height: 6vh;
   border: none;
   background-color: var(--color-purple);
-  color: var(--color-white);
+  color: #fff;
   cursor: pointer;
-
-  font-size: 14px;
+  font-size: 2vh;
   font-family: "Noto Sans KR", sans-serif;
   font-weight: var(--font-weight-bold);
   transition: 0.2s;
@@ -23,18 +22,20 @@ export const PurpleButton = styled.button`
 `;
 // 화이트 버튼
 export const WhiteButton = styled.button`
-  width: 304px;
-  height: 40px;
+  width: 46vh;	
+  height: 6vh;
   border: 1px solid var(--color-purple);
   background-color: var(--color-white);
   color: var(--color-purple);
   cursor: pointer;
+  // position: absolute;
 
-  font-size: 14px;
+  font-size: 2vh;
   font-family: "Noto Sans KR", sans-serif;
   font-weight: var(--font-weight-bold);
   transition: 0.2s;
   border-radius: 14px;
 `;
+
 
 

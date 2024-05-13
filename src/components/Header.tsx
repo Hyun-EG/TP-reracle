@@ -12,23 +12,24 @@ const Header = () => {
 export default Header;
 
 const Headbar = styled.div`
-  width: 375px;
-  height: 42px;
+  width: 56.3vh;
+  height: 6.3vh;
   background-color: var(--color-purple-light);
   border-radius: 14px 14px 0 0;
   display: flex;
   align-items: center;
+  position: relative;
 `;
 const Logo = styled.img`
-  width: 70px;
+  width: 10vh;
   position: absolute;
-  margin-left: 15px;
+  margin-left: 3vh;
   cursor: pointer;
 `;
 const UserIcon = styled.img`
-  width: 20px;
+  width: 3.5vh;
   position: absolute;
   right: 0;
-  margin-right: 15px;
+  margin-right: 3vh;
   cursor: pointer;
 `;
