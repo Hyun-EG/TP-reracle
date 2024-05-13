@@ -1,6 +1,6 @@
 import { Home, Login, NotFound, SignUp, UserProfile } from '@/pages';
 import { PATH } from '@/lib/constants/path';
-import { Furniture, Bathroom, Electronics, Cosmetics, Household, Books, Clothes } from '@/pages/product';
+import { Furniture, Bathroom, Electronics, Cosmetics, Household, Books, Clothes } from '@/pages/category';
 import Refrigerator from '@/pages/productDetail/Refrigerator';
 
 export const routes = [
