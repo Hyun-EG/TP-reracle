@@ -13,8 +13,8 @@ export const Home = () => {
         <Header />
         {/* <CategoryHY /> */}
         {/* <SubCategoryHY /> */}
-        {/* <DetailPageHY /> */}
-        <Category />
+        <DetailPageHY />
+        {/* <Category /> */}
         <Nav />             
       </Layout>
     </>
