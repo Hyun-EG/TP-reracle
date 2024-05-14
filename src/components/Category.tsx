@@ -89,12 +89,6 @@ const CategoryName = styled.div`
   justify-content: center;
 `;
 
-const CategoryIcon = styled.div`
-  font-size: 2rem;
-  display: flex;
-  justify-content: center;
-`;
-
 const StyledSlCarousel = styled(SlCarousel)`
   width: 85%;
   margin: 0 auto;
