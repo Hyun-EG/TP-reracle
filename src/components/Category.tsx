@@ -1,10 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import { MdElectricalServices, MdChair, MdMenuBook, MdBathtub } from 'react-icons/md';
-import { IoUmbrellaSharp } from 'react-icons/io5';
+
 import { FaSearch } from 'react-icons/fa';
-import { GiDelicatePerfume, GiClothes } from 'react-icons/gi';
+
 import { SlCarousel, SlCarouselItem } from '@shoelace-style/shoelace/dist/react';
+import { categories } from '@/lib/constants/categories';
 
 const CategoryContainer = styled.div`
   width: 100%;
@@ -105,23 +105,6 @@ const StyledSlCarousel = styled(SlCarousel)`
 const StyledSlCarouselItem = styled(SlCarouselItem)`
   margin-bottom: 2rem;
 `;
-
-const categories = [
-  { id: 'electronics', name: '가전제품', icon: <MdElectricalServices /> },
-  { id: 'furnitures', name: '가구/인테리어', icon: <MdChair /> },
-  { id: 'household', name: '생활용품', icon: <IoUmbrellaSharp /> },
-  { id: 'books', name: '도서/문구', icon: <MdMenuBook /> },
-  { id: 'cosmetics', name: '화장품', icon: <GiDelicatePerfume /> },
-  { id: 'bathroom', name: '욕실용품', icon: <MdBathtub /> },
-  { id: 'clothes', name: '의류', icon: <GiClothes /> },
-  { id: 'etc', name: '기타', icon: <MdElectricalServices /> },
-  { id: 'etc', name: '기타', icon: <MdElectricalServices /> },
-  {
-    id: 'etc',
-    name: '기타',
-    icon: <MdElectricalServices />,
-  },
-];
 
 export const Category = () => {
   const chunkedCategories = [];

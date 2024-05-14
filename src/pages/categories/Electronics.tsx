@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Layout } from '@/components/layout/Layout';
 import { productImages } from '@/lib/utils/productImages';
+import { electronicProducts } from '@/lib/constants/electronicProducts';
 
 const ProductGrid = styled.div`
   display: grid;
@@ -39,27 +40,6 @@ const StyledImg = styled.img`
   height: auto;
 `;
 
-const ElectronicProducts = [
-  { id: 'refrigerator', name: '냉장고', img: 'refrigerator' },
-  { id: 'washing-machine', name: '세탁기', img: 'washingmachine' },
-  {
-    id: 'air-conditioner',
-    name: '에어컨',
-    img: 'airconditioner',
-  },
-  { id: 'tv', name: 'TV', img: 'tv' },
-  { id: 'laptop', name: '노트북', img: 'laptop' },
-  { id: 'smartphone', name: '스마트폰', img: 'smartphone' },
-  {
-    id: 'vacuum-cleaner',
-    name: '청소기',
-  },
-  {
-    id: 'microwave',
-    name: '전자레인지',
-  },
-];
-
 export const Electronics = () => {
   const navigate = useNavigate();
 
@@ -72,7 +52,7 @@ export const Electronics = () => {
       <h2>가전제품 세부 품목</h2>
       <br />
       <ProductGrid>
-        {ElectronicProducts.map((product) => (
+        {electronicProducts.map((product) => (
           <div key={product.id}>
             <ProductContainer onClick={() => handleProductClick(product.id)}>
               {product.img && <StyledImg src={productImages[product.img]} alt={product.name} />}
