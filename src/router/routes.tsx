@@ -1,6 +1,6 @@
 import { Home, Login, NotFound, SignUp, UserProfile } from '@/pages';
 import { PATH } from '@/lib/constants/path';
-import { Electronics, Clothes } from '@/components/detailItems';
+import { Electronics, Clothes, Paper } from '@/components/detailItems';
 import Refrigerator from '@/components/disposalGuide/Refrigerator';
 
 export const routes = [
@@ -8,10 +8,7 @@ export const routes = [
     path: PATH.HOME,
     element: <Home />,
   },
-  {
-    path: 'electronics',
-    element: <Electronics />,
-  },
+
   {
     path: PATH.LOGIN,
     element: <Login />,
@@ -29,11 +26,20 @@ export const routes = [
     element: <NotFound />,
   },
   {
-    path: 'clothes',
-    element: <Clothes />,
+    path: 'electronics',
+    element: <Electronics />,
   },
   {
     path: 'electronics/refrigerator',
     element: <Refrigerator />,
+  },
+  {
+    path: 'clothes',
+    element: <Clothes />,
+  },
+
+  {
+    path: 'paper',
+    element: <Paper />,
   },
 ];
