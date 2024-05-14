@@ -13,15 +13,10 @@ import {
 } from '@/styles/carousel';
 import { useNavigate } from 'react-router-dom';
 import { paperImages } from '@/lib/constants/paperImages';
+import { chunkArray } from '@/lib/utils/chunkArray';
 
 export const Paper = () => {
-  const chunkedCategories = [];
-  const chunkSize = 9;
-
-  for (let i = 0; i < paper.length; i += chunkSize) {
-    chunkedCategories.push(paper.slice(i, i + chunkSize));
-  }
-
+  const chunkedCategories = chunkArray(paper, 9);
   const navigate = useNavigate();
   const handleDetailItemClick = (categoryId: string) => {
     navigate(`${categoryId}`);
