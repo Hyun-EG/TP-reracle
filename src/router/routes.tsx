@@ -1,7 +1,7 @@
 import { Home, Login, NotFound, SignUp, UserProfile } from '@/pages';
 import { PATH } from '@/lib/constants/path';
 import { Electronics, Clothes } from '@/components/detailItems';
-import Refrigerator from '@/components/DisposalGuide/Refrigerator';
+import Refrigerator from '@/components/disposalGuide/Refrigerator';
 
 export const routes = [
   {
