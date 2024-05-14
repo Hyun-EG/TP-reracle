@@ -1,6 +1,6 @@
 import { Home, Login, NotFound, SignUp, UserProfile } from '@/pages';
 import { PATH } from '@/lib/constants/path';
-import { Furniture, Bathroom, Electronics, Cosmetics, Household, Books, Clothes } from '@/pages/categories';
+import { Electronics, Clothes } from '@/pages/categories';
 import Refrigerator from '@/pages/products/Refrigerator';
 
 export const routes = [
@@ -27,27 +27,6 @@ export const routes = [
   {
     path: PATH.NOT_FOUND,
     element: <NotFound />,
-  },
-  {
-    path: 'furnitures',
-    element: <Furniture />,
-  },
-  {
-    path: 'bathroom',
-    element: <Bathroom />,
-  },
-
-  {
-    path: 'cosmetics',
-    element: <Cosmetics />,
-  },
-  {
-    path: 'household',
-    element: <Household />,
-  },
-  {
-    path: 'books',
-    element: <Books />,
   },
   {
     path: 'clothes',
