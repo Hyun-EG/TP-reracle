@@ -1,10 +1,9 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-
 import { FaSearch } from 'react-icons/fa';
-
 import { SlCarousel, SlCarouselItem } from '@shoelace-style/shoelace/dist/react';
 import { categories } from '@/lib/constants/categories';
+import { categoryImages } from '@/lib/constants/categoryImages';
 
 const CategoryContainer = styled.div`
   width: 100%;
@@ -106,6 +105,13 @@ const StyledSlCarouselItem = styled(SlCarouselItem)`
   margin-bottom: 2rem;
 `;
 
+const StyledImg = styled.img`
+  display: flex;
+  justify-content: center;
+  max-width: 60%;
+  height: auto;
+`;
+
 export const Category = () => {
   const chunkedCategories = [];
   const chunkSize = 9;
@@ -129,7 +135,7 @@ export const Category = () => {
               {chunk.map((category) => (
                 <StyledNavLink key={category.id} to={`/${category.id}`}>
                   <CategoryWrapper>
-                    <CategoryIcon>{category.icon}</CategoryIcon>
+                    {category.img && <StyledImg src={categoryImages[category.img]} alt={category.name} />}
                   </CategoryWrapper>
                   <CategoryName>{category.name}</CategoryName>
                 </StyledNavLink>

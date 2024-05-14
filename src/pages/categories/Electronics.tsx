@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Layout } from '@/components/layout/Layout';
-import { productImages } from '@/lib/utils/productImages';
+import { productImages } from '@/lib/constants/electronicProductsImages';
 import { electronicProducts } from '@/lib/constants/electronicProducts';
 
 const ProductGrid = styled.div`
@@ -17,7 +17,7 @@ const ProductName = styled.div`
   justify-content: center;
 `;
 
-const ProductContainer = styled.div`
+const ProductWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,9 +54,9 @@ export const Electronics = () => {
       <ProductGrid>
         {electronicProducts.map((product) => (
           <div key={product.id}>
-            <ProductContainer onClick={() => handleProductClick(product.id)}>
+            <ProductWrapper onClick={() => handleProductClick(product.id)}>
               {product.img && <StyledImg src={productImages[product.img]} alt={product.name} />}
-            </ProductContainer>
+            </ProductWrapper>
             <ProductName>{product.name}</ProductName>
           </div>
         ))}

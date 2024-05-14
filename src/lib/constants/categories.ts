@@ -1,5 +1,5 @@
 export const categories = [
-  { id: 'electronics', name: '가전제품', icon: '' },
+  { id: 'electronics', name: '가전제품', img: 'paper' },
   { id: 'furnitures', name: '가구/인테리어', icon: '' },
   { id: 'household', name: '생활용품', icon: '' },
   { id: 'books', name: '도서/문구', icon: '' },
