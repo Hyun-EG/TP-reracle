@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Layout } from '@/components/layout/Layout';
-import { detailItemImages } from '@/lib/constants/electronicItemImages';
-import { electronicProducts } from '@/lib/constants/electronicItems';
+import { detailItemImages } from '@/lib/constants/electronicproductImages';
+import { electronicProducts } from '@/lib/constants/electronicproducts';
 
 const DetailItemsGrid = styled.div`
   display: grid;
