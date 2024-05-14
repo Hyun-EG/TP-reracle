@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Layout } from '@/components/layout/Layout';
-import { productImages } from '@/lib/constants/electronicProductsImages';
-import { electronicProducts } from '@/lib/constants/electronicProducts';
+import { detailItemImages } from '@/lib/constants/electronicItemImages';
+import { electronicProducts } from '@/lib/constants/electronicItems';
 
-const ProductGrid = styled.div`
+const DetailItemsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1rem;
@@ -51,16 +51,16 @@ export const Electronics = () => {
     <Layout>
       <h2>가전제품 세부 품목</h2>
       <br />
-      <ProductGrid>
+      <DetailItemsGrid>
         {electronicProducts.map((product) => (
           <div key={product.id}>
             <ProductWrapper onClick={() => handleProductClick(product.id)}>
-              {product.img && <StyledImg src={productImages[product.img]} alt={product.name} />}
+              {product.img && <StyledImg src={detailItemImages[product.img]} alt={product.name} />}
             </ProductWrapper>
             <ProductName>{product.name}</ProductName>
           </div>
         ))}
-      </ProductGrid>
+      </DetailItemsGrid>
     </Layout>
   );
 };
