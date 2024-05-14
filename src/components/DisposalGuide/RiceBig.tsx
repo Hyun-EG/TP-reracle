@@ -1,9 +1,10 @@
-import { Layout } from '@/components/layout/Layout';
+import React from 'react';
+import { Layout } from '../layout/Layout';
 
-const Refrigerator = () => {
+const RiceBig = () => {
   return (
     <Layout>
-      <h1>냉장고</h1>
+      <h1>쌀포대</h1>
       <div>배출방법</div>
       <p>
         쓰레기는 재활용하지 않으면 매립하거나 소각하여야 하는데, 이러면 돈이 든다. 때문에 버릴 때마다 돈을
@@ -16,4 +17,4 @@ const Refrigerator = () => {
   );
 };
 
-export default Refrigerator;
+export default RiceBig;

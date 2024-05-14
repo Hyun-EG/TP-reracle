@@ -43,7 +43,7 @@ const StyledImg = styled.img`
 export const Electronics = () => {
   const navigate = useNavigate();
 
-  const handleProductClick = (productId: any) => {
+  const handleProductClick = (productId: string) => {
     navigate(`${productId}`);
   };
 

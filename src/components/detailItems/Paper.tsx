@@ -12,6 +12,7 @@ import {
   StyledImg,
 } from '@/styles/carousel';
 import { useNavigate } from 'react-router-dom';
+import { paperImages } from '@/lib/constants/paperImages';
 
 export const Paper = () => {
   const chunkedCategories = [];
@@ -22,7 +23,7 @@ export const Paper = () => {
   }
 
   const navigate = useNavigate();
-  const handleDetailItemClick = (categoryId: any) => {
+  const handleDetailItemClick = (categoryId: string) => {
     navigate(`${categoryId}`);
   };
 
@@ -30,7 +31,7 @@ export const Paper = () => {
     <Layout>
       <CategoryContainer>
         <HorizontalLine />
-        <StyledCategoryText>Paper</StyledCategoryText>
+        <StyledCategoryText>재활용품 세부 품목</StyledCategoryText>
         <StyledSlCarousel pagination mouse-dragging>
           {chunkedCategories.map((chunk, index) => (
             <StyledSlCarouselItem key={index}>
@@ -38,7 +39,7 @@ export const Paper = () => {
                 {chunk.map((category) => (
                   <div key={category.id}>
                     <CategoryWrapper onClick={() => handleDetailItemClick(category.id)}>
-                      {category.img && <StyledImg src={category.img} alt={category.name} />}
+                      {category.img && <StyledImg src={paperImages[category.img]} alt={category.name} />}
                     </CategoryWrapper>
                     <CategoryName>{category.name}</CategoryName>
                   </div>
