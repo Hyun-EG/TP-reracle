@@ -1,23 +1,58 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components';
 import { PurpleButton, WhiteButton } from '../Buttons'
+import UserInfo from './UserInfo';
+import { userData } from './UserData'
+// import { useLocalStorage } from './useLocalStorage';
 
 const MyPage = () => {
+	
+  const [user, setUser] = useState({
+    name: userData.name,
+    email: userData.email,
+    password: userData.password
+  })
+  const handleNameChange = (e: string) => {
+    setUser(u => ({...u, name: e.target.value}));
+  }
+  const handleEmailChange = (e: string) => {
+    setUser(u => ({...u, email: e.target.value}))
+  }
+  const handlePasswordChange = (e: string) => {
+    setUser(u => ({...u, password: e.target.value}))
+  };
+
+  const handleClick = (e: string) => {
+    e.preventDefault();
+    console.log(user)
+    alert('회원정보가 수정되었습니다')
+  };
+
+
 	return (
 		<Container>
 			<MyPageHeader>마이페이지</MyPageHeader>
-			<UserInfo>
-				<HorizontalLine />
-				<UserName>이름</UserName>
-				<Input />
-				<HorizontalLine />
-				<UserEmail>이메일</UserEmail>
-				<Input />
-				<HorizontalLine />
-				<UserPassword>비밀번호</UserPassword>
-				<Input type="password" />
-			</UserInfo>
-			<PurpleButton>회원정보 수정</PurpleButton>
+			<UserInfoContainer>
+				<UserInfo 
+          label="이름"
+          type="text" 
+          value={user.name} 
+          onChange={handleNameChange}>이름
+        </UserInfo>
+        <UserInfo 
+          label="이메일" 
+          type="email" 
+          value={user.email} 
+          onChange={handleEmailChange}>이메일
+        </UserInfo>
+        <UserInfo  
+          label="비밀번호"
+          type="password" 
+          value={user.password} 
+          onChange={handlePasswordChange}>비밀번호
+        </UserInfo>
+			</UserInfoContainer>
+			<PurpleButton onClick={handleClick}>회원정보 수정</PurpleButton>
 			<WhiteButton>나의 R지식in 보러가기</WhiteButton>
 			<SearchList>
 				<HorizontalLine />
@@ -38,7 +73,7 @@ const MyPage = () => {
 export default MyPage
 
 
-const Container = styled.div`
+const Container = styled.section`
 	width: 56.3vh;
   height: 79.7vh;
   background-color: var(--color-white);
@@ -47,8 +82,8 @@ const Container = styled.div`
   flex-direction: column;
 	align-items: center;
 	gap: 2vh;
-  overflow-y: auto;
-`;
+  overflow-y: hidden;
+`
 const MyPageHeader = styled.div`
   width: 56.3vh;
   height: 3.75vh;
@@ -61,11 +96,11 @@ const MyPageHeader = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
-const UserInfo = styled.div`
+`
+const UserInfoContainer = styled.div`
 	width: 46vh;
 	height: 35vh;
-	margin-top: 7vh;
+	margin-top: 6vh;
 	// background-color: var(--color-purple-light);
 `
 const HorizontalLine = styled.div`
@@ -73,32 +108,6 @@ const HorizontalLine = styled.div`
   height: 1px;
   margin: 2vh auto .1vh;
   background-color: var(--color-purple);
-`;
-const UserName = styled.span`
-  font-size: 1.5vh;
-  font-weight: var(--font-weight-bold);
-  color: var(--color-purple);
-`;
-const UserEmail = styled.span`
-	font-size: 1.5vh;
-  font-weight: var(--font-weight-bold);
-  color: var(--color-purple); 
-`;
-const UserPassword = styled.span`
-	font-size: 1.5vh;
-  font-weight: var(--font-weight-bold);
-  color: var(--color-purple);
-`;
-const Input = styled.input`
-  width: 46vh;
-  height: 5vh;
-	margin-top: 1.3vh;
-  font-size: 3vh;
-	border: none;
-	color: var(--color-gray-dark);
-  font-weight: var(--font-weight-bold);
-	background-color: transparent;
-
 `
 const SearchList = styled.div`
 	width: 46vh;	
@@ -128,4 +137,4 @@ const RecentSearchBtn = styled.li`
   transition: 0.2s;
   border-radius: 14px;
   border: none;
-`;
+`

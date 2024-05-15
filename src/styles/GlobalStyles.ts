@@ -25,7 +25,7 @@ body {
   box-sizing: border-box;
   min-height: 100vh;
 }
-#root {
+#root {  
   width: 56.3vh;
   height: 100vh;
   background-color: #fff;
