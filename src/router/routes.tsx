@@ -1,17 +1,16 @@
 import { Home, Login, NotFound, SignUp, UserProfile } from '@/pages';
 import { PATH } from '@/lib/constants/path';
-import { Furniture, Bathroom, Electronics, Cosmetics, Household, Books, Clothes } from '@/pages/categories';
-import Refrigerator from '@/pages/products/Refrigerator';
+import { Electronics, Clothes, Paper } from '@/components/detailItems';
+import Refrigerator from '@/components/disposalGuide/Refrigerator';
+import Newspaper from '@/components/disposalGuide/Newspaper';
+import RiceBig from '@/components/disposalGuide/RiceBig';
 
 export const routes = [
   {
     path: PATH.HOME,
     element: <Home />,
   },
-  {
-    path: 'electronics',
-    element: <Electronics />,
-  },
+
   {
     path: PATH.LOGIN,
     element: <Login />,
@@ -29,32 +28,28 @@ export const routes = [
     element: <NotFound />,
   },
   {
-    path: 'furnitures',
-    element: <Furniture />,
+    path: 'electronics',
+    element: <Electronics />,
   },
   {
-    path: 'bathroom',
-    element: <Bathroom />,
-  },
-
-  {
-    path: 'cosmetics',
-    element: <Cosmetics />,
-  },
-  {
-    path: 'household',
-    element: <Household />,
-  },
-  {
-    path: 'books',
-    element: <Books />,
+    path: 'electronics/refrigerator',
+    element: <Refrigerator />,
   },
   {
     path: 'clothes',
     element: <Clothes />,
   },
+
   {
-    path: 'electronics/refrigerator',
-    element: <Refrigerator />,
+    path: 'paper',
+    element: <Paper />,
+  },
+  {
+    path: 'paper/newspaper',
+    element: <Newspaper />,
+  },
+  {
+    path: 'paper/ricebag',
+    element: <RiceBig />,
   },
 ];
