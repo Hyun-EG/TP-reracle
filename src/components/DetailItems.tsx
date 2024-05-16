@@ -4,7 +4,7 @@ import { Layout } from './layout/Layout';
 import { wasteCategoryItemsImages } from '@/lib/constants/wasteCategoryItemsImages';
 import { StyledImg } from '@/styles/carouselStyle';
 
-const ItemDetails = () => {
+const DetailItems = () => {
   const { categoryId, itemId } = useParams();
   const category = wasteCategories.find((category) => category.id === categoryId);
   if (!category) {
@@ -26,4 +26,4 @@ const ItemDetails = () => {
   );
 };
 
-export default ItemDetails;
+export default DetailItems;

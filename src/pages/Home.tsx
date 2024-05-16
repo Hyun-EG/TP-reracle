@@ -1,12 +1,11 @@
 import { Layout } from '@/components/layout/Layout';
-import Category from '@/components/Category';
+import WasteCategory from '@/components/WasteCategory';
 
 export const Home = () => {
   return (
     <>
       <Layout>
-        {/* <Category /> */}
-        <Category />
+        <WasteCategory />
       </Layout>
     </>
   );

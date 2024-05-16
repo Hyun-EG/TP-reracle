@@ -1,7 +1,7 @@
 import { Home, Login, NotFound, SignUp, UserProfile } from '@/pages';
 import { PATH } from '@/lib/constants/path';
-import CategoryItems from '@/components/CategoryItems';
-import ItemDetails from '@/components/ItemDetails';
+import WasteCategoryItems from '@/components/WasteCategoryItems';
+import DetailItems from '@/components/DetailItems';
 
 export const routes = [
   {
@@ -26,10 +26,10 @@ export const routes = [
   },
   {
     path: '/:categoryId',
-    element: <CategoryItems />,
+    element: <WasteCategoryItems />,
   },
   {
     path: '/:categoryId/:itemId',
-    element: <ItemDetails />,
+    element: <DetailItems />,
   },
 ];
