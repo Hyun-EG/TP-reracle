@@ -15,6 +15,7 @@ import {
   StyledNavLink,
 } from '@/styles/carouselStyle';
 import { chunkArray } from '@/lib/utils/chunkArray';
+import SearchBar from './SearchBar';
 
 const StyledSearchInput = styled.input`
   width: 85%;
@@ -47,6 +48,7 @@ export const WasteCategory = () => {
     <CategoryContainer>
       <SearchWrapper>
         <FaSearch />
+        <SearchBar />
         <StyledSearchInput placeholder="검색어를 입력하세요" />
       </SearchWrapper>
       <HorizontalLine />
