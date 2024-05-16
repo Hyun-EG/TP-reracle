@@ -1,10 +1,12 @@
 /* eslint-disable arrow-body-style */
 
 import styled from 'styled-components';
+import { useState, useEffect } from 'react';
 import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { routes } from '@/router/routes';
 import GlobalStyles from '@/styles/GlobalStyles';
+import Loading from './pages/Loading';
 import '@shoelace-style/shoelace/dist/themes/light.css';
 
 setBasePath('https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.0/cdn/');
@@ -19,12 +21,18 @@ const StyledAppContainer = styled.div`
 `;
 
 const App = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+  }, []);
+
   return (
     <>
       <GlobalStyles />
-      <StyledAppContainer>
-        <RouterProvider router={router} />
-      </StyledAppContainer>
+      <StyledAppContainer>{isLoading ? <Loading /> : <RouterProvider router={router} />}</StyledAppContainer>
     </>
   );
 };

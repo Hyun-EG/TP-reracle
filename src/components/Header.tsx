@@ -11,9 +11,11 @@ const Header = () => {
 
 export default Header;
 
+export const HEADER_HEIGHT = 6.3;
+
 const Headbar = styled.div`
   width: 56.3vh;
-  height: 6.3vh;
+  height: ${HEADER_HEIGHT}vh;
   background-color: var(--color-purple-light);
   border-radius: 14px 14px 0 0;
   display: flex;
