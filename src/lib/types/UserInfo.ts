@@ -5,5 +5,5 @@ export interface UserInfoProps {
   type?: string;
   value?: string;
   defaultValue?: string;
-  onChange?: (value: string | number) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }

@@ -12,17 +12,17 @@ const MyPage = () => {
     email: userData.email,
     password: userData.password
   });
-  const handleNameChange = (e: MouseEvent) => {
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUser(u => ({...u, name: e.target!.value }));
   };
-  const handleEmailChange = (e: MouseEvent) => {
-    setUser(u => ({...u, email: e.target!.value}))
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUser(u => ({...u, email: e.target!.value}));
   };
-  const handlePasswordChange = (e: MouseEvent) => {
-    setUser(u => ({...u, password: e.target!.value}))
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUser(u => ({...u, password: e.target!.value}));
   };
 
-  const handleClick = (e: MouseEvent) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     console.log(user);
     alert('회원정보가 수정되었습니다');
