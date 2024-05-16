@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/firebase';
 
 const SignUp = () => {
@@ -23,13 +23,14 @@ const SignUp = () => {
       setError('이미 가입이 되어있는 이메일입니다.');
     }
   };
-  return;
-  <form onSubmit={handleSignup}>
-    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-    <button type="submit">회원가입</button>
-    {error && <p>{error}</p>}
-  </form>;
+  return (
+    <form onSubmit={handleSignup}>
+      <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+      <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+      <button type="submit">회원가입</button>
+      {error && <p>{error}</p>}
+    </form>
+  );
 };
 
 export default SignUp;
