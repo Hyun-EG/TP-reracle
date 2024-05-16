@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Layout } from '@/components/layout/Layout';
 import { detailItemImages } from '@/lib/constants/electronicproductImages';
-import { electronicProducts } from '@/lib/constants/electronicproducts';
+import { electronicProducts } from '@/lib/constants/electronicProducts';
 
 const DetailItemsGrid = styled.div`
   display: grid;
