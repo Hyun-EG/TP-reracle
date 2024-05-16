@@ -1,6 +1,6 @@
 import { Home, Login, NotFound, SignUp, UserProfile } from '@/pages';
 import { PATH } from '@/lib/constants/path';
-import CateItems from '@/components/CateItems';
+import CategoryItems from '@/components/CategoryItems';
 import ItemDetails from '@/components/ItemDetails';
 
 export const routes = [
@@ -26,7 +26,7 @@ export const routes = [
   },
   {
     path: '/:categoryId',
-    element: <CateItems />,
+    element: <CategoryItems />,
   },
   {
     path: '/:categoryId/:itemId',

@@ -39,7 +39,7 @@ const SearchWrapper = styled.div`
   padding-left: 0.7rem;
 `;
 
-export const Cate = () => {
+export const Category = () => {
   const chunkedCategories = [];
   const chunkSize = 9;
 
@@ -75,4 +75,4 @@ export const Cate = () => {
   );
 };
 
-export default Cate;
+export default Category;

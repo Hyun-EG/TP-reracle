@@ -14,7 +14,7 @@ import {
   CategoryName,
 } from '@/styles/carouselStyle';
 
-const CateItems = () => {
+const CategoryItems = () => {
   const { categoryId } = useParams();
   const category = categories.find((category) => category.id === categoryId);
 
@@ -54,4 +54,4 @@ const CateItems = () => {
   );
 };
 
-export default CateItems;
+export default CategoryItems;
