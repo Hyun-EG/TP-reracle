@@ -14,6 +14,7 @@ import {
   StyledImg,
   StyledNavLink,
 } from '@/styles/carouselStyle';
+import { chunkArray } from '@/lib/utils/chunkArray';
 
 const StyledSearchInput = styled.input`
   width: 85%;
@@ -40,12 +41,7 @@ const SearchWrapper = styled.div`
 `;
 
 export const WasteCategory = () => {
-  const chunkedCategories = [];
-  const chunkSize = 9;
-
-  for (let i = 0; i < wasteCategories.length; i += chunkSize) {
-    chunkedCategories.push(wasteCategories.slice(i, i + chunkSize));
-  }
+  const chunkedCategories = chunkArray(wasteCategories, 9);
 
   return (
     <CategoryContainer>

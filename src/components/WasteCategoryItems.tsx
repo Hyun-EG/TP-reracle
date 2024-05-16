@@ -1,7 +1,7 @@
 import { wasteCategories } from '@/lib/constants/wasteCategories';
 import { wasteCategoryItemsImages } from '@/lib/constants/wasteCategoryItemsImages';
 import { useParams } from 'react-router-dom';
-import { Layout } from './layout/Layout';
+import { Layout } from '@/components/layout/Layout';
 import {
   CategoryWrapper,
   CategroryGird,
@@ -13,6 +13,7 @@ import {
   StyledNavLink,
   CategoryName,
 } from '@/styles/carouselStyle';
+import { chunkArray } from '@/lib/utils/chunkArray';
 
 const WasteCategoryItems = () => {
   const { categoryId } = useParams();
@@ -21,12 +22,8 @@ const WasteCategoryItems = () => {
   if (!category || !category.items) {
     return <div>카테고리를 찾을 수 없습니다.</div>;
   }
-  const chunkedItems = [];
-  const chunkSize = 9;
 
-  for (let i = 0; i < category.items.length; i += chunkSize) {
-    chunkedItems.push(category.items.slice(i, i + chunkSize));
-  }
+  const chunkedItems = chunkArray(category.items, 9);
 
   return (
     <Layout>
