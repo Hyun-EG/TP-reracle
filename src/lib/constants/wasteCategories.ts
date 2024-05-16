@@ -56,9 +56,9 @@ export const wasteCategories = [
         disposalMethod: '백과사전 버리는 방법',
       },
       {
-        id: 'paperBox',
+        id: 'paperbox',
         name: '종이상자',
-        img: 'paperBox',
+        img: 'paperbox',
         disposalMethod: '종이상자 버리는 방법',
       },
       {
