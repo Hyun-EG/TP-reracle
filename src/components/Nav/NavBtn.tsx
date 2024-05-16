@@ -17,28 +17,33 @@ export default NavBtn;
 const StyledButton = styled.button`
   cursor: pointer;
   border: none;
-  width: 3.1rem;
+  width: 8vh;
   background-color: transparent;
 `;
-
+        
 const Container = styled.div`
-  width: 40px;
-  height: 68px;
+  width: 7vh;
+  height: 6.8vh;
   position: relative;
-  justify-content: center;
   align-content: center;
   cursor: pointer;
 `;
 
+const StyledButton = styled.button`
+  cursor: pointer;
+  border: none;
+  width: 8vh;
+  background-color: transparent;
+`;
+
 const StyledImage = styled.img`
-  width: 24px;
-  height: 24px;
+  width: 3.2vh;
   margin: auto;
   background: url(${(props) => props.src}) no-repeat center center;
 `;
 
 const StyledText = styled.div`
-  font-size: 8.6px;
+  font-size: 1.3vh;
   margin-top: 5px;
   text-align: center;
   color: var(--color-gray-dark);

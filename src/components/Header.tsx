@@ -14,12 +14,13 @@ export default Header;
 export const HEADER_HEIGHT = 6.3;
 
 const Headbar = styled.div`
-  width: 56.36vh;
+  width: 56.3vh;
   height: ${HEADER_HEIGHT}vh;
   background-color: var(--color-purple-light);
   border-radius: 14px 14px 0 0;
   display: flex;
   align-items: center;
+  position: relative;
 `;
 const Logo = styled.img`
   width: 10vh;
@@ -28,9 +29,9 @@ const Logo = styled.img`
   cursor: pointer;
 `;
 const UserIcon = styled.img`
-  width: 20px;
+  width: 3.5vh;
   position: absolute;
   right: 0;
-  margin-right: 15px;
+  margin-right: 3vh;
   cursor: pointer;
 `;

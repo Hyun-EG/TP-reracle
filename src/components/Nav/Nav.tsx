@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import NavBtn from '@/components/Nav/NavBtn';
 
 const Nav = () => {
-  const navgation = useNavigate();
+  const navigation = useNavigate();
 
   const handleNavClick = (path: string) => {
-    navgation(path);
+    navigation(path);
   };
 
   return (
@@ -24,17 +24,20 @@ const Nav = () => {
 export default Nav;
 
 const Container = styled.div`
-  position: relative;
+  width: 56.3vh;
+  height: 13.95vh;
+  position: fixed;
+  bottom: 0;
 `;
 
 const StyledNotice = styled.div`
-  width: 375px;
-  height: 25px;
+  width: 56.3vh;
+  height: 3.75vh;
   position: absolute;
   border-top: 1px solid var(--color-purple);
   border-bottom: 1px solid var(--color-purple);
   background-color: var(--color-purple-light);
-  font-size: 10px;
+  font-size: 1.5vh;
   font-weight: var(--font-weight-bold);
   color: var(--color-purple);
   display: flex;
@@ -45,22 +48,33 @@ const StyledNotice = styled.div`
     content: '';
     display: inline-block;
     vertical-align: middle;
-    height: 18px;
-    width: 18px;
+    width: 5vh;
+    height: 5vh;
     margin-right: 10px;
     background: url('/campaign_20dp_FILL0_wght300_GRAD0_opsz20.svg') no-repeat center center;
   }
 `;
 
-export const NAV_HEIGHT = 4.25;
+export const NAV_HEIGHT = 10.2;
 
 const StyledNavbar = styled.div`
-  width: 375px;
-  height: ${NAV_HEIGHT}rem;
+  width: 56.3vh;
+  height: ${NAV_HEIGHT}vh;
   position: absolute;
-  top: 27px;
+  bottom: 0;
   background-color: var(--color-green);
   border-radius: 0 0 14px 14px;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
+
+
+  // width: 375px;
+  // height: 68px;
+  // position: absolute;
+  // top: 27px;
+  // background-color: var(--color-green);
+  // border-radius: 0 0 14px 14px;
+  // display: flex;
+  // justify-content: space-evenly;
 `;

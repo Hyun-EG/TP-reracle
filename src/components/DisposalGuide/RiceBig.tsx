@@ -1,8 +1,7 @@
 import React from 'react';
 import { Layout } from '../layout/Layout';
 
-const RiceBig = () => {
-  return (
+const RiceBig = () => (
     <Layout>
       <h1>쌀포대</h1>
       <div>배출방법</div>
@@ -15,6 +14,5 @@ const RiceBig = () => {
       </p>
     </Layout>
   );
-};
 
 export default RiceBig;

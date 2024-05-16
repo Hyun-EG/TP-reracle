@@ -1,7 +1,6 @@
 import { Layout } from '@/components/layout/Layout';
 
-const Refrigerator = () => {
-  return (
+const Refrigerator = () => (
     <Layout>
       <h1>냉장고</h1>
       <div>배출방법</div>
@@ -14,6 +13,5 @@ const Refrigerator = () => {
       </p>
     </Layout>
   );
-};
 
 export default Refrigerator;
