@@ -4,13 +4,16 @@ import { Electronics, Clothes, Paper } from '@/components/detailItems';
 import Refrigerator from '@/components/disposalGuide/Refrigerator';
 import Newspaper from '@/components/disposalGuide/Newspaper';
 import RiceBig from '@/components/disposalGuide/RiceBig';
+import { categories } from '@/lib/constants/categories';
+import Cate from '@/components/Cate';
+import CateItems from '@/components/CateItems';
+import ItemDetails from '@/components/ItemDetails';
 
 export const routes = [
   {
-    path: PATH.HOME,
+    path: '/',
     element: <Home />,
   },
-
   {
     path: PATH.LOGIN,
     element: <Login />,
@@ -28,28 +31,39 @@ export const routes = [
     element: <NotFound />,
   },
   {
-    path: 'electronics',
-    element: <Electronics />,
+    path: '/:categoryId',
+    element: <CateItems />,
   },
   {
-    path: 'electronics/refrigerator',
-    element: <Refrigerator />,
-  },
-  {
-    path: 'clothes',
-    element: <Clothes />,
+    path: '/:categoryId/:itemId',
+    element: <ItemDetails />,
   },
 
-  {
-    path: 'paper',
-    element: <Paper />,
-  },
-  {
-    path: 'paper/newspaper',
-    element: <Newspaper />,
-  },
-  {
-    path: 'paper/ricebag',
-    element: <RiceBig />,
-  },
+  // { path: '/cate', element: <Cate /> },
+
+  // {
+  //   path: 'electronics',
+  //   element: <Electronics />,
+  // },
+  // {
+  //   path: 'electronics/refrigerator',
+  //   element: <Refrigerator />,
+  // },
+  // {
+  //   path: 'clothes',
+  //   element: <Clothes />,
+  // },
+
+  // {
+  //   path: 'paper',
+  //   element: <Paper />,
+  // },
+  // {
+  //   path: 'paper/newspaper',
+  //   element: <Newspaper />,
+  // },
+  // {
+  //   path: 'paper/ricebag',
+  //   element: <RiceBig />,
+  // },
 ];
