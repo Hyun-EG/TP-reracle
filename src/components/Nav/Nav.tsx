@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import NavBtn from '@/components/Nav/NavBtn';
 import { useNavigate } from 'react-router-dom';
+import NavBtn from '@/components/Nav/NavBtn';
 
 const Nav = () => {
   const navgation = useNavigate();
@@ -51,9 +51,12 @@ const StyledNotice = styled.div`
     background: url('/campaign_20dp_FILL0_wght300_GRAD0_opsz20.svg') no-repeat center center;
   }
 `;
+
+export const NAV_HEIGHT = 4.25;
+
 const StyledNavbar = styled.div`
   width: 375px;
-  height: 68px;
+  height: ${NAV_HEIGHT}rem;
   position: absolute;
   top: 27px;
   background-color: var(--color-green);

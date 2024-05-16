@@ -1,4 +1,4 @@
-import { Home, Login, NotFound, SignUp, UserProfile } from '@/pages';
+import { Home, Login, NotFound, SignUp, UserProfile, QNA } from '@/pages';
 import { PATH } from '@/lib/constants/path';
 import { Electronics, Clothes, Paper } from '@/components/detailItems';
 import Refrigerator from '@/components/disposalGuide/Refrigerator';
@@ -39,7 +39,6 @@ export const routes = [
     path: 'clothes',
     element: <Clothes />,
   },
-
   {
     path: 'paper',
     element: <Paper />,
@@ -51,5 +50,9 @@ export const routes = [
   {
     path: 'paper/ricebag',
     element: <RiceBig />,
+  },
+  {
+    path: 'qna',
+    element: <QNA />,
   },
 ];

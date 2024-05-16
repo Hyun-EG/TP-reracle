@@ -24,6 +24,7 @@ body {
   align-items: center;
   box-sizing: border-box;
   min-height: 100vh;
+  min-width: 100vw;
 }
 #root {
   background-color: #fff;
