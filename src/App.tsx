@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { routes } from '@/router/routes';
-import GlobalStyles from '@/styles/GlobalStyles';
+import GlobalStyle from '@/styles/globalStyle';
 import '@shoelace-style/shoelace/dist/themes/light.css';
 
 setBasePath('https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.0/cdn/');
@@ -21,7 +21,7 @@ const StyledAppContainer = styled.div`
 const App = () => {
   return (
     <>
-      <GlobalStyles />
+      <GlobalStyle />
       <StyledAppContainer>
         <RouterProvider router={router} />
       </StyledAppContainer>

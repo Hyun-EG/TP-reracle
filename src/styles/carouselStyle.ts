@@ -60,7 +60,7 @@ export const CategoryName = styled.div`
 export const StyledSlCarousel = styled(SlCarousel)`
   width: 85%;
   margin: 0 auto;
-  height: 80%;
+  height: 75%;
 `;
 
 export const StyledSlCarouselItem = styled(SlCarouselItem)`
