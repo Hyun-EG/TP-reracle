@@ -54,9 +54,12 @@ const StyledNotice = styled.div`
     background: url('/campaign_20dp_FILL0_wght300_GRAD0_opsz20.svg') no-repeat center center;
   }
 `;
+
+export const NAV_HEIGHT = 10.2;
+
 const StyledNavbar = styled.div`
   width: 56.3vh;
-  height: 10.2vh;
+  height: ${NAV_HEIGHT}vh;
   position: absolute;
   bottom: 0;
   background-color: var(--color-green);
