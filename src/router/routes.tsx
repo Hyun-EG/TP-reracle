@@ -38,32 +38,4 @@ export const routes = [
     path: '/:categoryId/:itemId',
     element: <ItemDetails />,
   },
-
-  // { path: '/cate', element: <Cate /> },
-
-  // {
-  //   path: 'electronics',
-  //   element: <Electronics />,
-  // },
-  // {
-  //   path: 'electronics/refrigerator',
-  //   element: <Refrigerator />,
-  // },
-  // {
-  //   path: 'clothes',
-  //   element: <Clothes />,
-  // },
-
-  // {
-  //   path: 'paper',
-  //   element: <Paper />,
-  // },
-  // {
-  //   path: 'paper/newspaper',
-  //   element: <Newspaper />,
-  // },
-  // {
-  //   path: 'paper/ricebag',
-  //   element: <RiceBig />,
-  // },
 ];
