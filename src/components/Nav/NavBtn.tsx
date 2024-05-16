@@ -1,7 +1,7 @@
-import { NavBtnProps } from '@/lib/types/NavBtnType';
+import { navBtnType } from '@/lib/types/navBtnType';
 import styled from 'styled-components';
 
-const NavBtn = ({ image, text, onClick }: NavBtnProps) => {
+const NavBtn = ({ image, text, onClick }: navBtnType) => {
   return (
     <Container>
       <StyeldButton onClick={onClick}>
