@@ -1,5 +1,5 @@
-import { categories } from '@/lib/constants/categories';
-import { categoryItemsImages } from '@/lib/constants/categoryItemsImages';
+import { wasteCategories } from '@/lib/constants/wasteCategories';
+import { wasteCategoryItemsImages } from '@/lib/constants/wasteCategoryItemsImages';
 import { useParams } from 'react-router-dom';
 import { Layout } from './layout/Layout';
 import {
@@ -16,7 +16,7 @@ import {
 
 const CategoryItems = () => {
   const { categoryId } = useParams();
-  const category = categories.find((category) => category.id === categoryId);
+  const category = wasteCategories.find((category) => category.id === categoryId);
 
   if (!category || !category.items) {
     return <div>카테고리를 찾을 수 없습니다.</div>;
@@ -40,7 +40,7 @@ const CategoryItems = () => {
                 <div key={item.id}>
                   <StyledNavLink to={`/${categoryId}/${item.id}`}>
                     <CategoryWrapper>
-                      {item.img && <StyledImg src={categoryItemsImages[item.img]} alt={item.name} />}
+                      {item.img && <StyledImg src={wasteCategoryItemsImages[item.img]} alt={item.name} />}
                     </CategoryWrapper>
                     <CategoryName>{item.name}</CategoryName>
                   </StyledNavLink>

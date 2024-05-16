@@ -1,4 +1,4 @@
-export const categories = [
+export const wasteCategories = [
   {
     id: 'paper',
     name: '종이',

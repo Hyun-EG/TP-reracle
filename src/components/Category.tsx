@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
-import { categories } from '@/lib/constants/categories';
-import { categoryImages } from '@/lib/constants/categoryImages';
+import { wasteCategories } from '@/lib/constants/wasteCategories';
+import { wasteCategoryImages } from '@/lib/constants/wasteCategoryImages';
 import {
   CategoryContainer,
   HorizontalLine,
@@ -43,8 +43,8 @@ export const Category = () => {
   const chunkedCategories = [];
   const chunkSize = 9;
 
-  for (let i = 0; i < categories.length; i += chunkSize) {
-    chunkedCategories.push(categories.slice(i, i + chunkSize));
+  for (let i = 0; i < wasteCategories.length; i += chunkSize) {
+    chunkedCategories.push(wasteCategories.slice(i, i + chunkSize));
   }
 
   return (
@@ -62,7 +62,9 @@ export const Category = () => {
               {chunk.map((category) => (
                 <StyledNavLink key={category.id} to={`/${category.id}`}>
                   <CategoryWrapper>
-                    {category.img && <StyledImg src={categoryImages[category.img]} alt={category.name} />}
+                    {category.img && (
+                      <StyledImg src={wasteCategoryImages[category.img]} alt={category.name} />
+                    )}
                   </CategoryWrapper>
                   <CategoryName>{category.name}</CategoryName>
                 </StyledNavLink>

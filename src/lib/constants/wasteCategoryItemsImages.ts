@@ -7,7 +7,7 @@ import smartphone from '@/assets/images/detailItemImages/smartphone.png';
 import newspaper from '@/assets/images/detailItemImages/newspaper.png';
 import ricebag from '@/assets/images/detailItemImages/ricebag.png';
 
-export const categoryItemsImages: { [key: string]: string } = {
+export const wasteCategoryItemsImages: { [key: string]: string } = {
   refrigerator,
   washingmachine,
   airconditioner,
