@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
 import { categories } from '@/lib/constants/categories';
@@ -13,6 +12,7 @@ import {
   StyledSlCarousel,
   StyledSlCarouselItem,
   StyledImg,
+  StyledNavLink,
 } from '@/styles/carouselStyle';
 
 const StyledSearchInput = styled.input`
@@ -37,11 +37,6 @@ const SearchWrapper = styled.div`
   border: 0.02rem solid var(--color-purple);
   gap: 0.8rem;
   padding-left: 0.7rem;
-`;
-
-const StyledNavLink = styled(NavLink)`
-  text-decoration: none;
-  color: #333;
 `;
 
 export const Cate = () => {
