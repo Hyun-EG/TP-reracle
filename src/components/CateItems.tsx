@@ -1,6 +1,6 @@
 import { categories } from '@/lib/constants/categories';
 import { categoryItemsImages } from '@/lib/constants/categoryItemsImages';
-import { NavLink, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Layout } from './layout/Layout';
 import {
   CategoryWrapper,
