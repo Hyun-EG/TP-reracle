@@ -1,15 +1,8 @@
 import { categories } from '@/lib/constants/categories';
 import { categoryItemsImages } from '@/lib/constants/categoryItemsImages';
 import { Link, useParams } from 'react-router-dom';
-import styled from 'styled-components';
 import { Layout } from './layout/Layout';
-
-const StyledImg = styled.img`
-  display: flex;
-  justify-content: center;
-  max-width: 60%;
-  height: auto;
-`;
+import { StyledImg } from '@/styles/carouselStyle';
 
 const CateItems = () => {
   const { categoryId } = useParams();
