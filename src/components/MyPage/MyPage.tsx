@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { PurpleButton, WhiteButton } from '../Buttons'
+import { PurpleButton, WhiteButton } from '../Buttons';
 import UserInfo from './UserInfo';
-import { userData } from './UserData'
+import { userData } from './UserData';
 // import { useLocalStorage } from './useLocalStorage';
 
 const MyPage = () => {
@@ -11,21 +11,21 @@ const MyPage = () => {
     name: userData.name,
     email: userData.email,
     password: userData.password
-  })
+  });
   const handleNameChange = (e: string) => {
     setUser(u => ({...u, name: e.target.value}));
-  }
+  };
   const handleEmailChange = (e: string) => {
     setUser(u => ({...u, email: e.target.value}))
-  }
+  };
   const handlePasswordChange = (e: string) => {
     setUser(u => ({...u, password: e.target.value}))
   };
 
   const handleClick = (e: string) => {
     e.preventDefault();
-    console.log(user)
-    alert('회원정보가 수정되었습니다')
+    console.log(user);
+    alert('회원정보가 수정되었습니다');
   };
 
 
@@ -67,10 +67,10 @@ const MyPage = () => {
 				</RecentSearchBtnContainer>
 			</SearchList>			
 		</Container>
-	)
-}
+	);
+};
 
-export default MyPage
+export default MyPage;
 
 
 const Container = styled.section`
@@ -83,7 +83,7 @@ const Container = styled.section`
 	align-items: center;
 	gap: 2vh;
   overflow-y: hidden;
-`
+`;
 const MyPageHeader = styled.div`
   width: 56.3vh;
   height: 3.75vh;
@@ -96,27 +96,27 @@ const MyPageHeader = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 const UserInfoContainer = styled.div`
 	width: 46vh;
 	height: 35vh;
 	margin-top: 6vh;
 	// background-color: var(--color-purple-light);
-`
+`;
 const HorizontalLine = styled.div`
 	width: 46vh;	
   height: 1px;
   margin: 2vh auto .1vh;
   background-color: var(--color-purple);
-`
+`;
 const SearchList = styled.div`
 	width: 46vh;	
-`
+`;
 const ListText = styled.span`
 	font-size: 2vh;
 	font-weight: var(--font-weight-bold);
 	color: var(--color-purple);
-`
+`;
 const RecentSearchBtnContainer = styled.ul`
   width: 46vh;
   height: 4vh;
@@ -124,7 +124,7 @@ const RecentSearchBtnContainer = styled.ul`
 	flex-wrap: wrap;
 	padding: 2vh 0;
 	gap: 1.5vh;
-`
+`;
 const RecentSearchBtn = styled.li`
   padding: 1vh;
   background-color: var(--color-yellow);
@@ -137,4 +137,4 @@ const RecentSearchBtn = styled.li`
   transition: 0.2s;
   border-radius: 14px;
   border: none;
-`
+`;

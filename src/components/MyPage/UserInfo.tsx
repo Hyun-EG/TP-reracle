@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import styled from 'styled-components';
 import { UserInfoProps } from '@/lib/types/UserInfo';
 
@@ -9,8 +9,8 @@ const UserInfo = ({ label, type, value, onChange }: UserInfoProps) => {
 			<User>{label}</User>
 			<Input type={type} value={value} onChange={onChange} />
 		</Container>
-	)
-}
+	);
+};
 
 // const UserInfo = ({ label, type, value, onChange }) => {
 //   return (
@@ -22,13 +22,13 @@ const UserInfo = ({ label, type, value, onChange }: UserInfoProps) => {
 // };
 
 
-export default UserInfo
+export default UserInfo;
 
 const Container = styled.div`
 	width: 46vh;
 	height: 9vh;
 	// background-color: var(--color-purple-light);
-`
+`;
 const HorizontalLine = styled.div`
 	width: 46vh;	
   height: 1px;
@@ -39,7 +39,7 @@ const User = styled.label`
   font-size: 1.5vh;
   font-weight: var(--font-weight-bold);
   color: var(--color-purple);
-`
+`;
 const Input = styled.input`
   width: 46vh;
   height: 5vh;
@@ -54,4 +54,4 @@ const Input = styled.input`
     outline: none;
     box-shadow: none;
   }
-`
+`;
