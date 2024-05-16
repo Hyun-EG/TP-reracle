@@ -1,9 +1,9 @@
 import { Home, Login, NotFound, SignUp, UserProfile } from '@/pages';
 import { PATH } from '@/lib/constants/path';
 import { Electronics, Clothes, Paper } from '@/components/detailItems';
-import Refrigerator from '@/components/disposalGuide/Refrigerator';
-import Newspaper from '@/components/disposalGuide/Newspaper';
-import RiceBig from '@/components/disposalGuide/RiceBig';
+import Refrigerator from '@/components/DisposalGuide/Refrigerator';
+import Newspaper from '@/components/DisposalGuide/Newspaper';
+import RiceBig from '@/components/DisposalGuide/RiceBig';
 
 export const routes = [
   {

@@ -1,8 +1,7 @@
 import React from 'react';
 import { Layout } from '../layout/Layout';
 
-const Newspaper = () => {
-  return (
+const Newspaper = () => (
     <Layout>
       <h1>신문지</h1>
       <div>배출방법</div>
@@ -15,6 +14,5 @@ const Newspaper = () => {
       </p>
     </Layout>
   );
-};
 
 export default Newspaper;
