@@ -15,7 +15,11 @@ const Nav = () => {
       <StyledNavbar>
         <NavBtn image="/home_FILL0_wght400_GRAD0_opsz24.svg" text="홈" onClick={() => handleNavClick('/')} />
         <NavBtn image="/question_exchange_FILL0_wght400_GRAD0_opsz24.svg" text="R지식in" />
-        <NavBtn image="/breaking_news_FILL0_wght400_GRAD0_opsz24.svg" text="게시판" />
+        <NavBtn
+          image="/breaking_news_FILL0_wght400_GRAD0_opsz24.svg"
+          text="게시판"
+          onClick={() => handleNavClick('/topic')}
+        />
       </StyledNavbar>
     </Container>
   );
@@ -67,7 +71,6 @@ const StyledNavbar = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-
 
   // width: 375px;
   // height: 68px;

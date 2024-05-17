@@ -2,6 +2,7 @@ import { Home, Login, NotFound, SignUp, UserProfile, QNA } from '@/pages';
 import { PATH } from '@/lib/constants/path';
 import WasteCategoryItems from '@/components/WasteCategoryItems';
 import DetailItems from '@/components/DetailItems';
+import { Topic } from '@/pages/Topic';
 
 export const routes = [
   {
@@ -35,5 +36,9 @@ export const routes = [
   {
     path: 'qna',
     element: <QNA />,
+  },
+  {
+    path: 'topic',
+    element: <Topic />,
   },
 ];
