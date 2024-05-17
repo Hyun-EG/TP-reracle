@@ -1,5 +1,6 @@
 import { reset } from 'styled-reset';
 import { createGlobalStyle } from 'styled-components';
+
 const GlobalStyles = createGlobalStyle`
 :root{
      --color-yellow: #FCD118;

@@ -5,8 +5,8 @@ import MyPage from '@/components/MyPage/MyPage';
 export const Home = () => (
     <>
       <Layout>
-        {/* <Category /> */}
-        <MyPage />
+        <Category />
+        {/* <MyPage /> */}
       </Layout>
     </>
   );

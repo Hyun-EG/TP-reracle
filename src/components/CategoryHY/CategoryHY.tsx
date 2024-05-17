@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import IconText from './IconText';
 import { data } from './Data';
 
+//gitignore 테스트
+
 const CategoryHY = () => (
     <Container>
       <Search>
