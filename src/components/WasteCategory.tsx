@@ -18,10 +18,11 @@ import { chunkArray } from '@/lib/utils/chunkArray';
 import SearchBar from './SearchBar';
 
 const StyledSearchInput = styled.input`
-  width: 85%;
-  height: 2.2rem;
-  font-size: 1.2rem;
+  width: 40vh;
+  height: 7vh;
+  font-size: 3vh;
   border: none;
+  background-color: transparent;
   font-family: var(--font-weight-medium);
   color: var(--color-gray-dark);
   &:focus {
@@ -31,14 +32,14 @@ const StyledSearchInput = styled.input`
 `;
 
 const SearchWrapper = styled.div`
-  width: 80%;
+  width: 43vh;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  border-radius: 0.9rem;
-  border: 0.02rem solid var(--color-purple);
-  gap: 0.8rem;
-  padding-left: 0.7rem;
+  border-radius: 2vh;
+  border: 1px solid var(--color-purple);
+  gap: 1.5vh;
+  padding-left: 2.5vh;
 `;
 
 export const WasteCategory = () => {

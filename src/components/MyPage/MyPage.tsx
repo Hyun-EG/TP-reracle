@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { PurpleButton, WhiteButton } from '../Buttons';
 import UserInfo from './UserInfo';
 import { userData } from './UserData';
+import { Layout } from '@/components/layout/Layout';
 // import { useLocalStorage } from './useLocalStorage';
 
 const Container = styled.section`
@@ -97,43 +98,45 @@ const MyPage = () => {
 
 
 	return (
-		<Container>
-			<MyPageHeader>마이페이지</MyPageHeader>
-			<UserInfoContainer>
-				<UserInfo 
-          label="이름"
-          type="text" 
-          value={user.name} 
-          onChange={handleNameChange}>이름
-        </UserInfo>
-        <UserInfo 
-          label="이메일" 
-          type="email" 
-          value={user.email} 
-          onChange={handleEmailChange}>이메일
-        </UserInfo>
-        <UserInfo  
-          label="비밀번호"
-          type="password" 
-          value={user.password} 
-          onChange={handlePasswordChange}>비밀번호
-        </UserInfo>
-			</UserInfoContainer>
-			<PurpleButton onClick={handleClick}>회원정보 수정</PurpleButton>
-			<WhiteButton>나의 R지식in 보러가기</WhiteButton>
-			<SearchList>
-				<HorizontalLine />
-				<ListText>나의 최근 재활용품 검색 리스트</ListText>
-				<RecentSearchBtnContainer>
-					<RecentSearchBtn>냉장고</RecentSearchBtn>
-					<RecentSearchBtn>냉장고</RecentSearchBtn>
-					<RecentSearchBtn>냉장고</RecentSearchBtn>
-					<RecentSearchBtn>아름다운폐건전지</RecentSearchBtn>
-					<RecentSearchBtn>아름다운폐건전지</RecentSearchBtn>
-					<RecentSearchBtn>아름다운폐건전지</RecentSearchBtn>
-				</RecentSearchBtnContainer>
-			</SearchList>			
-		</Container>
+    <Layout>
+      <Container>
+        <MyPageHeader>마이페이지</MyPageHeader>
+        <UserInfoContainer>
+          <UserInfo 
+            label="이름"
+            type="text" 
+            value={user.name} 
+            onChange={handleNameChange}>이름
+          </UserInfo>
+          <UserInfo 
+            label="이메일" 
+            type="email" 
+            value={user.email} 
+            onChange={handleEmailChange}>이메일
+          </UserInfo>
+          <UserInfo  
+            label="비밀번호"
+            type="password" 
+            value={user.password} 
+            onChange={handlePasswordChange}>비밀번호
+          </UserInfo>
+        </UserInfoContainer>
+        <PurpleButton onClick={handleClick}>회원정보 수정</PurpleButton>
+        <WhiteButton>나의 R지식in 보러가기</WhiteButton>
+        <SearchList>
+          <HorizontalLine />
+          <ListText>나의 최근 재활용품 검색 리스트</ListText>
+          <RecentSearchBtnContainer>
+            <RecentSearchBtn>냉장고</RecentSearchBtn>
+            <RecentSearchBtn>냉장고</RecentSearchBtn>
+            <RecentSearchBtn>냉장고</RecentSearchBtn>
+            <RecentSearchBtn>아름다운폐건전지</RecentSearchBtn>
+            <RecentSearchBtn>아름다운폐건전지</RecentSearchBtn>
+            <RecentSearchBtn>아름다운폐건전지</RecentSearchBtn>
+          </RecentSearchBtnContainer>
+        </SearchList>			
+      </Container>
+    </Layout>
 	);
 };
 

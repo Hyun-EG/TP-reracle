@@ -1,19 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
-const RecycleMethodsHY = ({text}) => {
-	return (
-		<>
-			<HorizontalLineBelow />
-			<CategoryText>배출 방법</CategoryText>
-			<Text>{text}</Text> 			
-		</>
-	);
-};
-
-export default RecycleMethodsHY;
-
 const CategoryText = styled.span`
 	font-size: 14px;
 	font-weight: var(--font-weight-bold);
@@ -34,3 +21,18 @@ const Text = styled.p`
 	font-size: 14px;
 	font-weight: var(--font-weight-regular)
 `;
+
+
+const RecycleMethodsHY = ({text}) => {
+	return (
+		<>
+			<HorizontalLineBelow />
+			<CategoryText>배출 방법</CategoryText>
+			<Text>{text}</Text> 			
+		</>
+	);
+};
+
+export default RecycleMethodsHY;
+
+

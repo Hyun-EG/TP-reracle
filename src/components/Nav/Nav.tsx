@@ -2,34 +2,6 @@ import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import NavBtn from '@/components/Nav/NavBtn';
 
-<<<<<<< HEAD
-=======
-const Nav = () => {
-  const navigation = useNavigate();
-
-  const handleNavClick = (path: string) => {
-    navigation(path);
-  };
-
-  return (
-    <Container>
-      <StyledNotice>2024-05-03 09:00 ~ 10:00 (1시간) 점검 예정입니다.</StyledNotice>
-      <StyledNavbar>
-        <NavBtn image="/home_FILL0_wght400_GRAD0_opsz24.svg" text="홈" onClick={() => handleNavClick('/')} />
-        <NavBtn image="/question_exchange_FILL0_wght400_GRAD0_opsz24.svg" text="R지식in" />
-        <NavBtn
-          image="/breaking_news_FILL0_wght400_GRAD0_opsz24.svg"
-          text="게시판"
-          onClick={() => handleNavClick('/topic')}
-        />
-      </StyledNavbar>
-    </Container>
-  );
-};
-
-export default Nav;
-
->>>>>>> develop
 const Container = styled.div`
   width: 56.3vh;
   height: 13.95vh;
@@ -61,7 +33,6 @@ const StyledNotice = styled.div`
   }
 `;
 export const NAV_HEIGHT = 10.2;
-
 const StyledNavbar = styled.div`
   width: 56.3vh;
   height: ${NAV_HEIGHT}vh;
@@ -96,11 +67,17 @@ const Nav = () => {
       <StyledNavbar>
         <NavBtn image="/home_FILL0_wght400_GRAD0_opsz24.svg" text="홈" onClick={() => handleNavClick('/')} />
         <NavBtn image="/question_exchange_FILL0_wght400_GRAD0_opsz24.svg" text="R지식in" />
-        <NavBtn image="/breaking_news_FILL0_wght400_GRAD0_opsz24.svg" text="게시판" />
+        <NavBtn
+          image="/breaking_news_FILL0_wght400_GRAD0_opsz24.svg"
+          text="게시판"
+          onClick={() => handleNavClick('/topic')}
+        />
       </StyledNavbar>
     </Container>
   );
 };
 
 export default Nav;
+
+
 

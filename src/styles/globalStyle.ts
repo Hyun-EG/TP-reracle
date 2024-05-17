@@ -24,8 +24,8 @@ body {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  min-height: 100vh;
-  min-width: 100vw;
+  // min-height: 100vh;
+  // min-width: 100vw;
 }
 #root {  
   width: 56.3vh;
