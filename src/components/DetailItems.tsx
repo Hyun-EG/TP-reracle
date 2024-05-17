@@ -1,9 +1,9 @@
-import { wasteCategories } from '@/lib/constants/wasteCategories';
+import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
+import { wasteCategories } from '@/lib/constants/wasteCategories';
 import { Layout } from './layout/Layout';
 import { wasteCategoryItemsImages } from '@/lib/constants/wasteCategoryItemsImages';
-import { HorizontalLine, StyledImg } from '@/styles/carouselStyle';
-import styled from 'styled-components';
+import { StyledImg } from '@/styles/carouselStyle';
 
 const Container = styled.div`
   width: 100%;
@@ -15,19 +15,40 @@ const Container = styled.div`
   justify-items: center;
   overflow-y: auto;
 `;
-
+const HorizontalLine = styled.div`
+  width: 46vh;
+  height: 1px;
+  margin: 3vh auto 0.1vh;
+  background-color: var(--color-purple);
+`;
 const CategoryText = styled.span`
-  font-size: 14px;
+  font-size: 2.3vh;
   font-weight: var(--font-weight-bold);
   color: var(--color-purple);
-  margin-top: 5px;
-  margin-left: 35px;
+  margin-top: 0.6vh;
+  margin-left: 5vh;
+`;
+const Text = styled.p`
+  width: 46vh;
+  margin: 3vh auto;
+  line-height: 3.2vh;
+  font-size: 2.2vh;
+  font-weight: var(--font-weight-regular);
+`;
+const ImageContainer = styled.div`
+  width: 46vh;
+  height: 23vh;
+  background-color: var(--color-purple-light);
+  border-radius: 14px;
+  display: flex;
+  margin: 3vh auto 1vh;
+  justify-content: center;
+  align-items: center;
 `;
 
 const DetailItems = () => {
   const { categoryId, itemId } = useParams();
   const category = wasteCategories.find((category) => category.id === categoryId);
-  console.log(category);
   if (!category) {
     return <div>카테고리를 찾을 수 없습니다.</div>;
   }
@@ -42,12 +63,11 @@ const DetailItems = () => {
     <Layout>
       <Container>
         <HorizontalLine />
-        <CategoryText>{category.name}</CategoryText>
-        <h2>{item.name}</h2>
-        {item.img && <StyledImg src={wasteCategoryItemsImages[item.img]} alt={item.name} />}
+        <CategoryText>{item.name}</CategoryText>
+        {item.img && <ImageContainer src={wasteCategoryItemsImages[item.img]} alt={item.name} />}
         <HorizontalLine />
         <CategoryText>배출방법</CategoryText>
-        <p>{item.disposalMethod}</p>
+        <Text>{item.disposalMethod}</Text>
       </Container>
     </Layout>
   );

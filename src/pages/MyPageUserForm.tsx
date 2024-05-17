@@ -35,7 +35,7 @@ const Input = styled.input`
 `;
 
 
-const UserInfo = ({ label, type, value, onChange }: UserInfoProps) => (
+const MyPageUserForm = ({ label, type, value, onChange }: UserInfoProps) => (
 		<Container>
 			<HorizontalLine />
 			<User>{label}</User>
@@ -43,6 +43,7 @@ const UserInfo = ({ label, type, value, onChange }: UserInfoProps) => (
 		</Container>
 	);
 
-export default UserInfo;
+export default MyPageUserForm;
+
 
 

@@ -2,8 +2,7 @@ import styled from 'styled-components';
 import IconText from './IconText';
 import { data } from './Data';
 
-const CategoryHY = () => {
-  return (
+const CategoryHY = () => (
     <Container>
       <Search>
         <SearchIcon />
@@ -12,19 +11,14 @@ const CategoryHY = () => {
       <HorizontalLine />
       <CategoryText>재활용품 분류</CategoryText>
       <Inner>
+        {data.map((item) => (<IconText {...item} />))}
+        {/* <IconText {...data[0]} />      
         <IconText {...data[0]} />
         <IconText {...data[0]} />
-        <IconText {...data[0]} />
-        <IconText {...data[0]} />
-        <IconText {...data[0]} />
-        <IconText {...data[0]} />
-        <IconText {...data[0]} />
-        <IconText {...data[0]} />
-        <IconText {...data[0]} />
+        <IconText {...data[0]} /> */}
       </Inner>
     </Container>
   );
-};
 
 export default CategoryHY;
 

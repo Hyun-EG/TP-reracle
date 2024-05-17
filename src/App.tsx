@@ -14,8 +14,8 @@ setBasePath('https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.0/cdn/')
 const router = createBrowserRouter(routes);
 
 const StyledAppContainer = styled.div`
-  width: 23.4375rem;
-  height: 41.6875rem;
+  width: 100%;
+  height: 100%;
   background-color: var(--color-white);
   position: relative;
 `;
