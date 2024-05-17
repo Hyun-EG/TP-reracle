@@ -1,5 +1,25 @@
 import styled from 'styled-components';
-import { NavBtnProps } from '@/lib/types/NavBtnType';
+import { navBtnTypes } from '@/lib/types/navBtnTypes';
+
+const NavBtn = ({ image, text, onClick }: navBtnTypes) => {
+  return (
+    <Container>
+      <StyledButton onClick={onClick}>
+        <StyledImage src={image} />
+        <StyledText>{text}</StyledText>
+      </StyledButton>
+    </Container>
+  );
+};
+
+export default NavBtn;
+
+const StyledButton = styled.button`
+  cursor: pointer;
+  border: none;
+  width: 8vh;
+  background-color: transparent;
+`;
 
 const Container = styled.div`
   width: 7vh;
@@ -7,12 +27,6 @@ const Container = styled.div`
   position: relative;
   align-content: center;
   cursor: pointer;
-`;
-const StyledButton = styled.button`
-  cursor: pointer;
-  border: none;
-  width: 8vh;
-  background-color: transparent;
 `;
 const StyledImage = styled.img`
   width: 3.2vh;
@@ -27,18 +41,7 @@ const StyledText = styled.div`
   font-weight: var(--font-weight-medium);
 `;
 
-const NavBtn = ({ image, text, onClick }: NavBtnProps) => {
-  return (
-    <Container>
-      <StyledButton onClick={onClick}>
-        <StyledImage src={image} />
-        <StyledText>{text}</StyledText>
-      </StyledButton>
-    </Container>
-  );
-};
 
-export default NavBtn;
 
         
 

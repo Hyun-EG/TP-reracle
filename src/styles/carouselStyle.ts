@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { SlCarousel, SlCarouselItem } from '@shoelace-style/shoelace/dist/react';
+import { NavLink } from 'react-router-dom';
 
 export const CategoryContainer = styled.div`
   width: 100%;
@@ -71,4 +72,9 @@ export const StyledImg = styled.img`
   justify-content: center;
   max-width: 60%;
   height: auto;
+`;
+
+export const StyledNavLink = styled(NavLink)`
+  text-decoration: none;
+  color: #333;
 `;

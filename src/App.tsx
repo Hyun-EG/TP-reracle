@@ -5,9 +5,9 @@ import { useState, useEffect } from 'react';
 import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { routes } from '@/router/routes';
-import GlobalStyles from '@/styles/GlobalStyles';
-import Loading from './pages/Loading';
+import GlobalStyle from '@/styles/globalStyle';
 import '@shoelace-style/shoelace/dist/themes/light.css';
+import Loading from './pages/Loading';
 
 setBasePath('https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.0/cdn/');
 
@@ -31,7 +31,7 @@ const App = () => {
 
   return (
     <>
-      <GlobalStyles />
+      <GlobalStyle />
       <StyledAppContainer>{isLoading ? <Loading /> : <RouterProvider router={router} />}</StyledAppContainer>
     </>
   );
