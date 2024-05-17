@@ -35,7 +35,7 @@ const Text = styled.p`
   font-size: 2.2vh;
   font-weight: var(--font-weight-regular);
 `;
-const ImageContainer = styled.div`
+const ImageContainer = styled.img`
   width: 46vh;
   height: 23vh;
   background-color: var(--color-purple-light);
