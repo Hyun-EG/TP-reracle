@@ -27,6 +27,7 @@ const CategoryText = styled.span`
 const DetailItems = () => {
   const { categoryId, itemId } = useParams();
   const category = wasteCategories.find((category) => category.id === categoryId);
+  console.log(category);
   if (!category) {
     return <div>카테고리를 찾을 수 없습니다.</div>;
   }
@@ -41,9 +42,11 @@ const DetailItems = () => {
     <Layout>
       <Container>
         <HorizontalLine />
-        <CategoryText>재활용품 세부 품목</CategoryText>
+        <CategoryText>{category.name}</CategoryText>
         <h2>{item.name}</h2>
         {item.img && <StyledImg src={wasteCategoryItemsImages[item.img]} alt={item.name} />}
+        <HorizontalLine />
+        <CategoryText>배출방법</CategoryText>
         <p>{item.disposalMethod}</p>
       </Container>
     </Layout>
