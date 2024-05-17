@@ -27,7 +27,6 @@ const CategoryText = styled.span`
 const DetailItems = () => {
   const { categoryId, itemId } = useParams();
   const category = wasteCategories.find((category) => category.id === categoryId);
-  console.log(category);
   if (!category) {
     return <div>카테고리를 찾을 수 없습니다.</div>;
   }
