@@ -20,7 +20,7 @@ const StyledButton = styled.button`
   width: 8vh;
   background-color: transparent;
 `;
-        
+
 const Container = styled.div`
   width: 7vh;
   height: 6.8vh;
