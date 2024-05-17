@@ -46,8 +46,8 @@ export const WasteCategory = () => {
 
   return (
     <CategoryContainer>
+      <SearchBar />
       <SearchWrapper>
-        <SearchBar />
         <FaSearch />
         <StyledSearchInput placeholder="검색어를 입력하세요" />
       </SearchWrapper>

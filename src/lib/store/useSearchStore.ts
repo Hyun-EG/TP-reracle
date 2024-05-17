@@ -1,23 +1,37 @@
 import { create } from 'zustand';
+import { produce } from 'immer';
+import { createJSONStorage, persist } from 'zustand/middleware';
 
-const MAX_SEARCH_HISTORY_LENGTH = 5;
+interface SearchState {
+  searchHistory: string[];
+  addSearchHistory: (searchQuery: string) => void;
+  clearSearchHistory: () => void;
+}
 
-export const useSearchStore = create((set) => ({
-  searchHistory: JSON.parse(localStorage.getItem('searchHistory')) || [],
-  addSearchHistory: (searchQuery) =>
-    set((state) => {
-      const newSearchHistory = [
-        searchQuery,
-        ...state.searchHistory.filter((item) => item !== searchQuery).slice(0, MAX_SEARCH_HISTORY_LENGTH - 1),
-      ];
-      localStorage.setItem('searchHistory', JSON.stringify(newSearchHistory));
-      console.log('새로운 searchHistory:', newSearchHistory);
-      return {
-        searchHistory: [...newSearchHistory],
-      };
+const MAX_SEARCH_HISTORY_LENGTH = 6;
+
+export const useSearchStore = create<SearchState>()(
+  persist(
+    (set) => ({
+      searchHistory: [],
+      addSearchHistory: (searchQuery) =>
+        set(
+          produce((state: SearchState) => {
+            const existingIndex = state.searchHistory.findIndex((item: string) => item === searchQuery);
+            if (existingIndex !== -1) {
+              state.searchHistory.splice(existingIndex, 1);
+            }
+            state.searchHistory.unshift(searchQuery);
+            if (state.searchHistory.length > MAX_SEARCH_HISTORY_LENGTH) {
+              state.searchHistory.pop();
+            }
+          }),
+        ),
+      clearSearchHistory: () => set({ searchHistory: [] }),
     }),
-  clearSearchHistory: () => {
-    localStorage.removeItem('searchHistory');
-    set({ searchHistory: [] });
-  },
-}));
+    {
+      name: 'search-storage',
+      storage: createJSONStorage(() => localStorage),
+    },
+  ),
+);
