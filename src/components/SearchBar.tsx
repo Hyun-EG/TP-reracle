@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 const StyledSearchInput = styled.input`
   width: 37vh;
-  height: 4vh;
+  height: 5vh;
   font-size: 1.2rem;
   border: none;
   font-family: var(--font-weight-medium);
