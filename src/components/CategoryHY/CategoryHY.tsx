@@ -3,6 +3,7 @@ import IconText from './IconText';
 import { data } from './Data';
 
 //gitignore 테스트
+//git rm --cached CategoryHY/ -r
 
 const CategoryHY = () => (
     <Container>

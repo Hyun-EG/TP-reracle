@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import DetailImageHY from './DetailImageHY';
 import batteryImg from '/battery.svg';
-import RecycleMethodsHY from './RecycleMethodsHY'
+import RecycleMethodsHY from './RecycleMethodsHY';
 import { textData } from './TextData';
 
 
