@@ -4,6 +4,7 @@ import { PurpleButton, WhiteButton } from '../Buttons';
 import UserInfo from './UserInfo';
 import { userData } from './UserData';
 import { Layout } from '@/components/layout/Layout';
+import { useSearchStore } from '@/lib/store/useSearchStore';
 // import { useLocalStorage } from './useLocalStorage';
 
 const Container = styled.section`
@@ -73,6 +74,7 @@ const RecentSearchBtn = styled.li`
 `;
 
 const MyPage = () => {
+  const { searchHistory } = useSearchStore();
   const [user, setUser] = useState({
     name: userData.name,
     email: userData.email,
@@ -115,12 +117,9 @@ const MyPage = () => {
           <HorizontalLine />
           <ListText>나의 최근 재활용품 검색 리스트</ListText>
           <RecentSearchBtnContainer>
-            <RecentSearchBtn>냉장고</RecentSearchBtn>
-            <RecentSearchBtn>냉장고</RecentSearchBtn>
-            <RecentSearchBtn>냉장고</RecentSearchBtn>
-            <RecentSearchBtn>아름다운폐건전지</RecentSearchBtn>
-            <RecentSearchBtn>아름다운폐건전지</RecentSearchBtn>
-            <RecentSearchBtn>아름다운폐건전지</RecentSearchBtn>
+            {searchHistory.map((searchQuery, index) => (
+              <RecentSearchBtn key={index}>{searchQuery}</RecentSearchBtn>
+            ))}
           </RecentSearchBtnContainer>
         </SearchList>
       </Container>

@@ -1,6 +1,6 @@
 import { wasteCategories } from '@/lib/constants/wasteCategories';
 
-export const findMatchingItem = (searchQuery) => {
+export const findMatchingItem = (searchQuery: string) => {
   for (const wasteCategory of wasteCategories) {
     if (wasteCategory.items) {
       const matchedItem = wasteCategory.items.find(
