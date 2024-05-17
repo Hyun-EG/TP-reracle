@@ -1,8 +1,8 @@
 import Header from '@/components/Header';
 import Nav from '@/components/Nav/Nav';
-import { layoutProps } from '@/lib/types/LayoutProps';
+import { LayoutProps } from '@/lib/types/layoutProps';
 
-export const Layout = ({ children }: layoutProps) => {
+export const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <Header />

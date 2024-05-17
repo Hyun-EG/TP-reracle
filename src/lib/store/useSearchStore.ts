@@ -1,12 +1,7 @@
 import { create } from 'zustand';
 import { produce } from 'immer';
 import { createJSONStorage, persist } from 'zustand/middleware';
-
-interface SearchState {
-  searchHistory: string[];
-  addSearchHistory: (searchQuery: string) => void;
-  clearSearchHistory: () => void;
-}
+import { SearchState } from '@/lib/types/searchState';
 
 const MAX_SEARCH_HISTORY_LENGTH = 6;
 
