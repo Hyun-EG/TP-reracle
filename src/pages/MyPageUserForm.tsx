@@ -3,14 +3,14 @@ import styled from 'styled-components';
 import { UserInfoProps } from '@/lib/types/UserInfo';
 
 const Container = styled.div`
-	width: 46vh;
-	height: 9vh;
-	// background-color: var(--color-purple-light);
+  width: 46vh;
+  height: 9vh;
+  // background-color: var(--color-purple-light);
 `;
 const HorizontalLine = styled.div`
-	width: 46vh;	
+  width: 46vh;
   height: 1px;
-  margin: 2vh auto .1vh;
+  margin: 2vh auto 0.1vh;
   background-color: var(--color-purple);
 `;
 const User = styled.label`
@@ -21,29 +21,25 @@ const User = styled.label`
 const Input = styled.input`
   width: 46vh;
   height: 5vh;
-	margin-top: 1.3vh;
+  margin-top: 1.3vh;
   font-size: 3vh;
-	border: none;
-	color: var(--color-gray-dark);
+  border: none;
+  color: var(--color-gray-dark);
   font-weight: var(--font-weight-bold);
-	background-color: transparent;
+  background-color: transparent;
 
-	&:focus {
+  &:focus {
     outline: none;
     box-shadow: none;
   }
 `;
 
-
 const MyPageUserForm = ({ label, type, value, onChange }: UserInfoProps) => (
-		<Container>
-			<HorizontalLine />
-			<User>{label}</User>
-			<Input type={type} value={value} onChange={onChange} />
-		</Container>
-	);
+  <Container>
+    <HorizontalLine />
+    <User>{label}</User>
+    <Input type={type} value={value} onChange={onChange} />
+  </Container>
+);
 
 export default MyPageUserForm;
-
-
-
