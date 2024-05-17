@@ -1,22 +1,13 @@
-import { styled } from 'styled-components';
 import Header from '@/components/Header';
 import Nav from '@/components/Nav/Nav';
-import { LayoutProps } from '@/lib/types/LayoutProps';
+import { layoutProps } from '@/lib/types/layoutProps';
 
-const LayoutWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
-
-export const Layout = ({ children }: LayoutProps) => {
+export const Layout = ({ children }: layoutProps) => {
   return (
-    <LayoutWrapper>
+    <>
       <Header />
       {children}
       <Nav />
-    </LayoutWrapper>
+    </>
   );
 };

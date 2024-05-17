@@ -14,7 +14,7 @@ import foodWaste from '@/assets/images/categoryImages/foodWaste.png';
 import garbage from '@/assets/images/categoryImages/garbage.png';
 import noncombustibleWaste from '@/assets/images/categoryImages/noncombustibleWaste.png';
 
-export const categoryImages: { [key: string]: string } = {
+export const wasteCategoryImages: { [key: string]: string } = {
   paper,
   paperPack,
   can,

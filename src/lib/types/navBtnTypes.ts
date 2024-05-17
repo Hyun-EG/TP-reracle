@@ -1,4 +1,4 @@
-export interface NavBtnProps {
+export interface navBtnTypes {
   image: string;
   text: string;
   onClick?: () => void;

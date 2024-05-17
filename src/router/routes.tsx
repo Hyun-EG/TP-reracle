@@ -1,18 +1,13 @@
-import { Home, NotFound, UserProfile, QNA } from '@/pages';
+import { Home, Login, SignUp, NotFound, UserProfile, QNA } from '@/pages';
 import { PATH } from '@/lib/constants/path';
-import { Electronics, Clothes, Paper } from '@/components/detailItems';
-import Refrigerator from '@/components/DisposalGuide/Refrigerator';
-import Newspaper from '@/components/DisposalGuide/Newspaper';
-import RiceBig from '@/components/DisposalGuide/RiceBig';
-import Login from '@/pages/Login';
-import SignUp from '@/pages/SignUp';
+import WasteCategoryItems from '@/components/WasteCategoryItems';
+import DetailItems from '@/components/DetailItems';
 
 export const routes = [
   {
-    path: PATH.HOME,
+    path: '/',
     element: <Home />,
   },
-
   {
     path: PATH.LOGIN,
     element: <Login />,
@@ -30,28 +25,12 @@ export const routes = [
     element: <NotFound />,
   },
   {
-    path: 'electronics',
-    element: <Electronics />,
+    path: '/:categoryId',
+    element: <WasteCategoryItems />,
   },
   {
-    path: 'electronics/refrigerator',
-    element: <Refrigerator />,
-  },
-  {
-    path: 'clothes',
-    element: <Clothes />,
-  },
-  {
-    path: 'paper',
-    element: <Paper />,
-  },
-  {
-    path: 'paper/newspaper',
-    element: <Newspaper />,
-  },
-  {
-    path: 'paper/ricebag',
-    element: <RiceBig />,
+    path: '/:categoryId/:itemId',
+    element: <DetailItems />,
   },
   {
     path: 'qna',

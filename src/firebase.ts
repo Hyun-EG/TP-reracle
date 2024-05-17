@@ -2,14 +2,14 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_APP_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_APP_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_APP_FIREBASE_APP_ID,
+  apiKey: 'AIzaSyCDV_aekyWg0rB8Aw-Mp64f9ZvGBf85SYY',
+  authDomain: 'reracle-4edc5.firebaseapp.com',
+  projectId: 'reracle-4edc5',
+  storageBucket: 'reracle-4edc5.appspot.com',
+  messagingSenderId: '583801148706',
+  appId: '1:583801148706:web:557e6d0e0e4836db2a417b',
+  measurementId: 'G-3J11YLBKRP',
 };
 
 const app = initializeApp(firebaseConfig);
-
 export const auth = getAuth(app);
