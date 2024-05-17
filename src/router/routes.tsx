@@ -1,4 +1,4 @@
-import { Home, Login, NotFound, SignUp, UserProfile, QNA } from '@/pages';
+import { Home, Login, NotFound, SignUp, QNA } from '@/pages';
 import { PATH } from '@/lib/constants/path';
 import WasteCategoryItems from '@/components/WasteCategoryItems';
 import MyPage from '@/components/MyPage/MyPage';
@@ -17,10 +17,6 @@ export const routes = [
   {
     path: PATH.SIGNUP,
     element: <SignUp />,
-  },
-  {
-    path: PATH.USER_PROFILE,
-    element: <UserProfile />,
   },
   {
     path: PATH.NOT_FOUND,
@@ -46,7 +42,4 @@ export const routes = [
     path: 'mypage',
     element: <MyPage />,
   },
-
-
-
 ];

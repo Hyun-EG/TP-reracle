@@ -2,13 +2,27 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { findMatchingItem } from '@/components/findMatchingItem';
 import { useSearchStore } from '@/lib/store/useSearchStore';
+import styled from 'styled-components';
+
+const StyledSearchInput = styled.input`
+  width: 85%;
+  height: 2.2rem;
+  font-size: 1.2rem;
+  border: none;
+  font-family: var(--font-weight-medium);
+  color: var(--color-gray-dark);
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+`;
 
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
   const { addSearchHistory } = useSearchStore();
 
-  const handleSearch = (event) => {
+  const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const matchedItem = findMatchingItem(searchQuery);
     if (matchedItem) {
@@ -23,7 +37,7 @@ const SearchBar = () => {
 
   return (
     <form onSubmit={handleSearch}>
-      <input
+      <StyledSearchInput
         type="text"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
