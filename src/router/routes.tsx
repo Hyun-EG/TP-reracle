@@ -3,6 +3,7 @@ import { PATH } from '@/lib/constants/path';
 import WasteCategoryItems from '@/components/WasteCategoryItems';
 import DetailItems from '@/components/DetailItems';
 import { Topic } from '@/pages/Topic';
+import Profile from '@/pages/Profiles';
 
 export const routes = [
   {
@@ -40,5 +41,9 @@ export const routes = [
   {
     path: 'topic',
     element: <Topic />,
+  },
+  {
+    path: 'profile',
+    element: <Profile />,
   },
 ];
