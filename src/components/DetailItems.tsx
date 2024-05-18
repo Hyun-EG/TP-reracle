@@ -36,7 +36,7 @@ const Text = styled.p`
   font-weight: var(--font-weight-regular);
 `;
 const ImageContainer = styled.img`
-  width: 46vh;
+  width: 26vh;
   height: 23vh;
   background-color: var(--color-purple-light);
   border-radius: 14px;
@@ -54,7 +54,6 @@ const DetailItems = () => {
   }
 
   const item = category.items && category.items.find((item) => item.id === itemId);
-
   if (!item) {
     return <div>아이템을 찾을 수 없습니다.</div>;
   }
