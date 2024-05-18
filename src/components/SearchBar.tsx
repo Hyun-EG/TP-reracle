@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { wasteCategories } from '@/lib/constants/wasteCategories';
@@ -38,6 +38,7 @@ const ResultsContainer = styled.ul`
 
 const ResultItem = styled.li`
   padding: 1.2vh;
+  font-size: 2vh;
   cursor: pointer;
   &:hover {
     background-color: #f0f0f0;
@@ -49,6 +50,20 @@ const SearchBar = () => {
   const navigate = useNavigate();
   const [searchResults, setSearchResults] = useState([]);
   const { addSearchHistory } = useSearchStore();
+  const resultContainerRef = useRef(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (resultContainerRef.current && !resultContainerRef.current.contains(event.target)) {
+        setSearchResults([]);
+      }
+    };
+    document.addEventListener('mousedown', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, []);
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     const query = event.target.value;
@@ -84,7 +99,7 @@ const SearchBar = () => {
         />
       </form>
       {searchResults.length > 0 && (
-        <ResultsContainer>
+        <ResultsContainer ref={resultContainerRef}>
           {searchResults.map((item) => (
             <ResultItem key={item.id} onClick={() => handleItemClick(item.categoryId, item.id, item.name)}>
               {item.name}
