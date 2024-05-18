@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { wasteCategories } from '@/lib/constants/wasteCategories';
+import { useSearchStore } from '@/lib/store/useSearchStore';
 
 const StyledSearchContainer = styled.div`
   position: relative;
@@ -47,6 +48,7 @@ const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
   const [searchResults, setSearchResults] = useState([]);
+  const { addSearchHistory } = useSearchStore();
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     const query = event.target.value;
@@ -64,8 +66,9 @@ const SearchBar = () => {
     }
   };
 
-  const handleItemClick = (categoryId, itemId) => {
+  const handleItemClick = (categoryId, itemId, itemName) => {
     navigate(`/${categoryId}/${itemId}`);
+    addSearchHistory(itemName);
     setSearchQuery('');
     setSearchResults([]);
   };
@@ -83,7 +86,7 @@ const SearchBar = () => {
       {searchResults.length > 0 && (
         <ResultsContainer>
           {searchResults.map((item) => (
-            <ResultItem key={item.id} onClick={() => handleItemClick(item.categoryId, item.id)}>
+            <ResultItem key={item.id} onClick={() => handleItemClick(item.categoryId, item.id, item.name)}>
               {item.name}
             </ResultItem>
           ))}
