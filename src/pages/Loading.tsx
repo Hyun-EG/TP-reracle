@@ -10,7 +10,7 @@ const LoadingContainer = styled.div`
   justify-content: center;
   background-color: #d8ffda;
   width: 100%;
-  height: calc(100% + ${HEADER_HEIGHT}px + ${NAV_HEIGHT}px);
+  height: calc(100% + ${HEADER_HEIGHT}vh + ${NAV_HEIGHT}vh);
   transition: opacity 0.2s;
 `;
 

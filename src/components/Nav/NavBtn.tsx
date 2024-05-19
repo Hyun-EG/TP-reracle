@@ -1,7 +1,32 @@
 import styled from 'styled-components';
-import { NavBtnProps } from '@/lib/types/NavBtnType';
+import { navBtnTypes } from '@/lib/types/navBtnTypes';
 
-const NavBtn = ({ image, text, onClick }: NavBtnProps) => {
+const StyledButton = styled.button`
+  cursor: pointer;
+  border: none;
+  width: 8vh;
+  background-color: transparent;
+`;
+const Container = styled.div`
+  width: 7vh;
+  height: 6.8vh;
+  position: relative;
+  align-content: center;
+  cursor: pointer;
+`;
+const StyledImage = styled.img`
+  width: 3.2vh;
+  margin: auto;
+`;
+const StyledText = styled.div`
+  font-size: 1.3vh;
+  margin-top: 5px;
+  text-align: center;
+  color: var(--color-gray-dark);
+  font-weight: var(--font-weight-medium);
+`;
+
+const NavBtn = ({ image, text, onClick }: navBtnTypes) => {
   return (
     <Container>
       <StyledButton onClick={onClick}>
@@ -13,34 +38,3 @@ const NavBtn = ({ image, text, onClick }: NavBtnProps) => {
 };
 
 export default NavBtn;
-
-const StyledButton = styled.button`
-  cursor: pointer;
-  border: none;
-  width: 3.1rem;
-  background-color: transparent;
-`;
-
-const Container = styled.div`
-  width: 40px;
-  height: 68px;
-  position: relative;
-  justify-content: center;
-  align-content: center;
-  cursor: pointer;
-`;
-
-const StyledImage = styled.img`
-  width: 24px;
-  height: 24px;
-  margin: auto;
-  background: url(${(props) => props.src}) no-repeat center center;
-`;
-
-const StyledText = styled.div`
-  font-size: 8.6px;
-  margin-top: 5px;
-  text-align: center;
-  color: var(--color-gray-dark);
-  font-weight: var(--font-weight-medium);
-`;

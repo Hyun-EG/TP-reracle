@@ -1,25 +1,15 @@
 import styled from 'styled-components';
-
-const Header = () => {
-  return (
-    <Headbar>
-      <Logo src="/logosmall.svg" alt="logo" />
-      <UserIcon src="/person_20dp_FILL1_wght400_GRAD0_opsz20.svg" alt="user" />
-    </Headbar>
-  );
-};
-
-export default Header;
+import { useNavigate } from 'react-router-dom';
 
 export const HEADER_HEIGHT = 6.3;
-
 const Headbar = styled.div`
-  width: 56.36vh;
+  width: 56.3vh;
   height: ${HEADER_HEIGHT}vh;
   background-color: var(--color-purple-light);
   border-radius: 14px 14px 0 0;
   display: flex;
   align-items: center;
+  position: relative;
 `;
 const Logo = styled.img`
   width: 10vh;
@@ -28,9 +18,29 @@ const Logo = styled.img`
   cursor: pointer;
 `;
 const UserIcon = styled.img`
-  width: 20px;
+  width: 3.5vh;
   position: absolute;
   right: 0;
-  margin-right: 15px;
+  margin-right: 3vh;
   cursor: pointer;
 `;
+
+const Header = () => {
+  const navigation = useNavigate();
+  const handleNavClick = (path: string) => {
+    navigation(path);
+  };
+
+  return (
+    <Headbar>
+      <Logo src="/logosmall.svg" alt="logo" onClick={() => handleNavClick('/')} />
+      <UserIcon
+        src="/person_20dp_FILL1_wght400_GRAD0_opsz20.svg"
+        alt="user"
+        onClick={() => handleNavClick('/mypage')}
+      />
+    </Headbar>
+  );
+};
+
+export default Header;
