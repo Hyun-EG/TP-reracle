@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { navBtnTypes } from '@/lib/types/navBtnTypes';
+import { NavBtnTypes } from '@/lib/types/navBtnTypes';
 
 const StyledButton = styled.button`
   cursor: pointer;
@@ -26,7 +26,7 @@ const StyledText = styled.div`
   font-weight: var(--font-weight-medium);
 `;
 
-const NavBtn = ({ image, text, onClick }: navBtnTypes) => {
+const NavBtn = ({ image, text, onClick }: NavBtnTypes) => {
   return (
     <Container>
       <StyledButton onClick={onClick}>
@@ -38,10 +38,3 @@ const NavBtn = ({ image, text, onClick }: navBtnTypes) => {
 };
 
 export default NavBtn;
-
-
-
-
-
-        
-

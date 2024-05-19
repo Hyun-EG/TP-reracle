@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { wasteCategories } from '@/lib/constants/wasteCategories';
 import { Layout } from './layout/Layout';
 import { wasteCategoryItemsImages } from '@/lib/constants/wasteCategoryItemsImages';
-import { StyledImg } from '@/styles/carouselStyle';
+import { IoArrowBack } from 'react-icons/io5';
 
 const Container = styled.div`
   width: 100%;
@@ -36,7 +36,7 @@ const Text = styled.p`
   font-weight: var(--font-weight-regular);
 `;
 const ImageContainer = styled.img`
-  width: 46vh;
+  width: 26vh;
   height: 23vh;
   background-color: var(--color-purple-light);
   border-radius: 14px;
@@ -46,7 +46,20 @@ const ImageContainer = styled.img`
   align-items: center;
 `;
 
+const StyledGoBackBtn = styled.button`
+  position: absolute;
+  margin-top: 1vh;
+  margin-left: 1.5vh;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  display: flex;
+  justify-content: center;
+  font-size: 1.8vh;
+  cursor: pointer;
+`;
+
 const DetailItems = () => {
+  const navgate = useNavigate();
   const { categoryId, itemId } = useParams();
   const category = wasteCategories.find((category) => category.id === categoryId);
   if (!category) {
@@ -54,14 +67,20 @@ const DetailItems = () => {
   }
 
   const item = category.items && category.items.find((item) => item.id === itemId);
-
   if (!item) {
     return <div>아이템을 찾을 수 없습니다.</div>;
   }
 
+  const handleGoBack = () => {
+    navgate(-1);
+  };
+
   return (
     <Layout>
       <Container>
+        <StyledGoBackBtn onClick={handleGoBack}>
+          <IoArrowBack />
+        </StyledGoBackBtn>
         <HorizontalLine />
         <CategoryText>{item.name}</CategoryText>
         {item.img && <ImageContainer src={wasteCategoryItemsImages[item.img]} alt={item.name} />}
