@@ -12,8 +12,8 @@ const HeaderQna = styled.div`
   color: white;
 `;
 
-const QnaContent = styled.div`
-  margin: 2rem;
+const QnaContent = styled.div<{ isExpanded: boolean }>`
+  margin: 1.5vh auto;
   width: 50vh;
   height: ${({ isExpanded }) => (isExpanded ? '20vh' : '5vh')};
   background: ${({ isExpanded }) => (isExpanded ? '#9747ff' : '#d8ffda')};
@@ -54,8 +54,11 @@ const SubmitButton = styled.button`
   color: white;
   font-size: 1.8vh;
   cursor: pointer;
-
-  &:hover {
+  &:disabled {
+    background-color: #9e9e9e;
+    cursor: not-allowed;
+  }
+  &:hover:enabled {
     background-color: #45a049;
   }
 `;
@@ -102,19 +105,19 @@ const EditButton = styled.button`
 `;
 
 export const QNA = () => {
-  const [isExpanded, setIsExpanded] = useState({});
-  const [answer, setAnswer] = useState({});
+  const [isExpanded, setIsExpanded] = useState<boolean[]>([]);
+  const [answer, setAnswer] = useState<string[]>([]);
   const [hasAnswer, setHasAnswer] = useState({});
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [questions, setQuestions] = useState([]);
+  const [questions, setQuestions] = useState<string[]>([]);
   const [newQuestion, setNewQuestion] = useState('');
   const [isEditing, setIsEditing] = useState({});
 
-  const handleClick = (index) => {
+  const handleClick = (index: number) => {
     setIsExpanded((prevState) => ({ ...prevState, [index]: !prevState[index] }));
   };
 
-  const handleSubmit = (index) => {
+  const handleSubmit = (index: number) => {
     if (hasAnswer[index]) {
       setIsExpanded((prevState) => ({ ...prevState, [index]: false }));
       setIsEditing((prevState) => ({ ...prevState, [index]: true }));
@@ -123,9 +126,13 @@ export const QNA = () => {
     }
   };
 
-  const handleInputChange = (e, index) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>, index: number) => {
     if (e.target.value.length <= 50) {
-      setAnswer((prevState) => ({ ...prevState, [index]: e.target.value }));
+      setAnswer((prevState) => {
+        const updatedAnswer = [...prevState];
+        updatedAnswer[index] = e.target.value;
+        return updatedAnswer;
+      });
     }
   };
 
@@ -139,16 +146,16 @@ export const QNA = () => {
     setIsModalVisible(false);
   };
 
-  const handleEditClick = (index) => {
+  const handleEditClick = (index: number) => {
     setIsEditing((prevState) => ({ ...prevState, [index]: !prevState[index] }));
     setIsExpanded((prevState) => ({ ...prevState, [index]: true }));
   };
 
-  const handleEditSubmit = (index) => {
+  const handleEditSubmit = (index: number) => {
     setIsEditing((prevState) => ({ ...prevState, [index]: false }));
   };
 
-  const stopPropagation = (e) => {
+  const stopPropagation = (e: React.MouseEvent) => {
     e.stopPropagation();
   };
 
@@ -157,7 +164,7 @@ export const QNA = () => {
       <StyledAppContainer>
         <HeaderQna>R 지식in</HeaderQna>
         {questions.map((question, index) => (
-          <QnaContent key={index} isExpanded={isExpanded[index]} onClick={() => handleClick(index)}>
+          <QnaContent key={index} isExpanded={isExpanded[index] || false} onClick={() => handleClick(index)}>
             {question}
             {isExpanded[index] && !hasAnswer[index] && (
               <>
@@ -168,7 +175,11 @@ export const QNA = () => {
                   placeholder="답변을 입력하세요...(50자 내 입력가능)"
                   maxLength={50}
                 />
-                <SubmitButton onClick={() => handleSubmit(index)}>완료</SubmitButton>
+                <SubmitButton
+                  onClick={() => handleSubmit(index)}
+                  disabled={!answer[index] || answer[index].length === 0}>
+                  완료
+                </SubmitButton>
               </>
             )}
             {hasAnswer[index] && isExpanded[index] && (
@@ -182,7 +193,11 @@ export const QNA = () => {
                       placeholder="답변을 입력하세요...(50자 내 입력가능)"
                       maxLength={50}
                     />
-                    <SubmitButton onClick={() => handleEditSubmit(index)}>수정 완료</SubmitButton>
+                    <SubmitButton
+                      onClick={() => handleEditSubmit(index)}
+                      disabled={!answer[index] || answer[index].length === 0}>
+                      수정 완료
+                    </SubmitButton>
                   </>
                 ) : (
                   <>
@@ -201,7 +216,9 @@ export const QNA = () => {
               onChange={(e) => setNewQuestion(e.target.value)}
               placeholder="새로운질문을 입력하세요..."
             />
-            <SubmitButton onClick={handleModalSubmit}>완료</SubmitButton>
+            <SubmitButton onClick={handleModalSubmit} disabled={!newQuestion || newQuestion.length === 0}>
+              완료
+            </SubmitButton>
           </QnaContent>
         )}
         <AddBtnWrapper>
