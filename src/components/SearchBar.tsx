@@ -88,9 +88,17 @@ const SearchBar = () => {
     setSearchResults([]);
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (searchResults.length > 0) {
+      const firstSearchResult = searchResults[0];
+      handleItemClick(firstSearchResult.categoryId, firstSearchResult.id, firstSearchResult.name);
+    }
+  };
+
   return (
     <StyledSearchContainer>
-      <form onSubmit={(e) => e.preventDefault()}>
+      <form onSubmit={handleSubmit}>
         <StyledSearchInput
           type="text"
           value={searchQuery}
