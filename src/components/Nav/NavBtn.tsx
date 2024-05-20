@@ -17,7 +17,6 @@ const Container = styled.div`
 const StyledImage = styled.img`
   width: 3.2vh;
   margin: auto;
-  background: url(${(props) => props.src}) no-repeat center center;
 `;
 const StyledText = styled.div`
   font-size: 1.3vh;

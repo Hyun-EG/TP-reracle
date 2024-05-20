@@ -24,6 +24,7 @@
     "react-router-dom": "^6.23.1",
     "styled-components": "^6.1.9",
     "styled-reset": "^4.5.2",
+    "yarn": "^1.22.22",
     "zustand": "^4.5.2"
   },
   "devDependencies": {
