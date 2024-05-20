@@ -96,20 +96,12 @@ const MyPage = () => {
     alert('회원정보가 수정되었습니다');
   };
 
-  const { searchHistory } = useSearchStore();
+  const searchHistory = useSearchStore((state) => state.searchHistory);
   const navigation = useNavigate();
 
-  const handleNavClick = (path: string) => {
-    navigation(path);
+  const handleNavClick = (categoryId: string, itemId: string) => {
+    navigation(`/${categoryId}/${itemId}`);
   };
-
-  // const searchHistory = useSearchStore((state) => state.searchHistory);
-  // const navigate = useNavigate();
-
-  // const handleNavClick = (searchQuery) => {
-  // const path = `/${searchQuery.id}`;
-  //   navigate(path);
-  // };
 
   return (
     <Layout>
@@ -132,9 +124,11 @@ const MyPage = () => {
           <HorizontalLine />
           <ListText>나의 최근 재활용품 검색 리스트</ListText>
           <RecentSearchBtnContainer>
-            {searchHistory.map((searchQuery, index) => (
-              <RecentSearchBtn onClick={() => handleNavClick(searchQuery)} key={index}>
-                {`#` + searchQuery}
+            {searchHistory.map((historyItem, index) => (
+              <RecentSearchBtn
+                onClick={() => handleNavClick(historyItem.categoryId, historyItem.itemId)}
+                key={index}>
+                {`#` + historyItem.queryData}
               </RecentSearchBtn>
             ))}
           </RecentSearchBtnContainer>

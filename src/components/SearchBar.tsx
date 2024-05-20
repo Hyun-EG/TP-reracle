@@ -56,6 +56,7 @@ const SearchBar = () => {
       disposalMethod?: string;
     }[]
   >([]);
+
   const resultContainerRef = useRef<HTMLUListElement>(null);
   const addSearchHistory = useSearchStore((state) => state.addSearchHistory);
   const navigate = useNavigate();
@@ -92,7 +93,7 @@ const SearchBar = () => {
 
   const handleItemClick = (categoryId: string, itemId: string, itemName: string) => {
     navigate(`/${categoryId}/${itemId}`);
-    addSearchHistory(itemName);
+    addSearchHistory(itemName, categoryId, itemId);
     setSearchQuery('');
     setSearchResults([]);
   };

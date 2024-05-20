@@ -72,8 +72,12 @@ const DetailItems = () => {
     return <div>아이템을 찾을 수 없습니다.</div>;
   }
 
+  console.log(category);
+
   const handleGoBack = () => {
-    navigate(-1);
+    if (category) {
+      navigate(`/${category.id}`);
+    }
   };
 
   return (
