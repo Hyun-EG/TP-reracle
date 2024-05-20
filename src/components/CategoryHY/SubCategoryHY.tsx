@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
-import IconText from './IconText'
-import { data } from './Data'
+import React from 'react';
+import styled from 'styled-components';
+import IconText from './IconText';
+import { data } from './Data';
 
 const SubCategoryHY = () => {
 	return (
@@ -23,10 +23,10 @@ const SubCategoryHY = () => {
 				<IconText {...data[0]}/>					          
 			</Inner>	          		
 		</Container>
-	)
-}
+	);
+};
 
-export default SubCategoryHY
+export default SubCategoryHY;
 
 const Container = styled.div`
   width: 100%;
@@ -37,24 +37,24 @@ const Container = styled.div`
 	flex-direction: column;
 	justify-items: center;
 	overflow-y: auto;
-` 
+`; 
 const HorizontalLine = styled.div`
 	width: 304px;
 	height: 1px;	
 	margin: 30px auto 0;
 	background-color: var(--color-purple);
-`
+`;
 const CategoryText = styled.span`
 	font-size: 14px;
 	font-weight: var(--font-weight-bold);
 	color: var(--color-purple);
 	margin-top: 5px;
 	margin-left: 35px;
-`
+`;
 const Inner = styled.div`
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	padding: 40px 45px;
 	justify-items: center;	
 	row-gap: 13px;
-`
+`;

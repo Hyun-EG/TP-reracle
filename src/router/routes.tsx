@@ -1,16 +1,15 @@
-import { Home, Login, NotFound, SignUp, UserProfile, QNA, Topic } from '@/pages';
+import { Home, Login, NotFound, SignUp, QNA } from '@/pages';
 import { PATH } from '@/lib/constants/path';
 import { Electronics, Clothes, Paper } from '@/components/detailItems';
-import Refrigerator from '@/components/DisposalGuide/Refrigerator';
-import Newspaper from '@/components/DisposalGuide/Newspaper';
-import RiceBig from '@/components/DisposalGuide/RiceBig';
+import Refrigerator from '@/components/disposalGuide/Refrigerator';
+import Newspaper from '@/components/disposalGuide/Newspaper';
+import RiceBig from '@/components/disposalGuide/RiceBig';
 
 export const routes = [
   {
-    path: PATH.HOME,
+    path: '/',
     element: <Home />,
   },
-
   {
     path: PATH.LOGIN,
     element: <Login />,
@@ -20,43 +19,19 @@ export const routes = [
     element: <SignUp />,
   },
   {
-    path: PATH.USER_PROFILE,
-    element: <UserProfile />,
-  },
-  {
     path: PATH.NOT_FOUND,
     element: <NotFound />,
   },
   {
-    path: 'electronics',
-    element: <Electronics />,
+    path: '/:categoryId',
+    element: <WasteCategoryItems />,
   },
   {
-    path: 'electronics/refrigerator',
-    element: <Refrigerator />,
-  },
-  {
-    path: 'clothes',
-    element: <Clothes />,
-  },
-  {
-    path: 'paper',
-    element: <Paper />,
-  },
-  {
-    path: 'paper/newspaper',
-    element: <Newspaper />,
-  },
-  {
-    path: 'paper/ricebag',
-    element: <RiceBig />,
+    path: '/:categoryId/:itemId',
+    element: <DetailItems />,
   },
   {
     path: 'qna',
     element: <QNA />,
-  },
-  {
-    path: 'topic',
-    element: <Topic />,
   },
 ];

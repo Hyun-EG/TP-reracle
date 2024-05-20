@@ -9,8 +9,9 @@ const LoadingContainer = styled.div`
   align-items: center;
   justify-content: center;
   background-color: #d8ffda;
-  width: 100%;
-  height: calc(100% + ${HEADER_HEIGHT}vh + ${NAV_HEIGHT}vh);
+  width: 56.3vh;
+  height: 100vh;
+  /* height: calc(100% + ${HEADER_HEIGHT}px + ${NAV_HEIGHT}px); */
   transition: opacity 0.2s;
 `;
 

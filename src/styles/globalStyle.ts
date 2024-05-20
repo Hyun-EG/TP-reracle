@@ -1,5 +1,6 @@
 import { reset } from 'styled-reset';
 import { createGlobalStyle } from 'styled-components';
+
 const GlobalStyles = createGlobalStyle`
 :root{
      --color-yellow: #FCD118;
@@ -23,12 +24,14 @@ body {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  min-height: 100vh;
-  min-width: 100vw;
+  // min-height: 100vh;
+  // min-width: 100vw;
 }
-#root {
+#root {  
+  width: 56.3vh;
+  height: 100vh;
   background-color: #fff;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  // box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   margin: 0px;
   border-radius: 14px;
   position: relative;
