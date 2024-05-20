@@ -49,7 +49,7 @@ const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
   const [searchResults, setSearchResults] = useState([]);
-  const { addSearchHistory } = useSearchStore();
+  const addSearchHistory = useSearchStore((state) => state.addSearchHistory);
   const resultContainerRef = useRef(null);
 
   useEffect(() => {

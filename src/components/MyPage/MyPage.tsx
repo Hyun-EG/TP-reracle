@@ -75,7 +75,6 @@ const RecentSearchBtn = styled.li`
 `;
 
 const MyPage = () => {
-  
   const [user, setUser] = useState({
     name: userData.name,
     email: userData.email,
@@ -96,7 +95,7 @@ const MyPage = () => {
     console.log(user);
     alert('회원정보가 수정되었습니다');
   };
-  
+
   const { searchHistory } = useSearchStore();
   const navigation = useNavigate();
 
@@ -104,13 +103,13 @@ const MyPage = () => {
     navigation(path);
   };
 
-    // const searchHistory = useSearchStore((state) => state.searchHistory);
-    // const navigate = useNavigate();
-  
-    // const handleNavClick = (searchQuery) => {
-    // const path = `/${searchQuery.id}`;
-    //   navigate(path);
-    // };
+  // const searchHistory = useSearchStore((state) => state.searchHistory);
+  // const navigate = useNavigate();
+
+  // const handleNavClick = (searchQuery) => {
+  // const path = `/${searchQuery.id}`;
+  //   navigate(path);
+  // };
 
   return (
     <Layout>
@@ -134,7 +133,9 @@ const MyPage = () => {
           <ListText>나의 최근 재활용품 검색 리스트</ListText>
           <RecentSearchBtnContainer>
             {searchHistory.map((searchQuery, index) => (
-              <RecentSearchBtn onClick={() => handleNavClick(searchQuery)} key={index}>{searchQuery}</RecentSearchBtn>
+              <RecentSearchBtn onClick={() => handleNavClick(searchQuery)} key={index}>
+                {`#` + searchQuery}
+              </RecentSearchBtn>
             ))}
           </RecentSearchBtnContainer>
         </SearchList>
