@@ -74,7 +74,7 @@ const SearchBar = () => {
         .flatMap((category) =>
           category.items ? category.items.map((item) => ({ ...item, categoryId: category.id })) : [],
         )
-        .filter((item) => item.name.includes(query));
+        .filter((item) => item.name && item.name.includes(query));
       setSearchResults(matchedItems);
     } else {
       setSearchResults([]);
