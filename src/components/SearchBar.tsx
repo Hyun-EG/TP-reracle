@@ -46,15 +46,24 @@ const ResultItem = styled.li`
 `;
 
 const SearchBar = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const navigate = useNavigate();
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [searchResults, setSearchResults] = useState<
+    {
+      categoryId: string;
+      id: string;
+      name: string;
+      img?: string;
+      disposalMethod?: string;
+    }[]
+  >([]);
+  const resultContainerRef = useRef<HTMLUListElement>(null);
   const addSearchHistory = useSearchStore((state) => state.addSearchHistory);
-  const resultContainerRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const handleOutsideClick = (event) => {
-      if (resultContainerRef.current && !resultContainerRef.current.contains(event.target)) {
+    const handleOutsideClick = (event: MouseEvent) => {
+      const target = event.target as Node;
+      if (resultContainerRef.current && !resultContainerRef.current.contains(target)) {
         setSearchResults([]);
       }
     };
@@ -81,14 +90,14 @@ const SearchBar = () => {
     }
   };
 
-  const handleItemClick = (categoryId, itemId, itemName) => {
+  const handleItemClick = (categoryId: string, itemId: string, itemName: string) => {
     navigate(`/${categoryId}/${itemId}`);
     addSearchHistory(itemName);
     setSearchQuery('');
     setSearchResults([]);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (searchResults.length > 0) {
       const firstSearchResult = searchResults[0];
