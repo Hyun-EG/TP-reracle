@@ -30,15 +30,18 @@ const Header = () => {
   const handleNavClick = (path: string) => {
     navigation(path);
   };
-
+  const handleUserIconClick = () => {
+    const userData = localStorage.getItem('userData');
+    if (userData) {
+      handleNavClick('/mypage');
+    } else {
+      handleNavClick('/login');
+    }
+  };
   return (
     <Headbar>
       <Logo src="/logosmall.svg" alt="logo" onClick={() => handleNavClick('/')} />
-      <UserIcon
-        src="/person_20dp_FILL1_wght400_GRAD0_opsz20.svg"
-        alt="user"
-        onClick={() => handleNavClick('/mypage')}
-      />
+      <UserIcon src="/person_20dp_FILL1_wght400_GRAD0_opsz20.svg" alt="user" onClick={handleUserIconClick} />
     </Headbar>
   );
 };

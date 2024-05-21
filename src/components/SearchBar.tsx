@@ -46,15 +46,25 @@ const ResultItem = styled.li`
 `;
 
 const SearchBar = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [searchResults, setSearchResults] = useState<
+    {
+      categoryId: string;
+      id: string;
+      name: string;
+      img?: string;
+      disposalMethod?: string;
+    }[]
+  >([]);
+
+  const resultContainerRef = useRef<HTMLUListElement>(null);
+  const addSearchHistory = useSearchStore((state) => state.addSearchHistory);
   const navigate = useNavigate();
-  const [searchResults, setSearchResults] = useState([]);
-  const { addSearchHistory } = useSearchStore();
-  const resultContainerRef = useRef(null);
 
   useEffect(() => {
-    const handleOutsideClick = (event) => {
-      if (resultContainerRef.current && !resultContainerRef.current.contains(event.target)) {
+    const handleOutsideClick = (event: MouseEvent) => {
+      const target = event.target as Node;
+      if (resultContainerRef.current && !resultContainerRef.current.contains(target)) {
         setSearchResults([]);
       }
     };
@@ -81,16 +91,24 @@ const SearchBar = () => {
     }
   };
 
-  const handleItemClick = (categoryId, itemId, itemName) => {
+  const handleItemClick = (categoryId: string, itemId: string, itemName: string) => {
     navigate(`/${categoryId}/${itemId}`);
-    addSearchHistory(itemName);
+    addSearchHistory(itemName, categoryId, itemId);
     setSearchQuery('');
     setSearchResults([]);
   };
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (searchResults.length > 0) {
+      const firstSearchResult = searchResults[0];
+      handleItemClick(firstSearchResult.categoryId, firstSearchResult.id, firstSearchResult.name);
+    }
+  };
+
   return (
     <StyledSearchContainer>
-      <form onSubmit={(e) => e.preventDefault()}>
+      <form onSubmit={handleSubmit}>
         <StyledSearchInput
           type="text"
           value={searchQuery}

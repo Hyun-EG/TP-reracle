@@ -1,4 +1,6 @@
-export const wasteCategories = [
+import { WasteCategoryTypes } from '@/lib/types/wasteTypes';
+
+export const wasteCategories: WasteCategoryTypes[] = [
   {
     id: 'paper',
     name: '종이',
@@ -126,6 +128,7 @@ export const wasteCategories = [
         id: 'washingmachine',
         name: '세탁기',
         img: 'washingmachine',
+        disposalMethod: '세탁기 버리는 방법',
       },
       { id: 'tv', name: 'TV', img: 'tv', disposalMethod: 'TV 버리는 방법' },
       { id: 'refrigerator', name: '냉장고', img: 'refrigerator', disposalMethod: '냉장고 버리는 방법' },

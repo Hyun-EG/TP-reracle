@@ -1,20 +1,19 @@
-import { styled } from "styled-components";
-
+import { styled } from 'styled-components';
 
 // 보라색 버튼
 export const PurpleButton = styled.button`
-  width: 46vh;	
+  width: 46vh;
   height: 6vh;
   border: none;
   background-color: var(--color-purple);
   color: #fff;
   cursor: pointer;
   font-size: 2vh;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-weight: var(--font-weight-bold);
   transition: 0.2s;
-  border-radius: 14px;
-
+  border-radius: 1vh;
+  margin-top: 3vh;
   &:hover {
     background-color: var(--color-purple-light);
     color: var(--color-purple);
@@ -22,7 +21,7 @@ export const PurpleButton = styled.button`
 `;
 // 화이트 버튼
 export const WhiteButton = styled.button`
-  width: 46vh;	
+  width: 46vh;
   height: 6vh;
   border: 1px solid var(--color-purple);
   background-color: var(--color-white);
@@ -31,11 +30,8 @@ export const WhiteButton = styled.button`
   // position: absolute;
 
   font-size: 2vh;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-weight: var(--font-weight-bold);
   transition: 0.2s;
-  border-radius: 14px;
+  border-radius: 1vh;
 `;
-
-
-

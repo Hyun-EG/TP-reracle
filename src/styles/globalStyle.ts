@@ -4,6 +4,7 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyles = createGlobalStyle`
 :root{
      --color-yellow: #FCD118;
+     --color-red: #FF3636;
      --color-yellow-light: #FEF3C1;
      --color-green: #93FD98;
      --color-green-light: #D8FFDA;

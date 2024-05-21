@@ -59,9 +59,10 @@ const StyledGoBackBtn = styled.button`
 `;
 
 const DetailItems = () => {
-  const navgate = useNavigate();
-  const { categoryId, itemId } = useParams();
+  const navigate = useNavigate();
+  const { categoryId, itemId } = useParams<{ categoryId: string; itemId: string }>();
   const category = wasteCategories.find((category) => category.id === categoryId);
+
   if (!category) {
     return <div>카테고리를 찾을 수 없습니다.</div>;
   }
@@ -71,8 +72,12 @@ const DetailItems = () => {
     return <div>아이템을 찾을 수 없습니다.</div>;
   }
 
+  console.log(category);
+
   const handleGoBack = () => {
-    navgate(-1);
+    if (category) {
+      navigate(`/${category.id}`);
+    }
   };
 
   return (
