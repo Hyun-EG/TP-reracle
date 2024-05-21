@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';
 import { Layout } from '@/components/layout/Layout';
@@ -58,7 +58,7 @@ const StyledLink = styled(Link)`
   width: 35vh;
 `;
 
-const QuestionInput = styled.input.attrs({ maxLength: 21 })`
+const QuestionInput = styled.input`
   background: #ffffff;
   border: none;
   border-radius: 5px;
@@ -125,7 +125,7 @@ export const Qna = () => {
       <QuestionListContainer>
         {questions.map((question, index) => (
           <QuestionContainer key={index}>
-            <StyledLink to={`/answer/${index}?question=${encodeURIComponent(question)}`}>
+            <StyledLink to={`/answer/${encodeURIComponent(question)}`} state={{ question: question }}>
               {question}
             </StyledLink>
             <DeleteButton onClick={() => handleDeleteQuestion(index)}>삭제</DeleteButton>

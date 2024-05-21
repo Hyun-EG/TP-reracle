@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { styled } from 'styled-components';
+import { useLocation } from 'react-router-dom';
 import { Layout } from '@/components/layout/Layout';
 
 const AnswerBlock = styled.button`
@@ -50,6 +51,7 @@ const AnswerBox = styled.div`
   padding: 1vh; /* 여백 추가 */
   border-radius: 10px;
   color: white;
+  font-size: 2.5vh;
 `;
 
 const AnswerContent = styled.p`
@@ -75,7 +77,16 @@ const DeleteButton = styled.button`
   margin-top: 1vh; /* 삭제 버튼과 작성자 정보 사이의 간격 조정 */
 `;
 
+const QuestionBox = styled.p`
+  text-align: center;
+  font-size: 2.5vh;
+  font-weight: bold;
+`;
+
 export const Answer: React.FC = () => {
+  const location = useLocation();
+  const question = location.state?.question || '';
+
   const [answer, setAnswer] = useState('');
   const [submittedAnswers, setSubmittedAnswers] = useState<{ author: string; content: string }[]>([]);
 
@@ -85,19 +96,21 @@ export const Answer: React.FC = () => {
   };
 
   const handleDeleteAnswer = (index: number) => {
-    const updatedAnswers = [...submittedAnswers];
-    updatedAnswers.splice(index, 1);
-    setSubmittedAnswers(updatedAnswers);
+    if (window.confirm('정말로 삭제하시겠습니까?')) {
+      const updatedAnswers = [...submittedAnswers];
+      updatedAnswers.splice(index, 1);
+      setSubmittedAnswers(updatedAnswers);
+    }
   };
 
   return (
     <Layout>
       <div>
         <AnswerBlock>답변하기</AnswerBlock>
-        <h1>질문 내용</h1> {/* 질문 내용 표시 */}
+        <QuestionBox>{question}</QuestionBox> {/* 질문 내용 표시 */}
         <AnswerContainer>
           <InputAnswer value={answer} onChange={(e) => setAnswer(e.target.value)} />
-          <AnswerBtn onClick={handleSubmit}>답변하기</AnswerBtn>
+          <AnswerBtn onClick={handleSubmit}>제출</AnswerBtn>
         </AnswerContainer>
         <AnswerDisplay>
           {submittedAnswers.map((submittedAnswer, index) => (
