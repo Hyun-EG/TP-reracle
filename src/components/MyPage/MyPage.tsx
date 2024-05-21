@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import { PurpleButton, WhiteButton } from '../Buttons';
 import UserInfo from './UserInfo';
 import { userData } from './UserData';
@@ -74,7 +75,6 @@ const RecentSearchBtn = styled.li`
 `;
 
 const MyPage = () => {
-  const { searchHistory } = useSearchStore();
   const [user, setUser] = useState({
     name: userData.name,
     email: userData.email,
@@ -94,6 +94,13 @@ const MyPage = () => {
     e.preventDefault();
     console.log(user);
     alert('회원정보가 수정되었습니다');
+  };
+
+  const searchHistory = useSearchStore((state) => state.searchHistory);
+  const navigation = useNavigate();
+
+  const handleNavClick = (categoryId: string, itemId: string) => {
+    navigation(`/${categoryId}/${itemId}`);
   };
 
   return (
@@ -117,8 +124,12 @@ const MyPage = () => {
           <HorizontalLine />
           <ListText>나의 최근 재활용품 검색 리스트</ListText>
           <RecentSearchBtnContainer>
-            {searchHistory.map((searchQuery, index) => (
-              <RecentSearchBtn key={index}>{searchQuery}</RecentSearchBtn>
+            {searchHistory.map((historyItem, index) => (
+              <RecentSearchBtn
+                onClick={() => handleNavClick(historyItem.categoryId, historyItem.itemId)}
+                key={index}>
+                {`#` + historyItem.queryData}
+              </RecentSearchBtn>
             ))}
           </RecentSearchBtnContainer>
         </SearchList>

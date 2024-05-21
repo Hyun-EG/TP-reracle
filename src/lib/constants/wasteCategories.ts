@@ -1,4 +1,6 @@
-export const wasteCategories = [
+import { WasteCategoryTypes } from '@/lib/types/wasteTypes';
+
+export const wasteCategories: WasteCategoryTypes[] = [
   {
     id: 'paper',
     name: '종이',
@@ -81,18 +83,53 @@ export const wasteCategories = [
     img: 'paperPack',
     items: [{ id: 'milkpack', name: '우유팩', img: 'milkpack', disposalMethod: '우유팩 버리는 방법' }],
   },
-  { id: 'can', name: '금속캔', img: 'can' },
-  { id: 'scrapMetal', name: '고철', img: 'scrapMetal' },
-  { id: 'glassBottle', name: '유리병', img: 'glassBottle' },
-  { id: 'plastic', name: '플라스틱', img: 'plastic' },
-  { id: 'vinyl', name: '비닐', img: 'vinyl' },
-  { id: 'styrofoam', name: '발포합성', img: 'styrofoam' },
-  { id: 'clothes', name: '의류', img: 'clothes' },
+  {
+    id: 'can',
+    name: '금속캔',
+    img: 'can',
+    items: [
+      {
+        id: 'spray',
+        name: '스프레이',
+        img: 'spray',
+        disposalMethod: '스프레이/부탄가스 버리는 방법',
+      },
+      {
+        id: 'beverageCan',
+        name: '음료캔',
+        img: 'beverageCan',
+        disposalMethod: '음료캔 버리는 방법',
+      },
+      {
+        id: 'cannedFood',
+        name: '통조림',
+        img: 'cannedFood',
+        disposalMethod: '통조림 버리는 방법',
+      },
+    ],
+  },
+  {
+    id: 'scrapMetal',
+    name: '고철',
+    img: 'scrapMetal',
+    items: [{}],
+  },
+  { id: 'glassBottle', name: '유리병', img: 'glassBottle', items: [{}] },
+  { id: 'plastic', name: '플라스틱', img: 'plastic', items: [{}] },
+  { id: 'vinyl', name: '비닐', img: 'vinyl', items: [{}] },
+  { id: 'styrofoam', name: '발포합성', img: 'styrofoam', items: [{}] },
+  { id: 'clothes', name: '의류', img: 'clothes', items: [{}] },
   {
     id: 'electronics',
     name: '가전제품',
     img: 'electronics',
     items: [
+      {
+        id: 'washingmachine',
+        name: '세탁기',
+        img: 'washingmachine',
+        disposalMethod: '세탁기 버리는 방법',
+      },
       { id: 'tv', name: 'TV', img: 'tv', disposalMethod: 'TV 버리는 방법' },
       { id: 'refrigerator', name: '냉장고', img: 'refrigerator', disposalMethod: '냉장고 버리는 방법' },
     ],
@@ -101,25 +138,30 @@ export const wasteCategories = [
     id: 'largeWaste',
     name: '대형',
     img: 'largeWaste',
+    items: [{}],
   },
   {
     id: 'foodWaste',
     name: '음식물',
     img: 'foodWaste',
+    items: [{}],
   },
   {
     id: 'harmfulness',
     name: '유해',
     img: 'harmfulness',
+    items: [{}],
   },
   {
     id: 'noncombustibleWaste',
     name: '불연성폐기물',
     img: 'noncombustibleWaste',
+    items: [{}],
   },
   {
     id: 'garbage',
     name: '종량제 봉투',
     img: 'garbage',
+    items: [{}],
   },
 ];

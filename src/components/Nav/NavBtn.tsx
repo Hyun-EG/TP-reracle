@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { navBtnTypes } from '@/lib/types/navBtnTypes';
+import { NavBtnTypes } from '@/lib/types/navBtnTypes';
 
 const StyledButton = styled.button`
   cursor: pointer;
@@ -17,7 +17,6 @@ const Container = styled.div`
 const StyledImage = styled.img`
   width: 3.2vh;
   margin: auto;
-  background: url(${(props) => props.src}) no-repeat center center;
 `;
 const StyledText = styled.div`
   font-size: 1.3vh;
@@ -27,7 +26,7 @@ const StyledText = styled.div`
   font-weight: var(--font-weight-medium);
 `;
 
-const NavBtn = ({ image, text, onClick }: navBtnTypes) => {
+const NavBtn = ({ image, text, onClick }: NavBtnTypes) => {
   return (
     <Container>
       <StyledButton onClick={onClick}>

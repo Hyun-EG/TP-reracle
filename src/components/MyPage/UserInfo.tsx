@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { UserInfoProps } from '@/lib/types/UserInfo';
+import { UserInfoProps } from '@/lib/types/userInfo';
 
 const Container = styled.div`
 	width: 46vh;
