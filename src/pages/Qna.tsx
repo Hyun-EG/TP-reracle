@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { styled } from 'styled-components';
+import { Link } from 'react-router-dom';
 import { Layout } from '@/components/layout/Layout';
-import addQuestion from '../assets/images/addQuestion.png';
 
 const HeaderQna = styled.div`
   width: 56.3vh;
@@ -10,221 +10,128 @@ const HeaderQna = styled.div`
   text-align: center;
   align-content: center;
   color: white;
-`;
-
-const QnaContent = styled.div<{ isExpanded: boolean }>`
-  margin: 1.5vh auto;
-  width: 50vh;
-  height: ${({ isExpanded }) => (isExpanded ? '20vh' : '5vh')};
-  background: ${({ isExpanded }) => (isExpanded ? '#9747ff' : '#d8ffda')};
-  border-radius: 14.31px;
-  text-align: center;
-  align-content: center;
   font-size: 2vh;
-  font-weight: bold;
-  cursor: pointer;
-  transition: height 0.3s ease, background 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  box-sizing: border-box;
 `;
 
-const AnswerInput = styled.textarea`
-  width: 90%;
-  height: 60%;
-  margin-top: 3rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 1.8vh;
-  padding: 1rem;
-  box-sizing: border-box;
-  resize: none;
-  maxlength: 50;
-`;
-
-const SubmitButton = styled.button`
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
+const Question = styled.button`
+  display: block;
+  margin: 1vh auto;
   border: none;
-  border-radius: 8px;
-  background-color: #4caf50;
+  background: #93fd98;
   color: white;
-  font-size: 1.8vh;
-  cursor: pointer;
-  &:disabled {
-    background-color: #9e9e9e;
-    cursor: not-allowed;
-  }
-  &:hover:enabled {
-    background-color: #45a049;
-  }
+  font-size: 2vh;
 `;
 
-const AnswerText = styled.div`
-  margin-top: 1rem;
-  font-size: 1.8vh;
-  color: white;
+const QnaArea = styled.div`
+  text-align: center;
 `;
 
-const StyledAppContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  max-width: 56.3rem;
-  max-height: 80rem;
-  background-color: var(--color-white);
+const QuestionListContainer = styled.div`
+  max-height: 60vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 1.5vh auto;
+  width: 52vh;
   position: relative;
-  overflow: auto;
 `;
 
-const AddBtnWrapper = styled.div`
-  position: absolute;
-  bottom: 2rem;
-  right: 2rem;
-`;
-
-const Addbtn = styled.img`
-  width: 4.5vh;
-`;
-
-const EditButton = styled.button`
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 8px;
-  background-color: #2196f3;
+const QuestionContainer = styled.div`
+  background: #93fd98;
+  width: 50vh;
+  margin: 1.5vh auto;
+  height: 3.75vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1vh;
+  border-radius: 10px;
   color: white;
-  font-size: 1.8vh;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #0b7dda;
-  }
 `;
 
-export const QNA = () => {
-  const [isExpanded, setIsExpanded] = useState<boolean[]>([]);
-  const [answer, setAnswer] = useState<string[]>([]);
-  const [hasAnswer, setHasAnswer] = useState({});
-  const [isModalVisible, setIsModalVisible] = useState(false);
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: white;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: inline-block;
+  width: 35vh;
+`;
+
+const QuestionInput = styled.input.attrs({ maxLength: 21 })`
+  background: #ffffff;
+  border: none;
+  border-radius: 5px;
+  height: 2.5vh;
+  width: 35vh;
+  padding: 0.5vh;
+  font-size: 1.5vh;
+`;
+
+const AddButton = styled.button`
+  background: #9747ff;
+  border: none;
+  border-radius: 5px;
+  height: 2.5vh;
+  color: white;
+  cursor: pointer;
+  padding: 0 1vh;
+  font-size: 1.5vh;
+`;
+
+const DeleteButton = styled.button`
+  background: #ff4747;
+  border: none;
+  border-radius: 5px;
+  height: 2.5vh;
+  color: white;
+  cursor: pointer;
+  padding: 0 1vh;
+  font-size: 1.5vh;
+`;
+
+export const Qna = () => {
   const [questions, setQuestions] = useState<string[]>([]);
-  const [newQuestion, setNewQuestion] = useState('');
-  const [isEditing, setIsEditing] = useState({});
+  const [currentQuestion, setCurrentQuestion] = useState<string>('');
 
-  const handleClick = (index: number) => {
-    setIsExpanded((prevState) => ({ ...prevState, [index]: !prevState[index] }));
+  const handleAddQuestion = () => {
+    if (currentQuestion.trim() === '') return;
+    setQuestions([...questions, currentQuestion]);
+    setCurrentQuestion('');
   };
 
-  const handleSubmit = (index: number) => {
-    if (hasAnswer[index]) {
-      setIsExpanded((prevState) => ({ ...prevState, [index]: false }));
-      setIsEditing((prevState) => ({ ...prevState, [index]: true }));
-    } else {
-      setHasAnswer((prevState) => ({ ...prevState, [index]: true }));
+  const handleDeleteQuestion = (index: number) => {
+    if (window.confirm('정말로 삭제하시겠습니까?')) {
+      const updatedQuestions = [...questions];
+      updatedQuestions.splice(index, 1);
+      setQuestions(updatedQuestions);
     }
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>, index: number) => {
-    if (e.target.value.length <= 50) {
-      setAnswer((prevState) => {
-        const updatedAnswer = [...prevState];
-        updatedAnswer[index] = e.target.value;
-        return updatedAnswer;
-      });
-    }
-  };
-
-  const handleAddQuestionClick = () => {
-    setIsModalVisible(true);
-  };
-
-  const handleModalSubmit = () => {
-    setQuestions([...questions, newQuestion]);
-    setNewQuestion('');
-    setIsModalVisible(false);
-  };
-
-  const handleEditClick = (index: number) => {
-    setIsEditing((prevState) => ({ ...prevState, [index]: !prevState[index] }));
-    setIsExpanded((prevState) => ({ ...prevState, [index]: true }));
-  };
-
-  const handleEditSubmit = (index: number) => {
-    setIsEditing((prevState) => ({ ...prevState, [index]: false }));
-  };
-
-  const stopPropagation = (e: React.MouseEvent) => {
-    e.stopPropagation();
   };
 
   return (
     <Layout>
-      <StyledAppContainer>
-        <HeaderQna>R 지식in</HeaderQna>
+      <HeaderQna>R 지식in</HeaderQna>
+      <Question>질문하기</Question>
+      <QnaArea>
+        <QuestionInput
+          type="text"
+          value={currentQuestion}
+          onChange={(e) => setCurrentQuestion(e.target.value)}
+          placeholder="질문을 입력하세요"
+        />
+        <AddButton onClick={handleAddQuestion}>추가</AddButton>
+      </QnaArea>
+
+      <QuestionListContainer>
         {questions.map((question, index) => (
-          <QnaContent key={index} isExpanded={isExpanded[index] || false} onClick={() => handleClick(index)}>
-            {question}
-            {isExpanded[index] && !hasAnswer[index] && (
-              <>
-                <AnswerInput
-                  value={answer[index] || ''}
-                  onClick={stopPropagation}
-                  onChange={(e) => handleInputChange(e, index)}
-                  placeholder="답변을 입력하세요...(50자 내 입력가능)"
-                  maxLength={50}
-                />
-                <SubmitButton
-                  onClick={() => handleSubmit(index)}
-                  disabled={!answer[index] || answer[index].length === 0}>
-                  완료
-                </SubmitButton>
-              </>
-            )}
-            {hasAnswer[index] && isExpanded[index] && (
-              <>
-                {isEditing[index] ? (
-                  <>
-                    <AnswerInput
-                      value={answer[index] || ''}
-                      onClick={stopPropagation}
-                      onChange={(e) => handleInputChange(e, index)}
-                      placeholder="답변을 입력하세요...(50자 내 입력가능)"
-                      maxLength={50}
-                    />
-                    <SubmitButton
-                      onClick={() => handleEditSubmit(index)}
-                      disabled={!answer[index] || answer[index].length === 0}>
-                      수정 완료
-                    </SubmitButton>
-                  </>
-                ) : (
-                  <>
-                    <AnswerText>{answer[index]}</AnswerText>
-                    <EditButton onClick={() => handleEditClick(index)}>수정</EditButton>
-                  </>
-                )}
-              </>
-            )}
-          </QnaContent>
+          <QuestionContainer key={index}>
+            <StyledLink to={`/answer/${index}?question=${encodeURIComponent(question)}`}>
+              {question}
+            </StyledLink>
+            <DeleteButton onClick={() => handleDeleteQuestion(index)}>삭제</DeleteButton>
+          </QuestionContainer>
         ))}
-        {isModalVisible && (
-          <QnaContent>
-            <AnswerInput
-              value={newQuestion}
-              onChange={(e) => setNewQuestion(e.target.value)}
-              placeholder="새로운질문을 입력하세요..."
-            />
-            <SubmitButton onClick={handleModalSubmit} disabled={!newQuestion || newQuestion.length === 0}>
-              완료
-            </SubmitButton>
-          </QnaContent>
-        )}
-        <AddBtnWrapper>
-          <Addbtn src={addQuestion} alt="질문 추가" onClick={handleAddQuestionClick} />
-        </AddBtnWrapper>
-      </StyledAppContainer>
+      </QuestionListContainer>
     </Layout>
   );
 };

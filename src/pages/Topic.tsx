@@ -10,6 +10,7 @@ const HeaderTopic = styled.div`
   text-align: center;
   align-content: center;
   line-height: 3.75vh;
+  font-size: 2vh;
 `;
 
 interface TopicContentProps {

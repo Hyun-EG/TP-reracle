@@ -4,3 +4,4 @@ export * from './Login';
 export * from './NotFound';
 export * from './Qna';
 export * from './Topic';
+export * from './Answer';

@@ -1,4 +1,4 @@
-import { Home, Login, NotFound, SignUp, QNA } from '@/pages';
+import { Home, Login, NotFound, SignUp, Qna, Answer } from '@/pages';
 import { PATH } from '@/lib/constants/path';
 import WasteCategoryItems from '@/components/WasteCategoryItems';
 import MyPage from '@/components/MyPage/MyPage';
@@ -32,11 +32,15 @@ export const routes = [
   },
   {
     path: 'qna',
-    element: <QNA />,
+    element: <Qna />,
   },
   {
     path: 'topic',
     element: <Topic />,
+  },
+  {
+    path: 'answer/:questionIndex',
+    element: <Answer />,
   },
   {
     path: 'mypage',
