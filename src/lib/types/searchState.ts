@@ -1,5 +1,11 @@
 export interface SearchState {
-  searchHistory: string[];
+  searchHistory: SearchHistoryItem[];
   addSearchHistory: (searchQuery: string, categoryId: string, itemId: string) => void;
   clearSearchHistory: () => void;
+}
+
+interface SearchHistoryItem {
+  queryData: string;
+  categoryId: string;
+  itemId: string;
 }
