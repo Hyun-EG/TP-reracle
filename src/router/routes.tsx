@@ -1,6 +1,9 @@
 import { Home, Login, NotFound, SignUp, QNA } from '@/pages';
 import { PATH } from '@/lib/constants/path';
-import { Electronics, Clothes, Paper } from '@/components/DetailItems';
+import WasteCategoryItems from '@/components/WasteCategoryItems';
+import MyPage from '@/components/MyPage/MyPage';
+import DetailItems from '@/components/DetailItems';
+import { Topic } from '@/pages/Topic';
 
 export const routes = [
   {
@@ -30,5 +33,13 @@ export const routes = [
   {
     path: 'qna',
     element: <QNA />,
+  },
+  {
+    path: 'topic',
+    element: <Topic />,
+  },
+  {
+    path: 'mypage',
+    element: <MyPage />,
   },
 ];
