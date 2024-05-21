@@ -1,7 +1,9 @@
-import { Home, Login, SignUp, NotFound, UserProfile, QNA } from '@/pages';
+import { Home, Login, NotFound, SignUp, QNA, PasswordReset } from '@/pages';
 import { PATH } from '@/lib/constants/path';
 import WasteCategoryItems from '@/components/WasteCategoryItems';
+import MyPage from '@/components/MyPage/MyPage';
 import DetailItems from '@/components/DetailItems';
+import { Topic } from '@/pages/Topic';
 
 export const routes = [
   {
@@ -13,12 +15,12 @@ export const routes = [
     element: <Login />,
   },
   {
-    path: PATH.SIGNUP,
-    element: <SignUp />,
+    path: PATH.PASSWORDRESET,
+    element: <PasswordReset />,
   },
   {
-    path: PATH.USER_PROFILE,
-    element: <UserProfile />,
+    path: PATH.SIGNUP,
+    element: <SignUp />,
   },
   {
     path: PATH.NOT_FOUND,
@@ -35,5 +37,13 @@ export const routes = [
   {
     path: 'qna',
     element: <QNA />,
+  },
+  {
+    path: 'topic',
+    element: <Topic />,
+  },
+  {
+    path: 'mypage',
+    element: <MyPage />,
   },
 ];

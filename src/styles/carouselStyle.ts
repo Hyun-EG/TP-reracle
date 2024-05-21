@@ -3,8 +3,8 @@ import { SlCarousel, SlCarouselItem } from '@shoelace-style/shoelace/dist/react'
 import { NavLink } from 'react-router-dom';
 
 export const CategoryContainer = styled.div`
-  width: 100%;
-  height: 80%;
+  width: 56.3vh;
+  height: 79.7vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,36 +12,36 @@ export const CategoryContainer = styled.div`
 `;
 
 export const HorizontalLine = styled.div`
-  width: 80%;
-  height: 0.02rem;
-  margin: 1rem auto 0;
+  width: 46vh;	
+  height: 1px;
+  margin: 3vh auto .1vh;
   background-color: var(--color-purple);
 `;
 
 export const StyledCategoryText = styled.span`
-  font-size: 0.9rem;
+  font-size: 2.3vh;
   font-weight: var(--font-weight-bold);
   color: var(--color-purple);
-  margin-top: 0.4rem;
-  margin-left: 2.2rem;
+  margin-top: .6vh;
+  margin-left: 5vh;
 `;
 
 export const CategroryGird = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  row-gap: 1rem;
-  width: 100%;
-  margin-top: 1rem;
+  row-gap: 1.5vh;
+  width: 45vh;
+  margin-top: 2vh;
 `;
 
 export const CategoryWrapper = styled.div`
   background-color: var(--color-yellow-light);
-  width: 4.5rem;
-  height: 4.5rem;
+  width: 11vh;
+  height: 11vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 0.5rem;
+  border-radius: 1.2vh;
   margin: 0 auto;
   cursor: pointer;
 
@@ -51,20 +51,21 @@ export const CategoryWrapper = styled.div`
 `;
 
 export const CategoryName = styled.div`
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
+  margin-top: 0.7vh;
+  font-size: 2vh;
+  font-weight: var(--font-weight-medium);
   display: flex;
   justify-content: center;
 `;
 
 export const StyledSlCarousel = styled(SlCarousel)`
-  width: 85%;
+  width: 46vh;
   margin: 0 auto;
-  height: 80%;
+  height: 60vh;
 `;
 
 export const StyledSlCarouselItem = styled(SlCarouselItem)`
-  margin-bottom: 2rem;
+  margin-bottom: 1vh;
 `;
 
 export const StyledImg = styled.img`
@@ -76,5 +77,5 @@ export const StyledImg = styled.img`
 
 export const StyledNavLink = styled(NavLink)`
   text-decoration: none;
-  color: #333;
+  color: #333
 `;

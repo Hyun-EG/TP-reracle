@@ -3,63 +3,9 @@ import styled from 'styled-components';
 import { PurpleButton, WhiteButton } from '../Buttons';
 import UserInfo from './UserInfo';
 import { userData } from './UserData';
+import { Layout } from '@/components/layout/Layout';
+import { useSearchStore } from '@/lib/store/useSearchStore';
 // import { useLocalStorage } from './useLocalStorage';
-
-const MyPage = () => {
-  const [user, setUser] = useState({
-    name: userData.name,
-    email: userData.email,
-    password: userData.password,
-  });
-  const handleNameChange = (e: MouseEvent) => {
-    setUser((u) => ({ ...u, name: e.target!.value }));
-  };
-  const handleEmailChange = (e: MouseEvent) => {
-    setUser((u) => ({ ...u, email: e.target!.value }));
-  };
-  const handlePasswordChange = (e: MouseEvent) => {
-    setUser((u) => ({ ...u, password: e.target!.value }));
-  };
-
-  const handleClick = (e: MouseEvent) => {
-    e.preventDefault();
-    console.log(user);
-    alert('회원정보가 수정되었습니다');
-  };
-
-  return (
-    <Container>
-      <MyPageHeader>마이페이지</MyPageHeader>
-      <UserInfoContainer>
-        <UserInfo label="이름" type="text" value={user.name} onChange={handleNameChange}>
-          이름
-        </UserInfo>
-        <UserInfo label="이메일" type="email" value={user.email} onChange={handleEmailChange}>
-          이메일
-        </UserInfo>
-        <UserInfo label="비밀번호" type="password" value={user.password} onChange={handlePasswordChange}>
-          비밀번호
-        </UserInfo>
-      </UserInfoContainer>
-      <PurpleButton onClick={handleClick}>회원정보 수정</PurpleButton>
-      <WhiteButton>나의 R지식in 보러가기</WhiteButton>
-      <SearchList>
-        <HorizontalLine />
-        <ListText>나의 최근 재활용품 검색 리스트</ListText>
-        <RecentSearchBtnContainer>
-          <RecentSearchBtn>냉장고</RecentSearchBtn>
-          <RecentSearchBtn>냉장고</RecentSearchBtn>
-          <RecentSearchBtn>냉장고</RecentSearchBtn>
-          <RecentSearchBtn>아름다운폐건전지</RecentSearchBtn>
-          <RecentSearchBtn>아름다운폐건전지</RecentSearchBtn>
-          <RecentSearchBtn>아름다운폐건전지</RecentSearchBtn>
-        </RecentSearchBtnContainer>
-      </SearchList>
-    </Container>
-  );
-};
-
-export default MyPage;
 
 const Container = styled.section`
   width: 56.3vh;
@@ -126,3 +72,59 @@ const RecentSearchBtn = styled.li`
   border-radius: 14px;
   border: none;
 `;
+
+const MyPage = () => {
+  const { searchHistory } = useSearchStore();
+  const [user, setUser] = useState({
+    name: userData.name,
+    email: userData.email,
+    password: userData.password,
+  });
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUser((u) => ({ ...u, name: e.target!.value }));
+  };
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUser((u) => ({ ...u, email: e.target!.value }));
+  };
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUser((u) => ({ ...u, password: e.target!.value }));
+  };
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+    console.log(user);
+    alert('회원정보가 수정되었습니다');
+  };
+
+  return (
+    <Layout>
+      <Container>
+        <MyPageHeader>마이페이지</MyPageHeader>
+        <UserInfoContainer>
+          <UserInfo label="이름" type="text" value={user.name} onChange={handleNameChange}>
+            이름
+          </UserInfo>
+          <UserInfo label="이메일" type="email" value={user.email} onChange={handleEmailChange}>
+            이메일
+          </UserInfo>
+          <UserInfo label="비밀번호" type="password" value={user.password} onChange={handlePasswordChange}>
+            비밀번호
+          </UserInfo>
+        </UserInfoContainer>
+        <PurpleButton onClick={handleClick}>회원정보 수정</PurpleButton>
+        <WhiteButton>나의 R지식in 보러가기</WhiteButton>
+        <SearchList>
+          <HorizontalLine />
+          <ListText>나의 최근 재활용품 검색 리스트</ListText>
+          <RecentSearchBtnContainer>
+            {searchHistory.map((searchQuery, index) => (
+              <RecentSearchBtn key={index}>{searchQuery}</RecentSearchBtn>
+            ))}
+          </RecentSearchBtnContainer>
+        </SearchList>
+      </Container>
+    </Layout>
+  );
+};
+
+export default MyPage;
