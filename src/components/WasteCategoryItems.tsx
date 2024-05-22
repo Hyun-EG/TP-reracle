@@ -32,8 +32,8 @@ const WasteCategoryItems = () => {
         <HorizontalLine />
         <StyledCategoryText>재활용품 세부 품목</StyledCategoryText>
         <StyledSlCarousel pagination mouse-dragging>
-          {chunkedItems.map((chunk, index) => (
-            <StyledSlCarouselItem key={index}>
+          {chunkedItems.map((chunk) => (
+            <StyledSlCarouselItem key={chunk[0].id}>
               <CategroryGird>
                 {chunk.map((item) => (
                   <div key={item.id}>
