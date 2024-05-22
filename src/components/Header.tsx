@@ -31,7 +31,7 @@ const Header = () => {
     navigation(path);
   };
   const handleUserIconClick = () => {
-    const userData = localStorage.getItem('user');
+    const userData = localStorage.getItem('userData');
     if (userData) {
       handleNavClick('/mypage');
     } else {
