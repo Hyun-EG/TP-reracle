@@ -57,7 +57,7 @@ const SearchBar = () => {
     }[]
   >([]);
 
-  const resultContainerRef = useRef<HTMLUListElement>(null);
+  const resultContainerRef = useRef<HTMLUListElement | null>(null);
   const addSearchHistory = useSearchStore((state) => state.addSearchHistory);
   const navigate = useNavigate();
 
