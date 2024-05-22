@@ -13,7 +13,7 @@ export const PurpleButton = styled.button`
   font-weight: var(--font-weight-bold);
   transition: 0.2s;
   border-radius: 1vh;
-  margin-top: 3vh;
+  margin-top: 1vh;
   &:hover {
     background-color: var(--color-purple-light);
     color: var(--color-purple);
