@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 import { useLocation } from 'react-router-dom';
+import { collection, addDoc, query, where, getDocs, doc, deleteDoc } from 'firebase/firestore';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { db } from '../firebase';
 import { Layout } from '@/components/layout/Layout';
 
 const AnswerBlock = styled.button`
@@ -15,13 +18,13 @@ const AnswerBlock = styled.button`
 const AnswerContainer = styled.div`
   text-align: center;
   margin-top: 4vh;
-  overflow: hidden; /* 스크롤 생기지 않도록 설정 */
+  overflow: hidden;
 `;
 
 const AnswerDisplay = styled.div`
   margin-top: 2vh;
-  height: 50vh; /* 고정된 높이 설정 */
-  overflow-y: auto; /* 수직 스크롤만 허용 */
+  height: 50vh;
+  overflow-y: auto;
 `;
 
 const InputAnswer = styled.textarea`
@@ -46,9 +49,9 @@ const AnswerBox = styled.div`
   width: 50vh;
   margin: 1.5vh auto;
   display: flex;
-  flex-direction: column; /* 작성자 정보와 답변 내용을 위아래로 표시하기 위해 */
+  flex-direction: column;
   align-items: center;
-  padding: 1vh; /* 여백 추가 */
+  padding: 1vh;
   border-radius: 10px;
   color: white;
   font-size: 2.5vh;
@@ -56,13 +59,13 @@ const AnswerBox = styled.div`
 
 const AnswerContent = styled.p`
   color: black;
-  word-wrap: break-word; /* 단어가 길 경우 줄바꿈 */
-  word-break: break-all; /* 단어 단위로 줄바꿈 */
-  white-space: pre-wrap; /* 공백과 줄 바꿈 유지 */
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: pre-wrap;
 `;
 
 const AnswerInfo = styled.div`
-  margin-top: 1vh; /* 작성자 정보와 답변 내용 사이의 간격 조정 */
+  margin-top: 1vh;
 `;
 
 const DeleteButton = styled.button`
@@ -74,7 +77,7 @@ const DeleteButton = styled.button`
   cursor: pointer;
   padding: 0 1vh;
   font-size: 1.5vh;
-  margin-top: 1vh; /* 삭제 버튼과 작성자 정보 사이의 간격 조정 */
+  margin-top: 1vh;
 `;
 
 const QuestionBox = styled.p`
@@ -88,18 +91,74 @@ export const Answer: React.FC = () => {
   const question = location.state?.question || '';
 
   const [answer, setAnswer] = useState('');
-  const [submittedAnswers, setSubmittedAnswers] = useState<{ author: string; content: string }[]>([]);
+  const [submittedAnswers, setSubmittedAnswers] = useState<
+    { id: string; author: string; authorUid: string; content: string }[]
+  >([]);
+  const [nickname, setNickname] = useState('');
+  const [currentUser, setCurrentUser] = useState<any>(null);
 
-  const handleSubmit = () => {
-    setSubmittedAnswers([...submittedAnswers, { author: '작성자', content: answer }]);
-    setAnswer('');
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        setCurrentUser(user);
+        const userQuery = query(collection(db, 'users'), where('uid', '==', user.uid));
+        const querySnapshot = await getDocs(userQuery);
+        if (!querySnapshot.empty) {
+          const userData = querySnapshot.docs[0].data();
+          setNickname(userData.nickname);
+        }
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    const fetchAnswers = async () => {
+      const answersCollection = collection(db, 'answers');
+      const answerQuery = query(answersCollection, where('question', '==', question));
+      const querySnapshot = await getDocs(answerQuery);
+      const answersData = querySnapshot.docs.map(
+        (doc) =>
+          ({ id: doc.id, ...doc.data() } as {
+            id: string;
+            author: string;
+            authorUid: string;
+            content: string;
+          }),
+      );
+      setSubmittedAnswers(answersData);
+    };
+
+    fetchAnswers();
+  }, [question]);
+
+  const handleSubmit = async () => {
+    try {
+      const user = getAuth().currentUser;
+      const docRef = await addDoc(collection(db, 'answers'), {
+        question: question,
+        author: nickname,
+        authorUid: user.uid, // 작성자의 UID도 함께 저장
+        content: answer,
+      });
+      setSubmittedAnswers([
+        ...submittedAnswers,
+        { id: docRef.id, author: nickname, authorUid: user.uid, content: answer },
+      ]);
+      setAnswer('');
+    } catch (error) {
+      console.error('Error adding document: ', error);
+    }
   };
 
-  const handleDeleteAnswer = (index: number) => {
-    if (window.confirm('정말로 삭제하시겠습니까?')) {
-      const updatedAnswers = [...submittedAnswers];
-      updatedAnswers.splice(index, 1);
-      setSubmittedAnswers(updatedAnswers);
+  const handleDeleteAnswer = async (id: string) => {
+    try {
+      await deleteDoc(doc(db, 'answers', id));
+      setSubmittedAnswers(submittedAnswers.filter((answer) => answer.id !== id));
+    } catch (error) {
+      console.error('Error deleting document: ', error);
     }
   };
 
@@ -107,17 +166,20 @@ export const Answer: React.FC = () => {
     <Layout>
       <div>
         <AnswerBlock>답변하기</AnswerBlock>
-        <QuestionBox>{question}</QuestionBox> {/* 질문 내용 표시 */}
+        <QuestionBox>{question}</QuestionBox>
         <AnswerContainer>
           <InputAnswer value={answer} onChange={(e) => setAnswer(e.target.value)} />
           <AnswerBtn onClick={handleSubmit}>제출</AnswerBtn>
         </AnswerContainer>
         <AnswerDisplay>
-          {submittedAnswers.map((submittedAnswer, index) => (
-            <AnswerBox key={index}>
-              <AnswerInfo>{submittedAnswer.author}</AnswerInfo>
-              <AnswerContent>{submittedAnswer.content}</AnswerContent>
-              <DeleteButton onClick={() => handleDeleteAnswer(index)}>삭제</DeleteButton>
+          {submittedAnswers.map(({ id, author, authorUid, content }) => (
+            <AnswerBox key={id}>
+              <AnswerInfo>{author}</AnswerInfo>
+              <AnswerContent>{content}</AnswerContent>
+              {currentUser &&
+                currentUser.uid === authorUid && ( // 현재 사용자와 작성자의 UID를 비교하여 삭제 버튼 표시
+                  <DeleteButton onClick={() => handleDeleteAnswer(id)}>삭제</DeleteButton>
+                )}
             </AnswerBox>
           ))}
         </AnswerDisplay>

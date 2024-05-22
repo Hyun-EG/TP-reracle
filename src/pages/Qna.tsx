@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { styled } from 'styled-components';
+import { collection, addDoc, getDocs, deleteDoc } from 'firebase/firestore';
 import { Link } from 'react-router-dom';
+import { getAuth } from 'firebase/auth';
+import { db } from '../firebase';
 import { Layout } from '@/components/layout/Layout';
 
 const HeaderQna = styled.div`
@@ -46,6 +49,7 @@ const QuestionContainer = styled.div`
   padding: 0 1vh;
   border-radius: 10px;
   color: white;
+  font-size: 2vh;
 `;
 
 const StyledLink = styled(Link)`
@@ -91,20 +95,72 @@ const DeleteButton = styled.button`
 `;
 
 export const Qna = () => {
-  const [questions, setQuestions] = useState<string[]>([]);
+  const [questions, setQuestions] = useState<{ question: string; author: string; authorUid: string }[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState<string>('');
+  const currentUser = getAuth().currentUser;
 
-  const handleAddQuestion = () => {
+  useEffect(() => {
+    const fetchQuestions = async () => {
+      const querySnapshot = await getDocs(collection(db, 'questions'));
+      const questionList: { question: string; author: string; authorUid: string }[] = [];
+      querySnapshot.forEach((doc) => {
+        const questionData = doc.data();
+        questionList.push({
+          question: questionData.question,
+          author: questionData.author,
+          authorUid: questionData.authorUid,
+        });
+      });
+      setQuestions(questionList);
+    };
+    fetchQuestions();
+  }, []);
+
+  const handleAddQuestion = async () => {
     if (currentQuestion.trim() === '') return;
-    setQuestions([...questions, currentQuestion]);
-    setCurrentQuestion('');
+
+    try {
+      const docRef = await addDoc(collection(db, 'questions'), {
+        question: currentQuestion,
+        author: '현재 사용자의 이름', // 여기에 현재 사용자의 이름을 저장
+        authorUid: currentUser.uid, // 여기에 현재 사용자의 UID를 저장
+      });
+      console.log('Document written with ID: ', docRef.id);
+
+      setQuestions([
+        ...questions,
+        { question: currentQuestion, author: '현재 사용자의 이름', authorUid: currentUser.uid },
+      ]);
+      setCurrentQuestion('');
+    } catch (e) {
+      console.error('Error adding document: ', e);
+    }
   };
 
-  const handleDeleteQuestion = (index: number) => {
+  const handleDeleteQuestion = async (index: number) => {
     if (window.confirm('정말로 삭제하시겠습니까?')) {
-      const updatedQuestions = [...questions];
-      updatedQuestions.splice(index, 1);
-      setQuestions(updatedQuestions);
+      try {
+        const deletedQuestion = questions[index];
+        if (deletedQuestion.authorUid === currentUser.uid) {
+          const updatedQuestions = [...questions];
+          updatedQuestions.splice(index, 1);
+          setQuestions(updatedQuestions);
+
+          const querySnapshot = await getDocs(collection(db, 'questions'));
+          querySnapshot.forEach((doc) => {
+            if (
+              doc.data().question === deletedQuestion.question &&
+              doc.data().author === deletedQuestion.author
+            ) {
+              deleteDoc(doc.ref);
+            }
+          });
+        } else {
+          alert('자신의 질문만 삭제할 수 있습니다.');
+        }
+      } catch (error) {
+        console.error('Error deleting document: ', error);
+      }
     }
   };
 
@@ -123,12 +179,16 @@ export const Qna = () => {
       </QnaArea>
 
       <QuestionListContainer>
-        {questions.map((question, index) => (
+        {questions.map((questionData, index) => (
           <QuestionContainer key={index}>
-            <StyledLink to={`/answer/${encodeURIComponent(question)}`} state={{ question: question }}>
-              {question}
+            <StyledLink
+              to={`/answer/${encodeURIComponent(questionData.question)}`}
+              state={{ question: questionData.question }}>
+              {questionData.question}
             </StyledLink>
-            <DeleteButton onClick={() => handleDeleteQuestion(index)}>삭제</DeleteButton>
+            {questionData.authorUid === currentUser.uid && (
+              <DeleteButton onClick={() => handleDeleteQuestion(index)}>삭제</DeleteButton>
+            )}
           </QuestionContainer>
         ))}
       </QuestionListContainer>
