@@ -6,6 +6,7 @@ import UserInfo from './UserInfo';
 import { userData } from './UserData';
 import { Layout } from '@/components/layout/Layout';
 import { useSearchStore } from '@/lib/store/useSearchStore';
+import { SearchState } from '@/lib/types/searchState';
 // import { useLocalStorage } from './useLocalStorage';
 
 const Container = styled.section`
