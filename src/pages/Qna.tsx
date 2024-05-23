@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { styled } from 'styled-components';
+import styled from 'styled-components';
 import { collection, addDoc, getDocs, deleteDoc } from 'firebase/firestore';
 import { Link } from 'react-router-dom';
-import { getAuth } from 'firebase/auth';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { db } from '../firebase';
 import { Layout } from '@/components/layout/Layout';
 
@@ -97,7 +97,14 @@ const DeleteButton = styled.button`
 export const Qna = () => {
   const [questions, setQuestions] = useState<{ question: string; author: string; authorUid: string }[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState<string>('');
-  const currentUser = getAuth().currentUser;
+  const [currentUser, setCurrentUser] = useState<any>(null);
+
+  useEffect(() => {
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      setCurrentUser(user);
+    });
+  }, []);
 
   useEffect(() => {
     const fetchQuestions = async () => {
@@ -117,19 +124,23 @@ export const Qna = () => {
   }, []);
 
   const handleAddQuestion = async () => {
+    if (!currentUser) {
+      alert('질문을 추가하려면 로그인해야 합니다.');
+      return;
+    }
     if (currentQuestion.trim() === '') return;
 
     try {
       const docRef = await addDoc(collection(db, 'questions'), {
         question: currentQuestion,
-        author: '현재 사용자의 이름', // 여기에 현재 사용자의 이름을 저장
-        authorUid: currentUser.uid, // 여기에 현재 사용자의 UID를 저장
+        author: currentUser.displayName, // 현재 사용자의 이름 저장
+        authorUid: currentUser.uid, // 현재 사용자의 UID 저장
       });
       console.log('Document written with ID: ', docRef.id);
 
       setQuestions([
         ...questions,
-        { question: currentQuestion, author: '현재 사용자의 이름', authorUid: currentUser.uid },
+        { question: currentQuestion, author: currentUser.displayName, authorUid: currentUser.uid },
       ]);
       setCurrentQuestion('');
     } catch (e) {
@@ -138,6 +149,10 @@ export const Qna = () => {
   };
 
   const handleDeleteQuestion = async (index: number) => {
+    if (!currentUser) {
+      alert('질문을 삭제하려면 로그인해야 합니다.');
+      return;
+    }
     if (window.confirm('정말로 삭제하시겠습니까?')) {
       try {
         const deletedQuestion = questions[index];
@@ -186,7 +201,7 @@ export const Qna = () => {
               state={{ question: questionData.question }}>
               {questionData.question}
             </StyledLink>
-            {questionData.authorUid === currentUser.uid && (
+            {currentUser && questionData.authorUid === currentUser.uid && (
               <DeleteButton onClick={() => handleDeleteQuestion(index)}>삭제</DeleteButton>
             )}
           </QuestionContainer>

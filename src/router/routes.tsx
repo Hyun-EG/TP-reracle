@@ -1,4 +1,4 @@
-import { Home, Login, NotFound, SignUp, Qna, Answer, PasswordReset } from '@/pages';
+import { Home, Login, NotFound, SignUp, Qna, Answer, PasswordReset, MyQuestion } from '@/pages';
 import { PATH } from '@/lib/constants/path';
 import WasteCategoryItems from '@/components/WasteCategoryItems';
 import MyPage from '@/components/MyPage/MyPage';
@@ -49,5 +49,10 @@ export const routes = [
   {
     path: 'mypage',
     element: <MyPage />,
+  },
+
+  {
+    path: 'myquestion',
+    element: <MyQuestion />,
   },
 ];
