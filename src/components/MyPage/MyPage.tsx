@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { PurpleButton, WhiteButton } from '../Buttons';
 import UserInfo from './UserInfo';
-import { userData } from './UserData';
+// import { userData } from './UserData';
 import { Layout } from '@/components/layout/Layout';
 import { useSearchStore } from '@/lib/store/useSearchStore';
+// import { SearchState } from '@/lib/types/searchState';
 // import { useLocalStorage } from './useLocalStorage';
 
 const Container = styled.section`
@@ -17,7 +18,7 @@ const Container = styled.section`
   flex-direction: column;
   align-items: center;
   gap: 2vh;
-  overflow-y: hidden;
+  overflow-y: auto;
 `;
 
 const MyPageHeader = styled.div`
@@ -81,15 +82,20 @@ const RecentSearchBtn = styled.li`
   border: none;
 `;
 
+const getUserData = () => {
+  const data = localStorage.getItem('userData');
+  return data ? JSON.parse(data) : null;
+};
+
 const MyPage = () => {
   const [user, setUser] = useState({
-    name: userData.name,
-    email: userData.email,
-    password: userData.password,
+    nickname: '',
+    email: '',
+    password: '',
   });
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUser((u) => ({ ...u, name: e.target!.value }));
+    setUser((u) => ({ ...u, nickname: e.target!.value }));
   };
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -102,6 +108,7 @@ const MyPage = () => {
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
+    localStorage.setItem('userData', JSON.stringify(user));
     console.log(user);
     alert('회원정보가 수정되었습니다');
   };
@@ -122,8 +129,8 @@ const MyPage = () => {
       <Container>
         <MyPageHeader>마이페이지</MyPageHeader>
         <UserInfoContainer>
-          <UserInfo label="이름" type="text" value={user.name} onChange={handleNameChange}>
-            이름
+          <UserInfo label="아이디" type="text" value={user.nickname} onChange={handleNameChange}>
+            아이디
           </UserInfo>
           <UserInfo label="이메일" type="email" value={user.email} onChange={handleEmailChange}>
             이메일
@@ -142,7 +149,7 @@ const MyPage = () => {
               <RecentSearchBtn
                 onClick={() => handleNavClick(historyItem.categoryId, historyItem.itemId)}
                 key={index}>
-                {`#` + historyItem.queryData}
+                {`#${historyItem.queryData}`}
               </RecentSearchBtn>
             ))}
           </RecentSearchBtnContainer>
