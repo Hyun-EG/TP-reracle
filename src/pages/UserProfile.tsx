@@ -1,12 +1,11 @@
+import React from 'react';
 import { Layout } from '@/components/layout/Layout';
 
-export const Home = () => {
+export const UserProfile = () => {
   return (
     <>
       <Layout>
-        <h1>home</h1>
-        <h1>home</h1>
-        <h1>home</h1>
+        <h1>UserProfile</h1>
       </Layout>
     </>
   );
