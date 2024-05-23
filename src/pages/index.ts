@@ -5,3 +5,5 @@ export * from './PasswordReset';
 export * from './NotFound';
 export * from './Qna';
 export * from './Topic';
+export * from './Answer';
+export * from './MyQuestion';

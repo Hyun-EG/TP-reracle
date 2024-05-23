@@ -66,7 +66,11 @@ const Nav = () => {
       <StyledNotice>2024-05-03 09:00 ~ 10:00 (1시간) 점검 예정입니다.</StyledNotice>
       <StyledNavbar>
         <NavBtn image="/home_FILL0_wght400_GRAD0_opsz24.svg" text="홈" onClick={() => handleNavClick('/')} />
-        <NavBtn image="/question_exchange_FILL0_wght400_GRAD0_opsz24.svg" text="R지식in" />
+        <NavBtn
+          image="/question_exchange_FILL0_wght400_GRAD0_opsz24.svg"
+          text="R지식in"
+          onClick={() => handleNavClick('/qna')}
+        />
         <NavBtn
           image="/breaking_news_FILL0_wght400_GRAD0_opsz24.svg"
           text="게시판"
@@ -78,6 +82,3 @@ const Nav = () => {
 };
 
 export default Nav;
-
-
-

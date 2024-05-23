@@ -20,6 +20,7 @@ const Container = styled.section`
   gap: 2vh;
   overflow-y: auto;
 `;
+
 const MyPageHeader = styled.div`
   width: 56.3vh;
   height: 3.75vh;
@@ -33,26 +34,31 @@ const MyPageHeader = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
 const UserInfoContainer = styled.div`
   width: 46vh;
   height: 35vh;
   margin-top: 6vh;
   // background-color: var(--color-purple-light);
 `;
+
 const HorizontalLine = styled.div`
   width: 46vh;
   height: 1px;
   margin: 2vh auto 0.1vh;
   background-color: var(--color-purple);
 `;
+
 const SearchList = styled.div`
   width: 46vh;
 `;
+
 const ListText = styled.span`
   font-size: 2vh;
   font-weight: var(--font-weight-bold);
   color: var(--color-purple);
 `;
+
 const RecentSearchBtnContainer = styled.ul`
   width: 46vh;
   height: 4vh;
@@ -61,6 +67,7 @@ const RecentSearchBtnContainer = styled.ul`
   padding: 2vh 0;
   gap: 1.5vh;
 `;
+
 const RecentSearchBtn = styled.li`
   padding: 1vh;
   background-color: var(--color-yellow);
@@ -81,26 +88,20 @@ const getUserData = () => {
 };
 
 const MyPage = () => {
-  
   const [user, setUser] = useState({
     nickname: '',
     email: '',
-    password: ''
+    password: '',
   });
-
-  useEffect(() => {
-  const storedUserData = getUserData();
-  if (storedUserData) {
-    setUser(storedUserData);
-  }
-  }, []);
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUser((u) => ({ ...u, nickname: e.target!.value }));
   };
+
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUser((u) => ({ ...u, email: e.target!.value }));
   };
+
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUser((u) => ({ ...u, password: e.target!.value }));
   };
@@ -113,10 +114,14 @@ const MyPage = () => {
   };
 
   const searchHistory = useSearchStore((state) => state.searchHistory);
-  const navigation = useNavigate();
+  const navigate = useNavigate();
 
   const handleNavClick = (categoryId: string, itemId: string) => {
-    navigation(`/${categoryId}/${itemId}`);
+    navigate(`/${categoryId}/${itemId}`);
+  };
+
+  const handleGoToMyQuestions = () => {
+    navigate('/myquestion');
   };
 
   return (
@@ -135,7 +140,7 @@ const MyPage = () => {
           </UserInfo>
         </UserInfoContainer>
         <PurpleButton onClick={handleClick}>회원정보 수정</PurpleButton>
-        <WhiteButton>나의 R지식in 보러가기</WhiteButton>
+        <WhiteButton onClick={handleGoToMyQuestions}>나의 R지식in 보러가기</WhiteButton>
         <SearchList>
           <HorizontalLine />
           <ListText>나의 최근 재활용품 검색 리스트</ListText>
@@ -144,7 +149,7 @@ const MyPage = () => {
               <RecentSearchBtn
                 onClick={() => handleNavClick(historyItem.categoryId, historyItem.itemId)}
                 key={index}>
-                {`#${  historyItem.queryData}`}
+                {`#${historyItem.queryData}`}
               </RecentSearchBtn>
             ))}
           </RecentSearchBtnContainer>
