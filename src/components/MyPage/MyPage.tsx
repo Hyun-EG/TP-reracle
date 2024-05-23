@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { PurpleButton, WhiteButton } from '../Buttons';
 import UserInfo from './UserInfo';
-import { userData } from './UserData';
+// import { userData } from './UserData';
 import { Layout } from '@/components/layout/Layout';
 import { useSearchStore } from '@/lib/store/useSearchStore';
+// import { SearchState } from '@/lib/types/searchState';
 // import { useLocalStorage } from './useLocalStorage';
 
 const Container = styled.section`
@@ -17,8 +18,9 @@ const Container = styled.section`
   flex-direction: column;
   align-items: center;
   gap: 2vh;
-  overflow-y: hidden;
+  overflow-y: auto;
 `;
+
 const MyPageHeader = styled.div`
   width: 56.3vh;
   height: 3.75vh;
@@ -32,26 +34,31 @@ const MyPageHeader = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
 const UserInfoContainer = styled.div`
   width: 46vh;
   height: 35vh;
   margin-top: 6vh;
   // background-color: var(--color-purple-light);
 `;
+
 const HorizontalLine = styled.div`
   width: 46vh;
   height: 1px;
   margin: 2vh auto 0.1vh;
   background-color: var(--color-purple);
 `;
+
 const SearchList = styled.div`
   width: 46vh;
 `;
+
 const ListText = styled.span`
   font-size: 2vh;
   font-weight: var(--font-weight-bold);
   color: var(--color-purple);
 `;
+
 const RecentSearchBtnContainer = styled.ul`
   width: 46vh;
   height: 4vh;
@@ -60,6 +67,7 @@ const RecentSearchBtnContainer = styled.ul`
   padding: 2vh 0;
   gap: 1.5vh;
 `;
+
 const RecentSearchBtn = styled.li`
   padding: 1vh;
   background-color: var(--color-yellow);
@@ -74,33 +82,46 @@ const RecentSearchBtn = styled.li`
   border: none;
 `;
 
+const getUserData = () => {
+  const data = localStorage.getItem('userData');
+  return data ? JSON.parse(data) : null;
+};
+
 const MyPage = () => {
   const [user, setUser] = useState({
-    name: userData.name,
-    email: userData.email,
-    password: userData.password,
+    nickname: '',
+    email: '',
+    password: '',
   });
+
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUser((u) => ({ ...u, name: e.target!.value }));
+    setUser((u) => ({ ...u, nickname: e.target!.value }));
   };
+
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUser((u) => ({ ...u, email: e.target!.value }));
   };
+
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUser((u) => ({ ...u, password: e.target!.value }));
   };
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
+    localStorage.setItem('userData', JSON.stringify(user));
     console.log(user);
     alert('회원정보가 수정되었습니다');
   };
 
   const searchHistory = useSearchStore((state) => state.searchHistory);
-  const navigation = useNavigate();
+  const navigate = useNavigate();
 
   const handleNavClick = (categoryId: string, itemId: string) => {
-    navigation(`/${categoryId}/${itemId}`);
+    navigate(`/${categoryId}/${itemId}`);
+  };
+
+  const handleGoToMyQuestions = () => {
+    navigate('/myquestion');
   };
 
   return (
@@ -108,8 +129,8 @@ const MyPage = () => {
       <Container>
         <MyPageHeader>마이페이지</MyPageHeader>
         <UserInfoContainer>
-          <UserInfo label="이름" type="text" value={user.name} onChange={handleNameChange}>
-            이름
+          <UserInfo label="아이디" type="text" value={user.nickname} onChange={handleNameChange}>
+            아이디
           </UserInfo>
           <UserInfo label="이메일" type="email" value={user.email} onChange={handleEmailChange}>
             이메일
@@ -119,7 +140,7 @@ const MyPage = () => {
           </UserInfo>
         </UserInfoContainer>
         <PurpleButton onClick={handleClick}>회원정보 수정</PurpleButton>
-        <WhiteButton>나의 R지식in 보러가기</WhiteButton>
+        <WhiteButton onClick={handleGoToMyQuestions}>나의 R지식in 보러가기</WhiteButton>
         <SearchList>
           <HorizontalLine />
           <ListText>나의 최근 재활용품 검색 리스트</ListText>
@@ -128,7 +149,7 @@ const MyPage = () => {
               <RecentSearchBtn
                 onClick={() => handleNavClick(historyItem.categoryId, historyItem.itemId)}
                 key={index}>
-                {`#` + historyItem.queryData}
+                {`#${historyItem.queryData}`}
               </RecentSearchBtn>
             ))}
           </RecentSearchBtnContainer>

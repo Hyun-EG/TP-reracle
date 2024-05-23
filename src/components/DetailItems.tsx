@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { useNavigate, useParams } from 'react-router-dom';
+import { GoChevronLeft } from 'react-icons/go';
 import { wasteCategories } from '@/lib/constants/wasteCategories';
 import { Layout } from './layout/Layout';
 import { wasteCategoryItemsImages } from '@/lib/constants/wasteCategoryItemsImages';
-import { IoArrowBack } from 'react-icons/io5';
 
 const Container = styled.div`
   width: 100%;
@@ -35,8 +35,8 @@ const Text = styled.p`
   font-size: 2.2vh;
   font-weight: var(--font-weight-regular);
 `;
-const ImageContainer = styled.img`
-  width: 26vh;
+const ImageWrapper = styled.div`
+  width: 46vh;
   height: 23vh;
   background-color: var(--color-purple-light);
   border-radius: 14px;
@@ -45,18 +45,27 @@ const ImageContainer = styled.img`
   justify-content: center;
   align-items: center;
 `;
+  const ImageContainer = styled.img`
+  max-width: 40%;
+  height: auto;
+  object-fit: contain;
+`;
 
 const StyledGoBackBtn = styled.button`
   position: absolute;
-  margin-top: 1vh;
-  margin-left: 1.5vh;
-  background-color: #ffffff;
-  border: 1px solid #cccccc;
+  margin-top: 2.4vh;
+  margin-left: .3vh;
+  height: 5.5vh;
+  width: 5.5vh;
+  background-color: transparent;
+  border: none;
   display: flex;
+  font-size: 5.5vh;
   justify-content: center;
-  font-size: 1.8vh;
+  align-items: center;
   cursor: pointer;
 `;
+
 
 const DetailItems = () => {
   const navigate = useNavigate();
@@ -82,11 +91,15 @@ const DetailItems = () => {
     <Layout>
       <Container>
         <StyledGoBackBtn onClick={handleGoBack}>
-          <IoArrowBack />
+          <GoChevronLeft />
         </StyledGoBackBtn>
         <HorizontalLine />
         <CategoryText>{item.name}</CategoryText>
-        {item.img && <ImageContainer src={wasteCategoryItemsImages[item.img]} alt={item.name} />}
+        {item.img && (
+           <ImageWrapper>
+             <ImageContainer src={wasteCategoryItemsImages[item.img]} alt={item.name} />
+           </ImageWrapper>
+        )}
         <HorizontalLine />
         <CategoryText>배출방법</CategoryText>
         <Text>{item.disposalMethod}</Text>
