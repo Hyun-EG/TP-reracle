@@ -1,13 +1,10 @@
 import { Layout } from '@/components/layout/Layout';
+import WasteCategory from '@/components/WasteCategory';
 
-export const Home = () => {
-  return (
-    <>
-      <Layout>
-        <h1>home</h1>
-        <h1>home</h1>
-        <h1>home</h1>
-      </Layout>
-    </>
-  );
-};
+export const Home = () => (
+  <>
+    <Layout>
+      <WasteCategory />
+    </Layout>
+  </>
+);

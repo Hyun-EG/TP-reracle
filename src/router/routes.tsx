@@ -1,8 +1,13 @@
-import { Home, Login, NotFound, SignUp, UserProfile } from '@/pages';
+import { Home, Login, NotFound, SignUp, Qna, Answer, PasswordReset, MyQuestion } from '@/pages';
 import { PATH } from '@/lib/constants/path';
-const routes = [
+import WasteCategoryItems from '@/components/WasteCategoryItems';
+import MyPage from '@/components/MyPage/MyPage';
+import DetailItems from '@/components/DetailItems';
+import { Topic } from '@/pages/Topic';
+
+export const routes = [
   {
-    path: PATH.HOME,
+    path: '/',
     element: <Home />,
   },
   {
@@ -10,17 +15,44 @@ const routes = [
     element: <Login />,
   },
   {
-    path: PATH.SIGNUP,
-    element: <SignUp />,
+    path: PATH.PASSWORDRESET,
+    element: <PasswordReset />,
   },
   {
-    path: PATH.USER_PROFILE,
-    element: <UserProfile />,
+    path: PATH.SIGNUP,
+    element: <SignUp />,
   },
   {
     path: PATH.NOT_FOUND,
     element: <NotFound />,
   },
-];
+  {
+    path: '/:categoryId',
+    element: <WasteCategoryItems />,
+  },
+  {
+    path: '/:categoryId/:itemId',
+    element: <DetailItems />,
+  },
+  {
+    path: 'qna',
+    element: <Qna />,
+  },
+  {
+    path: 'topic',
+    element: <Topic />,
+  },
+  {
+    path: 'answer/:questionIndex',
+    element: <Answer />,
+  },
+  {
+    path: 'mypage',
+    element: <MyPage />,
+  },
 
-export default routes;
+  {
+    path: 'myquestion',
+    element: <MyQuestion />,
+  },
+];
