@@ -62,7 +62,6 @@
     "react/react-in-jsx-scope": "off",
     "no-console": "off",
     "no-alert": "off",
-    "arrow-body-style": "off",
     "import/no-unresolved": "off"
   }
 }
