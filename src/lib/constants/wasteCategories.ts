@@ -150,13 +150,120 @@ export const wasteCategories: WasteCategoryTypes[] = [
     id: 'harmfulness',
     name: '유해',
     img: 'harmfulness',
-    items: [{}],
+    items: [
+      {
+        id: 'battery',
+        name: '폐건전지',
+        img: 'battery',
+        disposalMethod:
+          '폐건전는 망간, 수은, 카드뮴 등 중그목 유해물질을 함유하고 있다. 환경오염 및 인체에 나쁜 영향을 일으킬 수 있으므로 전용수거함에 안전하게 배출한다.',
+      },
+      {
+        id: 'fluorescentLamp',
+        name: '폐형광등',
+        img: 'fluorescentLamp',
+        disposalMethod:
+          '형광등 안에는 유해물질인 수은이 함유되어 있다. 인체에 위험한 수은이 노출되지 않도록 깨어지지 않게 주의하여 전용 수거함에 안전하게 배출한다.',
+      },
+      {
+        id: 'medicine',
+        name: '폐의약품',
+        img: 'medicine',
+        disposalMethod:
+          '가정 내 폐의약품이 매립되거나 도시하수로 배출될 경우 공기, 토양, 수질 등의 환경오염을 유발하고 생태계 고랸의 원인이 된다. 폐의약품은 모아서 약국에 비치된 전용수거함으로 배출한다.',
+      },
+    ],
   },
   {
     id: 'noncombustibleWaste',
     name: '불연성폐기물',
     img: 'noncombustibleWaste',
-    items: [{}],
+    items: [
+      {
+        id: 'mirror',
+        name: '거울',
+        img: 'mirror',
+        disposalMethod: '불연성폐기물로 배출 크기가 많이 큰 경우에 대형 폐기물로 배출',
+      },
+      {
+        id: 'bowl',
+        name: '그릇',
+        img: 'bowl',
+        disposalMethod: '불연성폐기물로 배출',
+      },
+      {
+        id: 'brokenGlass',
+        name: '깨진유리',
+        img: 'brokenGlass',
+        disposalMethod: '',
+      },
+      {
+        id: 'heatResistantTableware',
+        name: '내열 식기류',
+        img: 'heatResistantTableware',
+        disposalMethod: '불연성폐기물로 배출',
+      },
+      {
+        id: 'ceramic',
+        name: '도자기',
+        img: 'ceramic',
+        disposalMethod: '불연성폐기물로 배출',
+      },
+      {
+        id: 'earthenPot',
+        name: '뚝배기',
+        img: 'earthenPot',
+        disposalMethod: '불연성폐기물로 배출',
+      },
+      {
+        id: 'mugCup',
+        name: '머그컵',
+        img: 'mugCup',
+        disposalMethod: '불연성폐기물로 배출',
+      },
+      {
+        id: 'incandescentLightBulb',
+        name: '백열전구',
+        img: 'incandescentLightBulb',
+        disposalMethod: '불연성폐기물로 배출',
+      },
+      {
+        id: 'brick',
+        name: '벽돌',
+        img: 'brick',
+        disposalMethod: '불연성폐기물로 배출',
+      },
+      {
+        id: 'glassPlate',
+        name: '유리판,유리제품',
+        img: 'glassPlate',
+        disposalMethod: '불연성폐기물로 배출 크기가 많이 큰 경우에 대형 폐기물로 배출',
+      },
+      {
+        id: 'ashtray',
+        name: '재떨이(도자기,유리)',
+        img: 'ashtray',
+        disposalMethod: '불연성폐기물로 배출',
+      },
+      {
+        id: 'teacup',
+        name: '찻잔(도자기류)',
+        img: 'teacup',
+        disposalMethod: '불연성폐기물로 배출',
+      },
+      {
+        id: 'cup',
+        name: '컵(도자기,유리컵)',
+        img: 'cup',
+        disposalMethod: '불연성폐기물로 배출',
+      },
+      {
+        id: 'pot',
+        name: '화분',
+        img: 'pot',
+        disposalMethod: '불연성폐기물로 배출하되 재질에 맞게 배출',
+      },
+    ],
   },
   {
     id: 'garbage',

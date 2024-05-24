@@ -120,8 +120,42 @@ import pineapplePeel from '@/assets/images/detailItemImages/pineapplePeel.png';
 import photoFilm from '@/assets/images/detailItemImages/photoFilm.png';
 import hotPack from '@/assets/images/detailItemImages/hotPack.png';
 import helmet from '@/assets/images/detailItemImages/helmet.png';
+import battery from '@/assets/images/detailItemImages/battery.png';
+import medicine from '@/assets/images/detailItemImages/medicine.png';
+import fluorescentLamp from '@/assets/images/detailItemImages/fluorescentLamp.png';
+import pot from '@/assets/images/detailItemImages/pot.png';
+import mirror from '@/assets/images/detailItemImages/mirror.png';
+import bowl from '@/assets/images/detailItemImages/bowl.png';
+import brokenGlass from '@/assets/images/detailItemImages/brokenGlass.png';
+import heatResistantTableware from '@/assets/images/detailItemImages/heatResistantTableware.png';
+import ceramic from '@/assets/images/detailItemImages/ceramic.png';
+import earthenPot from '@/assets/images/detailItemImages/earthenPot.png';
+import mugCup from '@/assets/images/detailItemImages/mugCup.png';
+import incandescentLightBulb from '@/assets/images/detailItemImages/incandescentLightBulb.png';
+import brick from '@/assets/images/detailItemImages/brick.png';
+import glassPlate from '@/assets/images/detailItemImages/glassPlate.png';
+import ashtray from '@/assets/images/detailItemImages/ashtray.png';
+import teacup from '@/assets/images/detailItemImages/teacup.png';
+import cup from '@/assets/images/detailItemImages/cup.png';
 
 export const wasteCategoryItemsImages: { [key: string]: string } = {
+  cup,
+  teacup,
+  ashtray,
+  glassPlate,
+  brick,
+  incandescentLightBulb,
+  mugCup,
+  ceramic,
+  earthenPot,
+  heatResistantTableware,
+  brokenGlass,
+  bowl,
+  mirror,
+  pot,
+  fluorescentLamp,
+  medicine,
+  battery,
   helmet,
   hotPack,
   photoFilm,
@@ -166,7 +200,6 @@ export const wasteCategoryItemsImages: { [key: string]: string } = {
   icePack,
   doll,
   candle,
-  bedding,
   baseballGlove,
   baseballBall,
   album,
@@ -190,7 +223,6 @@ export const wasteCategoryItemsImages: { [key: string]: string } = {
   thermos,
   pen,
   inkStone,
-  cushion,
   comb,
   checkerboard,
   brush,
