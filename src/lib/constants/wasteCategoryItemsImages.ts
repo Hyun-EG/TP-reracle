@@ -163,6 +163,36 @@ import glassPlate from '@/assets/images/detailItemImages/glassPlate.png';
 import ashtray from '@/assets/images/detailItemImages/ashtray.png';
 import teacup from '@/assets/images/detailItemImages/teacup.png';
 import cup from '@/assets/images/detailItemImages/cup.png';
+import furniture from '@/assets/images/detailItemImages/furniture.png';
+import sink from '@/assets/images/detailItemImages/sink.png';
+import fishingRod from '@/assets/images/detailItemImages/fishingRod.png';
+import golfBag from '@/assets/images/detailItemImages/golfBag.png';
+import crutch from '@/assets/images/detailItemImages/crutch.png';
+import lumber from '@/assets/images/detailItemImages/lumber.png';
+import door from '@/assets/images/detailItemImages/door.png';
+import bbqGrill from '@/assets/images/detailItemImages/bbqGrill.png';
+import table from '@/assets/images/detailItemImages/table.png';
+import clock from '@/assets/images/detailItemImages/clock.png';
+import blind from '@/assets/images/detailItemImages/blind.png';
+import ladder from '@/assets/images/detailItemImages/ladder.png';
+import shovel from '@/assets/images/detailItemImages/shovel.png';
+import riceContainer from '@/assets/images/detailItemImages/riceContainer.png';
+import drawers from '@/assets/images/detailItemImages/drawers.png';
+import washbasin from '@/assets/images/detailItemImages/washbasin.png';
+import bed from '@/assets/images/detailItemImages/bed.png';
+import travelBag from '@/assets/images/detailItemImages/travelBag.png';
+import stroller from '@/assets/images/detailItemImages/stroller.png';
+import chair from '@/assets/images/detailItemImages/chair.png';
+import bicycle from '@/assets/images/detailItemImages/bicycle.png';
+import mop from '@/assets/images/detailItemImages/mop.png';
+import wardrobe from '@/assets/images/detailItemImages/wardrobe.png';
+import dresser from '@/assets/images/detailItemImages/dresser.png';
+import shelf from '@/assets/images/detailItemImages/shelf.png';
+import telescope from '@/assets/images/detailItemImages/telescope.png';
+import cabinet from '@/assets/images/detailItemImages/cabinet.png';
+import jar from '@/assets/images/detailItemImages/jar.png';
+import brazier from '@/assets/images/detailItemImages/brazier.png';
+import vanity from '@/assets/images/detailItemImages/vanity.png';
 
 export const wasteCategoryItemsImages: { [key: string]: string } = {
   cup,
@@ -330,4 +360,34 @@ export const wasteCategoryItemsImages: { [key: string]: string } = {
   dishwasher,
   dishcloth,
   eggshell,
+  furniture,
+  sink,
+  fishingRod,
+  golfBag,
+  crutch,
+  lumber,
+  door,
+  bbqGrill,
+  table,
+  clock,
+  blind,
+  ladder,
+  shovel,
+  riceContainer,
+  drawers,
+  washbasin,
+  bed,
+  travelBag,
+  stroller,
+  chair,
+  bicycle,
+  mop,
+  wardrobe,
+  dresser,
+  shelf,
+  telescope,
+  cabinet,
+  jar,
+  brazier,
+  vanity,
 };

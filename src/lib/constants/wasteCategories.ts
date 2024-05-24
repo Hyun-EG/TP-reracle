@@ -288,12 +288,6 @@ export const wasteCategories: WasteCategoryTypes[] = [
         img: 'toasters',
         disposalMethod: '토스터기 버리는 방법',
       },
-      // {
-      //   name: '탈수기',
-      //   id: 'dehydrator',
-      //   img: 'dehydrator',
-      //   disposalMethod: '탈수기 버리는 방법',
-      // },
       {
         name: '프린터',
         id: 'printer',
@@ -339,8 +333,8 @@ export const wasteCategories: WasteCategoryTypes[] = [
       },
       {
         name: '나뭇가지',
-        id: 'branch',
-        img: 'branch',
+        id: 'woodCarving',
+        img: 'woodPiece',
         disposalMethod: '나뭇가지 버리는 방법',
       },
       {
@@ -387,15 +381,9 @@ export const wasteCategories: WasteCategoryTypes[] = [
       },
       {
         name: '매트',
-        id: 'mat',
-        img: 'mat',
+        id: 'airMat',
+        img: 'airMat',
         disposalMethod: '매트 버리는 방법',
-      },
-      {
-        name: '바둑판',
-        id: 'badukBoard',
-        img: 'badukBoard',
-        disposalMethod: '바둑판 버리는 방법',
       },
       {
         name: '바베큐그릴',
@@ -411,8 +399,8 @@ export const wasteCategories: WasteCategoryTypes[] = [
       },
       {
         name: '시계',
-        id: 'Clock',
-        img: 'Clock',
+        id: 'clock',
+        img: 'clock',
         disposalMethod: '시계 버리는 방법',
       },
       {
@@ -420,12 +408,6 @@ export const wasteCategories: WasteCategoryTypes[] = [
         id: 'blind',
         img: 'blind',
         disposalMethod: '블라인드 버리는 방법',
-      },
-      {
-        name: '비닐장판',
-        id: 'vinylSheet',
-        img: 'vinylSheet',
-        disposalMethod: '비닐장판 버리는 방법',
       },
       {
         name: '사다리',
@@ -447,8 +429,8 @@ export const wasteCategories: WasteCategoryTypes[] = [
       },
       {
         name: '서랍장',
-        id: 'drawer',
-        img: 'drawer',
+        id: 'drawers',
+        img: 'drawers',
         disposalMethod: '서랍장 버리는 방법',
       },
       {
@@ -459,8 +441,8 @@ export const wasteCategories: WasteCategoryTypes[] = [
       },
       {
         name: '솜이불',
-        id: 'cottonBlanket',
-        img: 'cottonBlanket',
+        id: 'bedding',
+        img: 'bedding',
         disposalMethod: '솜이불 버리는 방법',
       },
       {
@@ -512,15 +494,9 @@ export const wasteCategories: WasteCategoryTypes[] = [
         disposalMethod: '침대 버리는 방법',
       },
       {
-        name: '아기침대',
-        id: 'babyBed',
-        img: 'babyBed',
-        disposalMethod: '아기침대 버리는 방법',
-      },
-      {
         name: '액자',
-        id: 'frame',
-        img: 'frame',
+        id: 'album',
+        img: 'album',
         disposalMethod: '액자 버리는 방법',
       },
       {
@@ -554,12 +530,6 @@ export const wasteCategories: WasteCategoryTypes[] = [
         disposalMethod: '유모차 버리는 방법',
       },
       {
-        name: '응접세트',
-        id: 'receptionSet',
-        img: 'receptionSet',
-        disposalMethod: '응접세트 버리는 방법',
-      },
-      {
         name: '의자',
         id: 'chair',
         img: 'chair',
@@ -567,8 +537,8 @@ export const wasteCategories: WasteCategoryTypes[] = [
       },
       {
         name: '이불',
-        id: 'blanket',
-        img: 'blanket',
+        id: 'bedding',
+        img: 'bedding',
         disposalMethod: '이불 버리는 방법',
       },
       {
@@ -585,8 +555,8 @@ export const wasteCategories: WasteCategoryTypes[] = [
       },
       {
         name: '장난감류',
-        id: 'toy',
-        img: 'toy',
+        id: 'toys',
+        img: 'toys',
         disposalMethod: '장난감류 버리는 방법',
       },
       {
@@ -609,20 +579,20 @@ export const wasteCategories: WasteCategoryTypes[] = [
       },
       {
         name: '장판',
-        id: 'floorMat',
-        img: 'floorMat',
+        id: 'vinylFlooring',
+        img: 'vinylFlooring',
         disposalMethod: '장판 버리는 방법',
       },
       {
         name: '전기장판',
-        id: 'electricMat',
-        img: 'electricMat',
+        id: 'vinylFlooring',
+        img: 'vinylFlooring',
         disposalMethod: '전기장판 버리는 방법',
       },
       {
         name: '피아노',
-        id: 'piano',
-        img: 'piano',
+        id: 'electronicPiano',
+        img: 'electronicPiano',
         disposalMethod: '피아노 버리는 방법',
       },
       {
@@ -633,8 +603,8 @@ export const wasteCategories: WasteCategoryTypes[] = [
       },
       {
         name: '책상',
-        id: 'desk',
-        img: 'desk',
+        id: 'table',
+        img: 'table',
         disposalMethod: '책상 버리는 방법',
       },
       {
@@ -645,8 +615,8 @@ export const wasteCategories: WasteCategoryTypes[] = [
       },
       {
         name: '체중계',
-        id: 'scale',
-        img: 'scale',
+        id: 'weightMeasuringMachine',
+        img: 'weightMeasuringMachine',
         disposalMethod: '체중계 버리는 방법',
       },
       {
