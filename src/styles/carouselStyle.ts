@@ -12,9 +12,9 @@ export const CategoryContainer = styled.div`
 `;
 
 export const HorizontalLine = styled.div`
-  width: 46vh;	
+  width: 46vh;
   height: 1px;
-  margin: 3vh auto .1vh;
+  margin: 3vh auto 0.1vh;
   background-color: var(--color-purple);
 `;
 
@@ -22,7 +22,7 @@ export const StyledCategoryText = styled.span`
   font-size: 2.3vh;
   font-weight: var(--font-weight-bold);
   color: var(--color-purple);
-  margin-top: .6vh;
+  margin-top: 0.6vh;
   margin-left: 5vh;
 `;
 
@@ -77,5 +77,5 @@ export const StyledImg = styled.img`
 
 export const StyledNavLink = styled(NavLink)`
   text-decoration: none;
-  color: #333
+  color: #333;
 `;

@@ -14,37 +14,43 @@ export const wasteCategories: WasteCategoryTypes[] = [
           '1. 물기에 젖지 않도록 하고 반듯하게 펴서 차곡차곡 쌓은 후 묶어서 배출 2. 비닐코팅된 광고지, 비닐류, 기타 오물이 섞이지 않도록 함',
       },
       { id: 'ricebag', name: '쌀포대', img: 'ricebag', disposalMethod: '쌀포대 버리는 방법' },
-      { id: 'notebook', name: '수첩', img: 'notebook', disposalMethod: '수첩 버리는 방법' },
+      {
+        id: 'notebook',
+        name: '수첩',
+        img: 'notebook',
+        disposalMethod: '스프링 등 종이류와 다른 재질은 제거한 후 배출한다.',
+      },
       {
         id: 'magazine',
         name: '잡지',
         img: 'magazine',
-        disposalMethod: '잡지 버리는 방법',
+        disposalMethod: '스프링 등 종이류와 다른 재질은 제거한 후 배출한다.',
       },
       {
         id: 'priceTag',
         name: '가격표',
         img: 'priceTag',
-        disposalMethod: '가격표 버리는 방법',
+        disposalMethod:
+          '1. 물기에 젖지 않도록 하고 반듯하게 펴서 차곡차곡 쌓은 후 묶어서 배출 2. 비닐코팅된 광고지, 비닐류, 기타 오물이 섞이지 않도록 함',
       },
       {
         id: 'cardboard',
         name: '골판지',
         img: 'cardboard',
         disposalMethod:
-          '- 비닐코팅 부분, 상자에 붙어있는 테이프ㆍ철핀, 알루미늄박 등을 제거하고 접어서 배출 - 야외 별도 보관 장소마련 등 다른 종이류와 섞이지 않게 배출',
+          '비닐코팅 부분, 상자에 붙어있는 테이프ㆍ철핀, 알루미늄박 등을 제거하고 접어서 배출 - 야외 별도 보관 장소마련 등 다른 종이류와 섞이지 않게 배출',
       },
       {
         id: 'flyer',
         name: '전단지',
         img: 'flyer',
-        disposalMethod: '전단지 버리는 방법',
+        disposalMethod: '비닐 코팅된 종이, 공책의 스프링, 비닐포장지 등은 제거 후 배출',
       },
       {
         id: 'paperCup',
         name: '종이컵',
         img: 'paperCup',
-        disposalMethod: '- 내용물을 비우고 물로 헹군 후 압착하여 투명한 비닐에 넣어서 배출',
+        disposalMethod: '내용물을 비우고 물로 헹군 후 압착하여 투명한 비닐에 넣어서 배출',
       },
       {
         id: 'businessCard',
@@ -56,25 +62,26 @@ export const wasteCategories: WasteCategoryTypes[] = [
         id: 'encyclopedia',
         name: '백과사전',
         img: 'encyclopedia',
-        disposalMethod: '- 비닐 코팅된 종이, 공책의 스프링, 비닐포장지 등은 제거 후 배출',
+        disposalMethod: '비닐 코팅된 종이, 공책의 스프링, 비닐포장지 등은 제거 후 배출',
       },
       {
         id: 'paperbox',
         name: '종이상자',
         img: 'paperbox',
-        disposalMethod: '종이상자 버리는 방법',
+        disposalMethod:
+          '비닐코팅 부분, 상자에 붙어있는 테이프ㆍ철핀, 알루미늄박 등을 제거하고 접어서 배출 - 야외 별도 보관 장소마련 등 다른 종이류와 섞이지 않게 배출',
       },
       {
         id: 'book',
         name: '책',
         img: 'book',
-        disposalMethod: '- 비닐 코팅된 종이, 공책의 스프링, 비닐포장지 등은 제거 후 배출',
+        disposalMethod: '비닐 코팅된 종이, 공책의 스프링, 비닐포장지 등은 제거 후 배출',
       },
       {
         id: 'calendar',
         name: '캘린더',
         img: 'calendar',
-        disposalMethod: '캘린더 버리는 방법',
+        disposalMethod: '비닐 코팅된 종이, 공책의 스프링, 비닐포장지 등은 제거 후 배출',
       },
     ],
   },
@@ -82,7 +89,15 @@ export const wasteCategories: WasteCategoryTypes[] = [
     id: 'paperPack',
     name: '종이팩',
     img: 'paperPack',
-    items: [{ id: 'milkpack', name: '우유팩', img: 'milkpack', disposalMethod: '우유팩 버리는 방법' }],
+    items: [
+      {
+        id: 'milkpack',
+        name: '우유팩',
+        img: 'milkpack',
+        disposalMethod:
+          '내용물을 비우고, 물로 깨끗이 세척해서 배출 - 빨대, 비닐, 플라스틱 뚜껑 등 다른 재질은 분리해서 재질별로 분리 배출',
+      },
+    ],
   },
   {
     id: 'can',
@@ -93,21 +108,21 @@ export const wasteCategories: WasteCategoryTypes[] = [
         id: 'spray',
         name: '스프레이',
         img: 'spray',
-        disposalMethod: '스프레이/부탄가스 버리는 방법',
+        disposalMethod: '내용물을 제거한 후 배출',
       },
       {
         id: 'beverageCan',
         name: '음료캔',
         img: 'beverageCan',
         disposalMethod:
-          '- 내용물을 비우고 물로 헹구는 등 이물질을 제거하여 배출 - 담배꽁초 등 이물질을 넣지 않고 배출 - 플라스틱 뚜껑 등 금속캔과 다른 재질은 제거한 후 배출',
+          '내용물을 비우고 물로 헹구는 등 이물질을 제거하여 배출 - 담배꽁초 등 이물질을 넣지 않고 배출 - 플라스틱 뚜껑 등 금속캔과 다른 재질은 제거한 후 배출',
       },
       {
         id: 'cannedFood',
         name: '통조림',
         img: 'cannedFood',
         disposalMethod:
-          '- 내용물을 비우고 물로 헹구는 등 이물질을 제거하여 배출 - 담배꽁초 등 이물질을 넣지 않고 배출 - 플라스틱 뚜껑 등 금속캔과 다른 재질은 제거한 후 배출',
+          '내용물을 비우고 물로 헹구는 등 이물질을 제거하여 배출 - 담배꽁초 등 이물질을 넣지 않고 배출 - 플라스틱 뚜껑 등 금속캔과 다른 재질은 제거한 후 배출',
       },
     ],
   },
@@ -238,12 +253,6 @@ export const wasteCategories: WasteCategoryTypes[] = [
         disposalMethod: '전자사전 버리는 방법',
       },
       {
-        name: '전축',
-        id: 'transformer',
-        img: 'transformer',
-        disposalMethod: '전축 버리는 방법',
-      },
-      {
         name: '전화기',
         id: 'telephone',
         img: 'telephone',
@@ -275,16 +284,16 @@ export const wasteCategories: WasteCategoryTypes[] = [
       },
       {
         name: '토스터기',
-        id: 'toaster',
-        img: 'toaster',
+        id: 'toasters',
+        img: 'toasters',
         disposalMethod: '토스터기 버리는 방법',
       },
-      {
-        name: '탈수기',
-        id: 'dehydrator',
-        img: 'dehydrator',
-        disposalMethod: '탈수기 버리는 방법',
-      },
+      // {
+      //   name: '탈수기',
+      //   id: 'dehydrator',
+      //   img: 'dehydrator',
+      //   disposalMethod: '탈수기 버리는 방법',
+      // },
       {
         name: '프린터',
         id: 'printer',
@@ -296,12 +305,6 @@ export const wasteCategories: WasteCategoryTypes[] = [
         id: 'headphone',
         img: 'headphone',
         disposalMethod: '헤드폰 버리는 방법',
-      },
-      {
-        name: '화장품냉장고',
-        id: 'cosmeticFridge',
-        img: 'cosmeticFridge',
-        disposalMethod: '화장품냉장고 버리는 방법',
       },
       {
         name: '휴대용플레이어',
@@ -320,7 +323,7 @@ export const wasteCategories: WasteCategoryTypes[] = [
         name: '가구류',
         id: 'furniture',
         img: 'furniture',
-        disposalMethod: '가구류 버리는 방법',
+        disposalMethod: '대형 생활 폐기물로 신고 한 후 스티커 부착',
       },
       {
         name: '거울',
@@ -332,7 +335,7 @@ export const wasteCategories: WasteCategoryTypes[] = [
         name: '씽크대',
         id: 'sink',
         img: 'sink',
-        disposalMethod: '씽크대 버리는 방법',
+        disposalMethod: '대형 생활 폐기물로 신고 한 후 스티커 부착',
       },
       {
         name: '나뭇가지',
@@ -345,12 +348,6 @@ export const wasteCategories: WasteCategoryTypes[] = [
         id: 'fishingRod',
         img: 'fishingRod',
         disposalMethod: '낚싯대 버리는 방법',
-      },
-      {
-        name: '난로',
-        id: 'heater',
-        img: 'heater',
-        disposalMethod: '난로 버리는 방법',
       },
       {
         name: '골프백',
@@ -711,25 +708,25 @@ export const wasteCategories: WasteCategoryTypes[] = [
         name: '바나나껍질',
         id: 'bananaPeel',
         img: 'bananaPeel',
-        disposalMethod: '바나나껍질 버리는 방법',
+        disposalMethod: '음식물 쓰레기에 버리세요',
       },
       {
         name: '상한음식',
         id: 'rottenFood',
         img: 'rottenFood',
-        disposalMethod: '상한음식 버리는 방법',
+        disposalMethod: '음식물 쓰레기에 버리세요',
       },
       {
         name: '생선',
         id: 'fish',
         img: 'fish',
-        disposalMethod: '생선 버리는 방법',
+        disposalMethod: '일반 쓰레기로 분류되어 종량제 봉투에 버리세요',
       },
       {
         name: '오렌지껍질',
         id: 'orangePeel',
         img: 'orangePeel',
-        disposalMethod: '오렌지껍질 버리는 방법',
+        disposalMethod: '음식물 쓰레기에 버리세요',
       },
     ],
   },

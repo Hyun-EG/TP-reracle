@@ -29,11 +29,11 @@ const ResultsContainer = styled.ul`
   top: 5vh;
   list-style: none;
   margin-top: 1vh;
-  max-height: 20vh;
   background-color: #ffffff;
   border: 1px solid var(--color-purple);
   border-radius: 0.5vh;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
 `;
 
 const ResultItem = styled.li`

@@ -45,7 +45,7 @@ const ImageWrapper = styled.div`
   justify-content: center;
   align-items: center;
 `;
-  const ImageContainer = styled.img`
+const ImageContainer = styled.img`
   max-width: 40%;
   height: auto;
   object-fit: contain;
@@ -54,7 +54,7 @@ const ImageWrapper = styled.div`
 const StyledGoBackBtn = styled.button`
   position: absolute;
   margin-top: 2.4vh;
-  margin-left: .3vh;
+  margin-left: 0.3vh;
   height: 5.5vh;
   width: 5.5vh;
   background-color: transparent;
@@ -65,7 +65,6 @@ const StyledGoBackBtn = styled.button`
   align-items: center;
   cursor: pointer;
 `;
-
 
 const DetailItems = () => {
   const navigate = useNavigate();
@@ -78,7 +77,7 @@ const DetailItems = () => {
 
   const item = category.items && category.items.find((item) => item.id === itemId);
   if (!item) {
-    return <div>아이템을 찾을 수 없습니다.</div>;
+    return <div>아이템을 찾을 수 없다.</div>;
   }
 
   const handleGoBack = () => {
@@ -96,9 +95,9 @@ const DetailItems = () => {
         <HorizontalLine />
         <CategoryText>{item.name}</CategoryText>
         {item.img && (
-           <ImageWrapper>
-             <ImageContainer src={wasteCategoryItemsImages[item.img]} alt={item.name} />
-           </ImageWrapper>
+          <ImageWrapper>
+            <ImageContainer src={wasteCategoryItemsImages[item.img]} alt={item.name} />
+          </ImageWrapper>
         )}
         <HorizontalLine />
         <CategoryText>배출방법</CategoryText>
