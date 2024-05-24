@@ -3,7 +3,7 @@ import { produce } from 'immer';
 import { createJSONStorage, devtools, persist } from 'zustand/middleware';
 import { SearchState } from '@/lib/types/searchState';
 
-const MAX_SEARCH_HISTORY_LENGTH = 8;
+const MAX_SEARCH_HISTORY_LENGTH = 7;
 
 export const useSearchStore = create<SearchState>()(
   devtools(

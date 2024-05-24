@@ -2,6 +2,7 @@ import { Home, Login, NotFound, SignUp, Qna, Answer, PasswordReset, MyQuestion }
 import { PATH } from '@/lib/constants/path';
 import WasteCategoryItems from '@/components/WasteCategoryItems';
 import MyPage from '@/components/MyPage/MyPage';
+import UserEdit from '@/components/MyPage/UserEdit';
 import DetailItems from '@/components/DetailItems';
 import { Topic } from '@/pages/Topic';
 
@@ -54,5 +55,9 @@ export const routes = [
   {
     path: 'myquestion',
     element: <MyQuestion />,
+  },
+  {
+    path: 'useredit',
+    element: <UserEdit />,
   },
 ];
