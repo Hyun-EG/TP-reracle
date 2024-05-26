@@ -193,6 +193,15 @@ import cabinet from '@/assets/images/detailItemImages/cabinet.png';
 import jar from '@/assets/images/detailItemImages/jar.png';
 import brazier from '@/assets/images/detailItemImages/brazier.png';
 import vanity from '@/assets/images/detailItemImages/vanity.png';
+import bananaPeel from '@/assets/images/detailItemImages/bananaPeel.png';
+import rottenFood from '@/assets/images/detailItemImages/rottenFood.png';
+import fish from '@/assets/images/detailItemImages/fish.png';
+import orangePeel from '@/assets/images/detailItemImages/orangePeel.png';
+import babyBath from '@/assets/images/detailItemImages/babyBath.png';
+import shoeRack from '@/assets/images/detailItemImages/shoeRack.png';
+import skiEquipment from '@/assets/images/detailItemImages/skiEquipment.png';
+import snowboard from '@/assets/images/detailItemImages/snowboard.png';
+import aquarium from '@/assets/images/detailItemImages/aquarium.png';
 
 export const wasteCategoryItemsImages: { [key: string]: string } = {
   cup,
@@ -390,4 +399,13 @@ export const wasteCategoryItemsImages: { [key: string]: string } = {
   jar,
   brazier,
   vanity,
+  bananaPeel,
+  rottenFood,
+  fish,
+  orangePeel,
+  babyBath,
+  shoeRack,
+  skiEquipment,
+  snowboard,
+  aquarium,
 };
