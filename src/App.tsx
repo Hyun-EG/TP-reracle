@@ -1,5 +1,3 @@
-/* eslint-disable arrow-body-style */
-
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path';
